@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sport-project/static/css/main.956f53d7.css",
+    "main.js": "/sport-project/static/js/main.f0932790.js",
+    "index.html": "/sport-project/index.html",
+    "main.956f53d7.css.map": "/sport-project/static/css/main.956f53d7.css.map",
+    "main.f0932790.js.map": "/sport-project/static/js/main.f0932790.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.956f53d7.css",
+    "static/js/main.f0932790.js"
+  ]
+}
