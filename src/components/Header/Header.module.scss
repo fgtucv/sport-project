@@ -3,13 +3,12 @@
 }
 
 .header > div {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 0;
 }
 
-.headerLogo {
+.headerLogoIcon {
     height: 32px;
 }
 
@@ -22,6 +21,18 @@
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+.active {
+   border-bottom: 2px solid #0058BE; 
+
+   & .headerNavSpan {
+        color: #0058BE;
+   }
+
+   & .headerNavIcon {
+            fill: #0058BE;
+    }
 }
 
 .headerNavSpan {

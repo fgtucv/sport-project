@@ -1,5 +1,7 @@
+import style from "./Container.module.scss";
+
 export const Container = ({children}) => {
-    return <div style={{outline: "solid red", width: "1216px", margin: "0 auto"}} className="container">
+    return <div className={style.container}>
         {children}
     </div>
 }

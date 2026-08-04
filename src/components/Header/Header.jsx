@@ -1,28 +1,20 @@
-import logo from "../../images/logo.png";
-import user from "../../images/user.svg";
-import game from "../../images/game.svg";
-import settings from "../../images/settings.svg";
-import schedule from "../../images/schedule.svg";
-import statistic from "../../images/statistic.svg";
-import messeg from "../../images/messeg.svg";
-import calendar from "../../images/calendar.svg";
-import create from "../../images/create.svg";
+import { LogoIcon, UserIcon, GameIcon, SettingsIcon, TournamentIcon, StatisticIcon, MessegIcon, CalendarIcon, AddIcon } from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
-import style from "./Header.module.css";
+import style from "./Header.module.scss";
 
 export const Header = () => {
     return <header className={style.header}>
         <Container>
-            <a href="" className={style.headerLogo}>
-                <img src={logo} alt="Logo" />
+            <a className={style.headerLogo}>
+                <LogoIcon/>
             </a>
             <ul className={style.headerNav}>
-                <li className={style.headerNavItem}>
+                <li className={style.headerNavItem + ' ' + style.active}>
                     <a className={style.headerNavLink}>
                         <span className={style.headerNavSpan}>
                             Ігри
                         </span>
-                        <img className={style.headerNavIcon} src={game} alt="Game" />
+                        <GameIcon className={style.headerNavIcon}/>
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -30,7 +22,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Мої ігри
                         </span>
-                        <img className={style.headerNavIcon} src={calendar} alt="User" />
+                        <CalendarIcon className={style.headerNavIcon}/>
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -38,7 +30,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Створити гру
                         </span>
-                        <img className={style.headerNavIcon} src={create} alt="Create" />
+                        <AddIcon className={style.headerNavIcon}/>
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -46,7 +38,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Статистика
                         </span>
-                        <img className={style.headerNavIcon} src={statistic} alt="Statistic" />
+                        <StatisticIcon className={style.headerNavIcon}/>
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -54,24 +46,24 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Піраміда
                         </span>
-                        <img className={style.headerNavIcon} src={schedule} alt="Calendar" />
+                        <TournamentIcon className={style.headerNavIcon}/>
                     </a>
                 </li>
             </ul>
             <ul className={style.headerList}>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <img className={style.headerIcon} src={messeg} alt="Messeg" />
+                        <MessegIcon className={style.headerIcon}/>
                     </a>
                 </li>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <img className={style.headerIcon} src={settings} alt="Settings" />
+                        <SettingsIcon className={style.headerIcon}/>
                     </a>
                 </li>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <img className={style.headerIcon} src={user} alt="User" />
+                        <UserIcon className={style.headerIcon}/>
                     </a>
                 </li>
             </ul>

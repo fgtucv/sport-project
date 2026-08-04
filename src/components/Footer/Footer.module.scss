@@ -1,0 +1,95 @@
+.footer {
+    background-color: #F2F4F6;
+    border-top: 1px solid #C6C6CD;
+}
+
+.footer>div {
+    padding: 64px 0 40px 0;
+    flex-direction: column;
+}
+
+.footerTopDiv {
+    display: flex;
+}
+
+.footerText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #45464D;
+    margin-top: 16px;
+    max-width: 274px;
+}
+
+.footerInfoList {
+    display: flex;
+    gap: 40px;
+    margin-left: 40px;
+}
+
+.footerInfoTitle {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.8px;
+    color: #000000;
+}
+
+.footerContactList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.footerContactItem {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    width: 274px;
+}
+
+.footerContactSpan {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #45464D;
+}
+
+.footerContactIcon {
+    width: 16px;
+    height: 16px;
+    fill: #45464D;
+}
+
+.footerBottomDiv {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(198, 198, 205, 0.3);
+}
+
+.footerSecurityText {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #76777D;
+}
+
+.footerLanguage {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.36px;
+    color: #45464D;
+}
+
+.footerLanguageIcon {
+    width: 14px;
+    height: 14px;
+    fill: #45464D;
+}
