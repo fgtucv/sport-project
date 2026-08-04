@@ -5,7 +5,7 @@ import { Main } from "./pages/MainPage/Main";
 
 function App() {
   return (
-    <div className="App">
+    <div className="test">
       <Header/>
        <Main/>
       <Footer/>
