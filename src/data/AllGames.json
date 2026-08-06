@@ -1,0 +1,365 @@
+[
+  {
+    "id": "match-001",
+    "hostId": "user-101",
+    "hostNickname": "AlexPadel",
+    "sportType": "PADEL",
+    "level": "3.5 - 4.0",
+    "levelRequirement": "strict",
+    "time": "18:00",
+    "durationMinutes": 90,
+    "clubName": "Club Padel Central",
+    "courtNumber": "Корт №3",
+    "players": [
+      {
+        "id": "user-101",
+        "nickname": "AlexPadel",
+        "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
+      },
+      {
+        "id": "user-102",
+        "nickname": "Marta_S",
+        "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100"
+      },
+      {
+        "id": "user-103",
+        "nickname": "Carlos_Pro",
+        "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100"
+      }
+    ],
+    "currentPlayers": 3,
+    "maxPlayers": 4,
+    "price": 7.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-002",
+    "hostId": "user-104",
+    "hostNickname": "ElenaTenis",
+    "sportType": "TENNIS",
+    "level": "2.0 - 3.0",
+    "levelRequirement": "any",
+    "time": "19:30",
+    "durationMinutes": 60,
+    "clubName": "Elite Tennis Academy",
+    "courtNumber": "Корт №1",
+    "players": [
+      {
+        "id": "user-104",
+        "nickname": "ElenaTenis",
+        "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"
+      }
+    ],
+    "currentPlayers": 1,
+    "maxPlayers": 2,
+    "price": 10.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-003",
+    "hostId": "user-105",
+    "hostNickname": "Pablo_King",
+    "sportType": "PADEL",
+    "level": "4.5+",
+    "levelRequirement": "strict",
+    "time": "20:00",
+    "durationMinutes": 120,
+    "clubName": "Urban Padel Hub",
+    "courtNumber": "Корт №5",
+    "players": [
+      {
+        "id": "user-105",
+        "nickname": "Pablo_King",
+        "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100"
+      },
+      {
+        "id": "user-106",
+        "nickname": "Diego_SM",
+        "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+      },
+      {
+        "id": "user-107",
+        "nickname": "Anna_Top",
+        "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100"
+      },
+      {
+        "id": "user-108",
+        "nickname": "Santi_V",
+        "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+      }
+    ],
+    "currentPlayers": 4,
+    "maxPlayers": 4,
+    "price": 9.00,
+    "currency": "€",
+    "isFull": true
+  },
+  {
+    "id": "match-004",
+    "hostId": "user-109",
+    "hostNickname": "Sofia_Padel",
+    "sportType": "TENNIS",
+    "level": "1.5 - 2.5",
+    "levelRequirement": "any",
+    "time": "09:00",
+    "durationMinutes": 90,
+    "clubName": "Padel Point Norte",
+    "courtNumber": "Корт №2",
+    "players": [
+      {
+        "id": "user-109",
+        "nickname": "Sofia_Padel",
+        "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100"
+      },
+      {
+        "id": "user-110",
+        "nickname": "Mateo_99",
+        "avatarUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100"
+      }
+    ],
+    "currentPlayers": 2,
+    "maxPlayers": 4,
+    "price": 6.50,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-005",
+    "hostId": "user-111",
+    "hostNickname": "Rafa_Fan",
+    "sportType": "TENNIS",
+    "level": "3.5 - 4.5",
+    "levelRequirement": "strict",
+    "time": "10:30",
+    "durationMinutes": 90,
+    "clubName": "Real Club de Tenis",
+    "courtNumber": "Корт №4",
+    "players": [
+      {
+        "id": "user-111",
+        "nickname": "Rafa_Fan",
+        "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100"
+      }
+    ],
+    "currentPlayers": 1,
+    "maxPlayers": 2,
+    "price": 12.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-006",
+    "hostId": "user-101",
+    "hostNickname": "AlexPadel",
+    "sportType": "PADEL",
+    "level": "3.0 - 3.5",
+    "levelRequirement": "any",
+    "time": "12:00",
+    "durationMinutes": 90,
+    "clubName": "Club Padel Central",
+    "courtNumber": "Корт №1",
+    "players": [
+      {
+        "id": "user-101",
+        "nickname": "AlexPadel",
+        "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
+      },
+      {
+        "id": "user-102",
+        "nickname": "Marta_S",
+        "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100"
+      }
+    ],
+    "currentPlayers": 2,
+    "maxPlayers": 4,
+    "price": 8.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-007",
+    "hostId": "user-103",
+    "hostNickname": "Carlos_Pro",
+    "sportType": "PADEL",
+    "level": "2.5 - 3.5",
+    "levelRequirement": "strict",
+    "time": "16:30",
+    "durationMinutes": 60,
+    "clubName": "Padel Indoor Arena",
+    "courtNumber": "Корт №6",
+    "players": [
+      {
+        "id": "user-103",
+        "nickname": "Carlos_Pro",
+        "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100"
+      },
+      {
+        "id": "user-104",
+        "nickname": "ElenaTenis",
+        "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"
+      },
+      {
+        "id": "user-105",
+        "nickname": "Pablo_King",
+        "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100"
+      }
+    ],
+    "currentPlayers": 3,
+    "maxPlayers": 4,
+    "price": 7.50,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-008",
+    "hostId": "user-107",
+    "hostNickname": "Anna_Top",
+    "sportType": "TENNIS",
+    "level": "3.5 - 4.0",
+    "levelRequirement": "any",
+    "time": "17:00",
+    "durationMinutes": 120,
+    "clubName": "Elite Tennis Academy",
+    "courtNumber": "Корт №3",
+    "players": [
+      {
+        "id": "user-107",
+        "nickname": "Anna_Top",
+        "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100"
+      },
+      {
+        "id": "user-108",
+        "nickname": "Santi_V",
+        "avatarUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100"
+      }
+    ],
+    "currentPlayers": 2,
+    "maxPlayers": 2,
+    "price": 11.00,
+    "currency": "€",
+    "isFull": true
+  },
+  {
+    "id": "match-009",
+    "hostId": "user-106",
+    "hostNickname": "Diego_SM",
+    "sportType": "PADEL",
+    "level": "4.0 - 5.0",
+    "levelRequirement": "strict",
+    "time": "18:30",
+    "durationMinutes": 90,
+    "clubName": "Urban Padel Hub",
+    "courtNumber": "Корт №2",
+    "players": [
+      {
+        "id": "user-106",
+        "nickname": "Diego_SM",
+        "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"
+      }
+    ],
+    "currentPlayers": 1,
+    "maxPlayers": 4,
+    "price": 9.50,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-010",
+    "hostId": "user-109",
+    "hostNickname": "Sofia_Padel",
+    "sportType": "PADEL",
+    "level": "2.0 - 3.0",
+    "levelRequirement": "any",
+    "time": "19:00",
+    "durationMinutes": 90,
+    "clubName": "Padel Point Norte",
+    "courtNumber": "Корт №4",
+    "players": [
+      {
+        "id": "user-109",
+        "nickname": "Sofia_Padel",
+        "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100"
+      },
+      {
+        "id": "user-111",
+        "nickname": "Rafa_Fan",
+        "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100"
+      },
+      {
+        "id": "user-110",
+        "nickname": "Mateo_99",
+        "avatarUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100"
+      }
+    ],
+    "currentPlayers": 3,
+    "maxPlayers": 4,
+    "price": 8.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-011",
+    "hostId": "user-102",
+    "hostNickname": "Marta_S",
+    "sportType": "TENNIS",
+    "level": "3.0 - 4.0",
+    "levelRequirement": "strict",
+    "time": "21:00",
+    "durationMinutes": 60,
+    "clubName": "Real Club de Tenis",
+    "courtNumber": "Корт №2",
+    "players": [
+      {
+        "id": "user-102",
+        "nickname": "Marta_S",
+        "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100"
+      }
+    ],
+    "currentPlayers": 1,
+    "maxPlayers": 2,
+    "price": 10.00,
+    "currency": "€",
+    "isFull": false
+  },
+  {
+    "id": "match-012",
+    "hostId": "user-101",
+    "hostNickname": "AlexPadel",
+    "sportType": "PADEL",
+    "level": "3.5 - 4.5",
+    "levelRequirement": "strict",
+    "time": "21:30",
+    "durationMinutes": 90,
+    "clubName": "Padel Indoor Arena",
+    "courtNumber": "Корт №1",
+    "players": [
+      {
+        "id": "user-101",
+        "nickname": "AlexPadel",
+        "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
+      },
+      {
+        "id": "user-103",
+        "nickname": "Carlos_Pro",
+        "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100"
+      },
+      {
+        "id": "user-104",
+        "nickname": "ElenaTenis",
+        "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"
+      },
+      {
+        "id": "user-105",
+        "nickname": "Pablo_King",
+        "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100"
+      }
+    ],
+    "currentPlayers": 4,
+    "maxPlayers": 4,
+    "price": 8.50,
+    "currency": "€",
+    "isFull": true
+  }
+]

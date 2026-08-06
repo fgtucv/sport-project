@@ -1,0 +1,281 @@
+[
+    {
+        "id": "2026-08-01",
+        "dayOfWeek": "СБ",
+        "dayNumber": 1,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-01",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-02",
+        "dayOfWeek": "НД",
+        "dayNumber": 2,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-02",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-03",
+        "dayOfWeek": "ПН",
+        "dayNumber": 3,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-03",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-04",
+        "dayOfWeek": "ВТ",
+        "dayNumber": 4,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-04",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-05",
+        "dayOfWeek": "СР",
+        "dayNumber": 5,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-05",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-06",
+        "dayOfWeek": "ЧТ",
+        "dayNumber": 6,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-06",
+        "isWeekend": false,
+        "isSelected": true
+    },
+    {
+        "id": "2026-08-07",
+        "dayOfWeek": "ПТ",
+        "dayNumber": 7,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-07",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-08",
+        "dayOfWeek": "СБ",
+        "dayNumber": 8,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-08",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-09",
+        "dayOfWeek": "НД",
+        "dayNumber": 9,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-09",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-10",
+        "dayOfWeek": "ПН",
+        "dayNumber": 10,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-10",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-11",
+        "dayOfWeek": "ВТ",
+        "dayNumber": 11,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-11",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-12",
+        "dayOfWeek": "СР",
+        "dayNumber": 12,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-12",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-13",
+        "dayOfWeek": "ЧТ",
+        "dayNumber": 13,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-13",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-14",
+        "dayOfWeek": "ПТ",
+        "dayNumber": 14,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-14",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-15",
+        "dayOfWeek": "СБ",
+        "dayNumber": 15,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-15",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-16",
+        "dayOfWeek": "НД",
+        "dayNumber": 16,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-16",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-17",
+        "dayOfWeek": "ПН",
+        "dayNumber": 17,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-17",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-18",
+        "dayOfWeek": "ВТ",
+        "dayNumber": 18,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-18",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-19",
+        "dayOfWeek": "СР",
+        "dayNumber": 19,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-19",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-20",
+        "dayOfWeek": "ЧТ",
+        "dayNumber": 20,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-20",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-21",
+        "dayOfWeek": "ПТ",
+        "dayNumber": 21,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-21",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-22",
+        "dayOfWeek": "СБ",
+        "dayNumber": 22,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-22",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-23",
+        "dayOfWeek": "НД",
+        "dayNumber": 23,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-23",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-24",
+        "dayOfWeek": "ПН",
+        "dayNumber": 24,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-24",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-25",
+        "dayOfWeek": "ВТ",
+        "dayNumber": 25,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-25",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-26",
+        "dayOfWeek": "СР",
+        "dayNumber": 26,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-26",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-27",
+        "dayOfWeek": "ЧТ",
+        "dayNumber": 27,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-27",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-28",
+        "dayOfWeek": "ПТ",
+        "dayNumber": 28,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-28",
+        "isWeekend": false,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-29",
+        "dayOfWeek": "СБ",
+        "dayNumber": 29,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-29",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-30",
+        "dayOfWeek": "НД",
+        "dayNumber": 30,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-30",
+        "isWeekend": true,
+        "isSelected": false
+    },
+    {
+        "id": "2026-08-31",
+        "dayOfWeek": "ПН",
+        "dayNumber": 31,
+        "monthLabel": "Серп",
+        "fullDate": "2026-08-31",
+        "isWeekend": false,
+        "isSelected": false
+    }
+]

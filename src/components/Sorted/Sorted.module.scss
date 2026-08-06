@@ -1,0 +1,69 @@
+
+.sorted {
+    position: relative;
+}
+
+.sortedSelectedButton {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0F172A;
+    padding: 8px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #C6C6CD;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+.sortedelectedButtonIcon {
+    width: 16px;
+    height: 8px;
+    flex: 0 0 16px;
+    fill: #000000;
+    margin-left: 8px;
+}
+
+.sortedList {
+    position: absolute;
+    background-color: #FFFFFF;
+    border: 1px solid #C6C6CD;
+    border-radius: 8px;
+    right: 0;
+    padding: 4px 0;
+    transform: translateY(10px);
+    width: 210px;
+}
+
+.sortedItem {
+    padding: 4px 8px;
+}
+
+.activeSorted {
+    background-color: #ECEEF0;
+}
+
+.activeSorted .sortedButtonIcon {
+    display: block;
+}
+
+.sortedButton {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #0F172A;
+    text-align: left;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sortedButtonIcon {
+    width: 12px;
+    height: 12px;
+    stroke: #6B7280;
+    display: none;
+}
