@@ -8,8 +8,6 @@ import daysData from "../../data/days.json";
 import gamesData from "../../data/AllGames.json"
 import style from "./Main.module.scss";
 
-console.log(daysData);
-
 export const Main = () => {
     return <main className={style.main}>
         <Container>
