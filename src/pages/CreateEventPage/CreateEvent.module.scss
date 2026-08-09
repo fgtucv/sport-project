@@ -1,4 +1,6 @@
-.create {}
+.create {
+    background-color: #F7F9FB;
+}
 
 .create>div {
     padding: 40px 0;
@@ -18,4 +20,274 @@
     line-height: 20px;
     color: #45464D;
     margin-top: 4px;
+}
+
+.createStepTitle {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #191C1E;
+    margin: 48px 0 24px 0;
+}
+
+.createEventTypes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.createEventType {
+    padding: 24px;
+    gap: 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0px 1px #C6C6CD, 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    border: 1px solid #C6C6CD;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.activeType {
+    border: 2px solid #000000;
+}
+
+.createEventTypeIcon {
+    height: 80px;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gameIcon {
+    fill: #22C55E;
+}
+
+.tournamentIcon {
+    fill: #EF4444;
+}
+
+.qualificationIcon {
+    fill: #A855F7;
+}
+
+.createEventTypeName {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #191C1E;
+    text-align: center;
+}
+
+.createEventTypeDescription {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #45464D;
+    text-align: center;
+}
+
+.createFrom {
+    padding: 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+}
+
+.createFormTitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #45464D;
+    margin-bottom: 12px;
+}
+
+.createFromList {
+    display: flex;
+    margin-bottom: 32px;
+    gap: 16px;
+    width: 100%;
+}
+
+.createFromItem {
+    display: flex;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #191C1E;
+    align-items: center;
+    border: 1px #C6C6CD solid;
+    padding: 8px 24px;
+    gap: 8px;
+    border-radius: 20px;
+}
+
+.createFromSportItem {
+    width: 100%;
+    padding: 18px 0;
+    justify-content: center;
+}
+
+.activeItem {
+    color: #FFFFFF;
+    background-color: #000000;
+    border: none;
+}
+
+.createFromIcon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.createFromInputDiv {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.createFromInputFlexDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.createFromInput {
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    height: 50px;
+    background: #F2F4F6;
+    border: 1px solid #C6C6CD;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #191C1E;
+
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
+.createFromSmalInput {
+    width: 30%;
+}
+
+
+.createFromInputIcon {
+    width: 20px;
+    height: 20px;
+    left: 16px;
+    top: 50%;
+    position: absolute;
+    transform: translateY(30%);
+    fill: #45464D;
+}
+
+.createFromLevelDiv {
+    padding: 24px;
+    background: #ECEEF0;
+    border-radius: 20px;
+    margin-bottom: 32px;
+
+    & .createFromInputDiv {
+        margin-bottom: 0;
+    }
+
+    & .createFormTitle {
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 15px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    & .createFromInput {
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 16px;
+        background: #F2F4F6;
+        border: 1px solid #C6C6CD;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #191C1E;
+    }
+}
+
+.createFromLevelHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.createFromLevelTitle {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: #45464D;
+}
+
+.createFromLevelSwitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #333;
+
+    & input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+    }
+
+    & input:checked+.createFromLevelSlider::before {
+        transform: translateX(24px);
+    }
+
+    & input:checked+.createFromLevelSlider {
+        background-color: #000000;
+    }
+}
+
+.createFromLevelSpan {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: #45464D;
+}
+
+.createFromLevelSlider {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
 }
