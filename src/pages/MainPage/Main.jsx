@@ -1,20 +1,27 @@
-import { Container } from "../../components/Container/Container"
+// icon
 import { Category } from "../../components/Category/Category";
 import { Sorted } from "../../components/Sorted/Sorted";
 import { LocationIcon } from "../../components/Icons/Icons";
 import { InfoIcon } from "../../components/Icons/Icons";
 import { ComeToGameIcon } from "../../components/Icons/Icons";
+// data
 import daysData from "../../data/days.json";
 import gamesData from "../../data/AllGames.json"
+// style
 import style from "./Main.module.scss";
+// components
+import { MainTitle } from "../../components/MainTitle/MainTitle";
+import { Container } from "../../components/Container/Container";
+
+const text = {
+    title: "Доступні ігри",
+    subtitle: "Знайдіть гру для себе щоб пограти",
+}
 
 export const Main = () => {
     return <main className={style.main}>
         <Container>
-            <div className={style.mainHeader}>
-                <h1 className={style.mainTitle}>Доступні ігри</h1>
-                <p className={style.mainSubtitle}>Доєднуйтесь до ігор створених іншими гравцями</p>
-            </div>
+            <MainTitle text={text}/>
             <ul className={style.mainDates}>
                 {
                     daysData.map((day) => (

@@ -6,29 +6,10 @@
     padding: 40px 0;
 }
 
-.myEventHeader {
-    margin-bottom: 24px;
-}
-
-.myEventTitle {
-    font-weight: 900;
-    font-size: 36px;
-    line-height: 40px;
-    letter-spacing: -0.9px;
-    color: #000000;
-}
-
-.myEventSubtitle {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-    color: #45464D;
-    margin-top: 4px;
-}
-
 .myEventFilter {
     display: flex;
     justify-content: space-between;
+    margin-top: 24px;
 }
 
 .myEventTypes {

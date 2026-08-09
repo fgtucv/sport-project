@@ -9,8 +9,8 @@ function App() {
     <div className="test">
       <Header/>
        {/* <Main/> */}
-       {/* <MyEvent/> */}
-       <CreateEvent/>
+       <MyEvent/>
+       {/* <CreateEvent/> */}
       <Footer/>
     </div>
   );

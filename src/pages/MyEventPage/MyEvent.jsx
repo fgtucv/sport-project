@@ -1,19 +1,25 @@
+// icon
 import { TennisIcon } from "../../components/Icons/Icons";
 import { PadelIcon } from "../../components/Icons/Icons";
 import { DraftIcon } from "../../components/Icons/Icons";
+// components
 import { Container } from "../../components/Container/Container";
+import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { Sorted } from "../../components/Sorted/Sorted";
+// data
 import data from "../../data/MyEvenst.json";
+// style
 import style from "./MyEvent.module.scss";
 
+const text = {
+    title: "Ваші ігри",
+    subtitle: "Переглядайте свої ігри та керуйте ними",
+}
 
 export const MyEvent = () => {
     return <section className={style.myEvent}>
         <Container>
-            <div className={style.myEventHeader}>
-                <h1 className={style.myEventTitle}>Ваші ігри</h1>
-                <p className={style.myEventSubtitle}>Переглядайте та керуйте всіма своїми іграми</p>
-            </div>
+            <MainTitle text={text}/>
             <div className={style.myEventFilter}>
                 <ul className={style.myEventTypes}>
                     <li className={style.myEventType + ' ' + style.activeType}>Всі</li>

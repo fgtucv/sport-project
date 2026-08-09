@@ -1,3 +1,5 @@
+import { Component } from "react";
+// icons
 import { GameEventIcon } from "../../components/Icons/Icons";
 import { QualificationEventIcon } from "../../components/Icons/Icons";
 import { TournamentEventIcon } from "../../components/Icons/Icons";
@@ -6,17 +8,22 @@ import { DataIcon } from "../../components/Icons/Icons";
 import { LocationIcon } from "../../components/Icons/Icons";
 import { PadelIcon } from "../../components/Icons/Icons";
 import { TennisIcon } from "../../components/Icons/Icons";
-import { Container } from "../../components/Container/Container";
 import { PriceIcon } from "../../components/Icons/Icons";
+// component
+import { Container } from "../../components/Container/Container";
+import { MainTitle } from "../../components/MainTitle/MainTitle";
+// style
 import style from "./CreateEvent.module.scss";
+
+const text = {
+    title: "Створіть подію",
+    subtitle: "Створюйте свої ігри, турніри, кваліфікації",
+}
 
 export const CreateEvent = () => {
     return <section className={style.create}>
         <Container>
-            <div className={style.createHeader}>
-                <h1 className={style.createTitle}>Створіть подію</h1>
-                <p className={style.createSubtitle}>Створюй свої ігри, турніри чи кваліфікації</p>
-            </div>
+            <MainTitle text={text}/>
             <h2 className={style.createStepTitle}>Крок 1: Вибиріть тип події</h2>
             <ul className={style.createEventTypes}>
                 <li className={style.createEventType + ' ' + style.activeType}>
