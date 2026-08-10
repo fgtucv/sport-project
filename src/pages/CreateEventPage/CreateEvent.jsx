@@ -12,6 +12,7 @@ import { PriceIcon } from "../../components/Icons/Icons";
 // component
 import { Container } from "../../components/Container/Container";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
+import { ChoiceGameParmList } from "../../components/ChoiceGameParmList/ChoiceGameParmList"
 // style
 import style from "./CreateEvent.module.scss";
 
@@ -57,14 +58,7 @@ export const CreateEvent = () => {
                 </ul>
 
                 <h2 className={style.createFormTitle}>Виберіть кількість гравців</h2>
-                <ul className={style.createFromList}>
-                    <li className={style.createFromItem + ' ' + style.activeItem}>
-                        2
-                    </li>
-                    <li className={style.createFromItem}>
-                        4
-                    </li>
-                </ul>
+                <ChoiceGameParmList arr={["2", "4"]}/>
 
                 <div className={style.createFromInputDiv}>
                     <div className={style.createFromInputFlexDiv}>
@@ -80,20 +74,7 @@ export const CreateEvent = () => {
                 </div>
 
                 <h2 className={style.createFormTitle}>Виберіть тривалість події</h2>
-                <ul className={style.createFromList}>
-                    <li className={style.createFromItem}>
-                        30 хв
-                    </li>
-                    <li className={style.createFromItem}>
-                        60 хв
-                    </li>
-                    <li className={style.createFromItem + ' ' + style.activeItem}>
-                        90 хв
-                    </li>
-                    <li className={style.createFromItem}>
-                        120 хв
-                    </li>
-                </ul>
+                <ChoiceGameParmList arr={["60 хв", "90 хв","120 хв", "150 хв"]}/>
 
                 <div className={style.createFromInputDiv}>
                     <div className={style.createFromInputFlexDiv}>
@@ -135,6 +116,9 @@ export const CreateEvent = () => {
                         <PriceIcon className={style.createFromInputIcon} />
                     </div>
                 </div>
+
+                <button className={style.createFromDraftButton} type="button">Зберегти до чернеток</button>
+                <button className={style.createFromSubmitButton} type="submit">Опублікувати</button>
             </form>
         </Container>
     </section>

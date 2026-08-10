@@ -1,0 +1,37 @@
+.createFromList {
+    display: flex;
+    margin-bottom: 32px;
+    gap: 16px;
+    width: 100%;
+}
+
+.createFromItem {
+    display: flex;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #191C1E;
+    align-items: center;
+    border: 1px #C6C6CD solid;
+    padding: 8px 24px;
+    gap: 8px;
+    border-radius: 20px;
+}
+
+.createFromSportItem {
+    width: 100%;
+    padding: 18px 0;
+    justify-content: center;
+}
+
+.activeItem {
+    color: #FFFFFF;
+    background-color: #000000;
+    border: none;
+}
+
+.createFromIcon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
