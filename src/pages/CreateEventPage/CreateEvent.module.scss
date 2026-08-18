@@ -1,306 +1,90 @@
 .create {
-    background-color: #F7F9FB;
-}
+  --create-surface: #f7f9fb;
+  --create-card-surface: #ffffff;
+  --create-border: #c6c6cd;
+  --create-text: #191c1e;
 
-.create>div {
-    padding: 40px 0;
+  background-color: var(--create-surface);
 }
 
 .createStepTitle {
+  color: #45464D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+
+
+  @media (min-width: 1280px) {
+    margin: 48px 0 24px 0;
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
-    color: #191C1E;
-    margin: 48px 0 24px 0;
+    color: var(--create-text);
+  }
 }
 
 .createEventTypes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+  margin-bottom:24px;
+
+  @media (min-width: 1280px) {
+    margin-bottom: 0;
+  }
 }
 
 .createEventType {
-    padding: 24px;
-    gap: 16px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 0px 1px #C6C6CD, 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    border: 1px solid #C6C6CD;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--create-card-surface);
+  border: 1px solid var(--create-border);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .activeType {
-    border: 2px solid #000000;
+  border: 2px solid #000000;
 }
 
 .createEventTypeIcon {
-    height: 80px;
-    width: 80px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
 }
 
 .gameIcon {
-    fill: #22C55E;
+  fill: #22c55e;
 }
 
 .tournamentIcon {
-    fill: #EF4444;
+  fill: #ef4444;
 }
 
 .qualificationIcon {
-    fill: #A855F7;
+  fill: #a855f7;
 }
 
 .createEventTypeName {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
-    color: #191C1E;
-    text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--create-text);
+  text-align: center;
 }
 
 .createEventTypeDescription {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #45464D;
-    text-align: center;
-}
-
-.createFrom {
-    padding: 32px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    flex-direction: column;
-}
-
-.createFormTitle {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    color: #45464D;
-    margin-bottom: 12px;
-}
-
-.createFromList {
-    display: flex;
-    margin-bottom: 32px;
-    gap: 16px;
-    width: 100%;
-}
-
-.createFromItem {
-    display: flex;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    color: #191C1E;
-    align-items: center;
-    border: 1px #C6C6CD solid;
-    padding: 8px 24px;
-    gap: 8px;
-    border-radius: 20px;
-}
-
-.createFromSportItem {
-    width: 100%;
-    padding: 18px 0;
-    justify-content: center;
-}
-
-.activeItem {
-    color: #FFFFFF;
-    background-color: #000000;
-    border: none;
-}
-
-.createFromIcon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-}
-
-.createFromInputDiv {
-    display: flex;
-    gap: 24px;
-    margin-bottom: 32px;
-}
-
-.createFromInputFlexDiv {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-}
-
-.createFromInput {
-    display: flex;
-    align-items: center;
-    padding: 0 48px;
-    height: 50px;
-    background: #F2F4F6;
-    border: 1px solid #C6C6CD;
-    border-radius: 20px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #191C1E;
-
-    &::-webkit-calendar-picker-indicator {
-        display: none;
-        -webkit-appearance: none;
-    }
-}
-
-.createFromSmalInput {
-    width: 30%;
-}
-
-
-.createFromInputIcon {
-    width: 20px;
-    height: 20px;
-    left: 16px;
-    top: 50%;
-    position: absolute;
-    transform: translateY(30%);
-    fill: #45464D;
-}
-
-.createFromLevelDiv {
-    padding: 24px;
-    background: #ECEEF0;
-    border-radius: 20px;
-    margin-bottom: 32px;
-
-    & .createFromInputDiv {
-        margin-bottom: 0;
-    }
-
-    & .createFormTitle {
-        font-weight: 700;
-        font-size: 10px;
-        line-height: 15px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-
-    & .createFromInput {
-        height: 42px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 16px;
-        background: #F2F4F6;
-        border: 1px solid #C6C6CD;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 24px;
-        color: #191C1E;
-    }
-}
-
-.createFromLevelHeader {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
-}
-
-.createFromLevelTitle {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    color: #45464D;
-}
-
-.createFromLevelSwitch {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    font-family: sans-serif;
-    font-weight: 600;
-    color: #333;
-
-    & input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        position: absolute;
-    }
-
-    & input:checked+.createFromLevelSlider::before {
-        transform: translateX(24px);
-    }
-
-    & input:checked+.createFromLevelSlider {
-        background-color: #000000;
-    }
-}
-
-.createFromLevelSpan {
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-    color: #45464D;
-}
-
-.createFromLevelSlider {
-    position: relative;
-    width: 50px;
-    height: 26px;
-    background-color: #ccc;
-    border-radius: 50px;
-    transition: background-color 0.3s ease;
-
-    &::before {
-        content: "";
-        position: absolute;
-        height: 20px;
-        width: 20px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        border-radius: 50%;
-        transition: transform 0.3s ease;
-    }
-}
-
-.createFromDraftButton {
-    display: flex;
-    justify-content: center;
-    padding: 16px 0px;
-    background: #ECEEF0;
-    border-radius: 20px;
-    width: 100%;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
-    color: #191C1E;
-    margin-bottom: 12px;
-}
-
-.createFromSubmitButton {
-    display: flex;
-    justify-content: center;
-    padding: 16px 0px;
-    background: linear-gradient(94.03deg, #06B6D4 0%, #10B981 100%);
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    width: 100%;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
-    color: #FFFFFF;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #45464d;
+  text-align: center;
 }

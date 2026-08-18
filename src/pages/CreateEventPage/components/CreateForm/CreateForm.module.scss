@@ -1,0 +1,139 @@
+.createFrom {
+  --form-surface: #ffffff;
+  --form-muted-surface: #f2f4f6;
+  --form-border: #c6c6cd;
+  --form-text: #191c1e;
+  --form-secondary-text: #45464d;
+  --form-inverse-text: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: var(--form-surface);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.createFormTitle {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--form-secondary-text);
+  margin-bottom: 12px;
+}
+
+.createFromList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.createFromItem {
+  flex: 1 1 180px;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--form-text);
+  border: 1px solid var(--form-border);
+  padding: 8px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.createFromSportItem {
+  width: 100%;
+  padding: 18px 0;
+  justify-content: center;
+}
+
+.activeItem {
+  color: var(--form-inverse-text);
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.createFromIcon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.createFromInputDiv {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.createFromInputFlexDiv {
+  display: flex;
+  flex: 1 1 260px;
+  min-width: 0;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.createFromSmalInput {
+  width: min(100%, 30%);
+}
+
+.createFromInput {
+  height: 50px;
+  padding: 0 16px 0 48px;
+  background: var(--form-muted-surface);
+  border: 1px solid var(--form-border);
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--form-text);
+  outline: none;
+}
+
+.createFromInputIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(25%);
+  width: 20px;
+  height: 20px;
+  fill: var(--form-secondary-text);
+  pointer-events: none;
+}
+
+.createFromDraftButton,
+.createFromSubmitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  cursor: pointer;
+  border: none;
+}
+
+.createFromDraftButton {
+  background: #eceef0;
+  color: var(--form-text);
+  margin-bottom: 12px;
+}
+
+.createFromSubmitButton {
+  background: linear-gradient(94.03deg, #06b6d4 0%, #10b981 100%);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  color: var(--form-inverse-text);
+}

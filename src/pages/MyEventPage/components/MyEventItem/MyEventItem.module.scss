@@ -1,0 +1,225 @@
+.game {
+    min-width: 0;
+    padding: 24px;
+    background: var(--event-card-surface);
+    border: 1px solid var(--event-border);
+    border-radius: 12px;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.isLoss {
+    & .gameIconBackgraund {
+        background-color: var(--event-danger-surface);
+    }
+
+    & .gameTypeIcon {
+        fill: var(--event-danger);
+    }
+
+    & .gameResultbadge {
+        background-color: var(--event-danger-surface);
+        color: var(--event-danger);
+    }
+
+    & .gamePlayersList {
+        justify-content: space-between;
+    }
+}
+
+.isWin {
+    & .gameIconBackgraund {
+        background-color: var(--event-success-surface);
+    }
+
+    & .gameTypeIcon {
+        fill: var(--event-success);
+    }
+
+    & .gameResultbadge {
+        background-color: var(--event-success-surface);
+        color: var(--event-success);
+    }
+
+    & .gamePlayersList {
+        justify-content: space-between;
+    }
+}
+
+.isDraw {
+    & .gameIconBackgraund {
+        background-color: var(--event-neutral-surface);
+    }
+
+    & .gameTypeIcon {
+        fill: var(--event-secondary-text);
+    }
+
+    & .gameResultbadge {
+        background-color: var(--event-neutral-surface);
+        color: var(--event-secondary-text);
+    }
+}
+
+.isSoon {
+    & .gameIconBackgraund {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    & .gameTypeIcon {
+        fill: var(--event-strong);
+    }
+
+    & .gameResultbadge {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: var(--event-strong);
+    }
+}
+
+.gameCardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.gameIconBackgraund {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.gameTypeIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.gameTitle {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    color: var(--event-strong);
+}
+
+.gameResultbadge {
+    padding: 4px 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    border-radius: 9999px;
+    margin-left: auto;
+    text-transform: uppercase;
+}
+
+.gameLocation {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--event-text);
+}
+
+.gameDateTime {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--event-secondary-text);
+}
+
+.gameBody {
+    border-bottom: rgba(198, 198, 205, 0.3) 1px solid;
+    border-top: rgba(198, 198, 205, 0.3) 1px solid;
+    padding: 16px 0;
+    margin: 16px 0;
+}
+
+.gamePlayersList {
+    display: flex;
+    align-items: center;
+}
+
+.gameTeamPlayers {
+    display: flex;
+}
+
+.gamePlayerAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    margin-right: -10px;
+    flex-shrink: 0;
+}
+
+.gameScore {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 2.4px;
+    color: var(--event-secondary-text);
+}
+
+.gameDebtStatus {
+    color: var(--event-secondary-text);
+    text-align: center;
+}
+
+.debtNotPaid {
+    color: var(--event-danger);
+}
+
+.gameDebtLabel {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.gameDebtAmount {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.gameDeleteButton {
+    padding: 8px 0px;
+    border: 1px solid #b91c1c;
+    border-radius: 8px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+    color: var(--event-danger);
+}
+
+.gameDraft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.gameDraftBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.gameDraftIcon {
+    width: 24px;
+    height: 24px;
+}
+
+.gameDraftText {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--event-text);
+    margin-top: 16px;
+}

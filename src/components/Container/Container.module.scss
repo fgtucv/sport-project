@@ -1,6 +1,13 @@
 .container {
-    width: 1216px;
+    width: min(320px, 100%);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding: 16px 16px;
+
+    @media (min-width: 1280px) {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        padding: 40px 32px;
+    }
 }

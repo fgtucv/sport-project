@@ -1,8 +1,13 @@
 .categories {
+    --category-surface: #F2F4F6;
+    --category-border: #C6C6CD;
+    --category-text: #000000;
+    --category-active-surface: #FFFFFF;
+
     display: flex;
     padding: 4px;
-    background-color: #F2F4F6;
-    border: 1px solid #C6C6CD;
+    background-color: var(--category-surface);
+    border: 1px solid var(--category-border);
     border-radius: 8px;
     width: fit-content;
 }
@@ -13,7 +18,7 @@
 }
 
 .activeCetegory {
-    background-color: #FFFFFF;
+    background-color: var(--category-active-surface);
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -21,5 +26,5 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #000000;
+    color: var(--category-text);
 }

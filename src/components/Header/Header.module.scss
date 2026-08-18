@@ -1,21 +1,52 @@
 .header {
-    border-bottom: 1px solid #C6C6CD;
+    --header-border: #C6C6CD;
+    --header-text: #45464D;
+    --header-active: #0058BE;
+
+    border-bottom: 1px solid var(--header-border);
 }
 
-.header > div {
+.header>div {
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
     flex-direction: row;
+    gap: 16px;
+
+    @media (min-width: 1280px) {
+        padding: 16px 32px;
+    }
 }
 
-.headerLogoIcon {
-    height: 32px;
+.headerPageName {
+    display: block;
+    color: #191C1E;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+
+    @media (min-width: 1280px) {
+        display: none;
+    }
+}
+
+.headerLogo {
+    display: none;
+
+    @media (min-width: 1280px) {
+        display: block;
+        height: 32px;
+    }
 }
 
 .headerNav {
-    display: flex;
-    gap: 24px;
+    display: none;
+
+    @media (min-width: 1280px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 }
 
 .headerNavLink {
@@ -25,14 +56,14 @@
 }
 
 .active {
-   border-bottom: 2px solid #0058BE; 
+    border-bottom: 2px solid var(--header-active);
 
-   & .headerNavSpan {
-        color: #0058BE;
-   }
+    & .headerNavSpan {
+        color: var(--header-active);
+    }
 
-   & .headerNavIcon {
-            fill: #0058BE;
+    & .headerNavIcon {
+        fill: var(--header-active);
     }
 }
 
@@ -40,17 +71,18 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #45464D;
+    color: var(--header-text);
 }
 
 .headerNavIcon {
     width: 16px;
     height: 16px;
-    fill: #45464D;
+    fill: var(--header-text);
 }
 
 .headerList {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
 }
 

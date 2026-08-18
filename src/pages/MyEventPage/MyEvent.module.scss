@@ -1,19 +1,30 @@
 .myEvent {
-    background-color: #F7F9FB;
-}
+    --event-surface: #F7F9FB;
+    --event-card-surface: #FFFFFF;
+    --event-border: #C6C6CD;
+    --event-text: #191C1E;
+    --event-secondary-text: #45464D;
+    --event-strong: #000000;
+    --event-danger: #B91C1C;
+    --event-danger-surface: #FEE2E2;
+    --event-success: #15803D;
+    --event-success-surface: #DCFCE7;
+    --event-neutral-surface: #ECEEF0;
 
-.myEvent>div {
-    padding: 40px 0;
+    background-color: var(--event-surface);
 }
 
 .myEventFilter {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 16px;
     margin-top: 24px;
 }
 
 .myEventTypes {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 
@@ -22,248 +33,23 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #45464D;
-    background-color: #FFFFFF;
-    border: #C6C6CD solid 1px;
+    color: var(--event-secondary-text);
+    background-color: var(--event-card-surface);
+    border: var(--event-border) solid 1px;
     border-radius: 9999px;
 }
 
 .activeType {
-    background-color: #000000;
+    background-color: var(--event-strong);
     border: none;
-    color: #FFFFFF;
+    color: var(--event-card-surface);
 }
 
 .myEventGames {
     width: 100%;
     max-width: 1280px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 24px;
     margin-top: 40px;
-}
-
-.game {
-    padding: 24px;
-    background: #FFFFFF;
-    border: 1px solid #C6C6CD;
-    border-radius: 12px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
-}
-
-.isLoss {
-    & .gameIconBackgraund {
-        background-color: #FEE2E2;
-    }
-
-    & .gameTypeIcon {
-        fill: #B91C1C;
-    }
-
-    & .gameResultbadge {
-        background-color: #FEE2E2;
-        color: #B91C1C;
-    }
-
-    & .gamePlayersList {
-        justify-content: space-between;
-    }
-}
-
-.isWin {
-    & .gameIconBackgraund {
-        background-color: #DCFCE7;
-    }
-
-    & .gameTypeIcon {
-        fill: #15803D;
-    }
-
-    & .gameResultbadge {
-        background-color: #DCFCE7;
-        color: #15803D;
-    }
-
-    & .gamePlayersList {
-        justify-content: space-between;
-    }
-}
-
-.isDraw {
-    & .gameIconBackgraund {
-        background-color: #ECEEF0;
-    }
-
-    & .gameTypeIcon {
-        fill: #45464D;
-    }
-
-    & .gameResultbadge {
-        background-color: #ECEEF0;
-        color: #45464D;
-    }
-}
-
-.isSoon {
-    & .gameIconBackgraund {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    & .gameTypeIcon {
-        fill: #000000;
-    }
-
-    & .gameResultbadge {
-        background-color: rgba(0, 0, 0, 0.05);
-        color: #000000;
-    }
-}
-
-.gameCardHeader {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-.gameIconBackgraund {
-    display: flex;
-    width: 40px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
-.gameTypeIcon {
-    width: 24px;
-    height: 24px;
-}
-
-.gameTitle {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.6px;
-    color: #000000;
-}
-
-.gameResultbadge {
-    padding: 4px 12px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    border-radius: 9999px;
-    margin-left: auto;
-    text-transform: uppercase;
-}
-
-.gameLocation {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #191C1E;
-}
-
-.gameDateTime {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #45464D;
-}
-
-.gameBody {
-    border-bottom: rgba(198, 198, 205, 0.3) 1px solid;
-    border-top: rgba(198, 198, 205, 0.3) 1px solid;
-    padding: 16px 0;
-    margin: 16px 0;
-}
-
-.gamePlayersList {
-    display: flex;
-    align-items: center;
-}
-
-.gameTeamPlayers {
-    display: flex;
-}
-
-.gamePlayerAvatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ffffff;
-    margin-right: -10px;
-    flex-shrink: 0;
-}
-
-.gameScore {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 2.4px;
-    color: #45464D;
-}
-
-.gameDebtStatus {
-    color: #45464D;
-    text-align: center;
-}
-
-.debtNotPaid {
-    color: #BA1A1A;
-}
-
-.gameDebtLabel {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.gameDebtAmount {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.gameDeleteButton {
-    padding: 8px 0px;
-    border: 1px solid #b91c1c;
-    border-radius: 8px;
-    width: 100%;
-    justify-content: center;
-    margin-top: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.14px;
-    color: #B91C1C;
-}
-
-.gameDraft {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.gameDraftBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.gameDraftIcon {
-    width: 24px;
-    height: 24px;
-}
-
-.gameDraftText {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    color: #191C1E;
-    margin-top: 16px;
 }

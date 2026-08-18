@@ -1,15 +1,37 @@
 .gameItem {
-    list-style: none;
+    --game-surface: #ffffff;
+    --game-muted-surface: #ECEEF0;
+    --game-border: #e2e8f0;
+    --game-divider: #ECEEF0;
+    --game-text: #0F172A;
+    --game-strong: #000000;
+    --game-secondary-text: #76777D;
+    --game-tertiary-text: #45464D;
+    --game-inverse-text: #ffffff;
+    --game-danger: #BA1A1A;
+
     width: 100%;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    min-width: 0;
+    background: var(--game-surface);
+    border: 1px solid var(--game-border);
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
     gap: 16px;
-    box-sizing: border-box;
+}
+
+.gameBadgeSport,
+.gameBadgeLevel,
+.gameStrictLevel,
+.gameDuration,
+.gameCourtName,
+.gamePriceLabel {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.36px;
 }
 
 .isFullgame {
@@ -21,12 +43,12 @@
     user-select: none;
 
     & .gamePlayersCount {
-        color: #BA1A1A;
+        color: var(--game-danger);
     }
 
     & .gameJoinBtn {
         background: #C6C6CD;
-        color: #45464D;
+        color: var(--game-tertiary-text);
         box-shadow: none;
     }
 }
@@ -51,48 +73,34 @@
 
 .gameBadgeSport {
     background-color: #2170E4;
-    color: #ffffff;
+    color: var(--game-inverse-text);
     padding: 4px 10px;
     border-radius: 6px;
     text-transform: uppercase;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
 }
 
 .gameBadgeLevel {
     background-color: #D8E2FF;
     color: #0058BE;
-    font-weight: 600;
-    font-size: 13px;
     padding: 4px 10px;
     border-radius: 6px;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
 }
 
 .gameStrictLevel {
     display: flex;
     align-items: center;
     gap: 4px;
-    color: #76777D;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
+    color: var(--game-secondary-text);
     margin-top: 4px;
 }
 
 .stick {
-    color: #BA1A1A;
+    color: var(--game-danger);
 }
 
 .gameStrictIcon {
     width: 14px;
-    height: 14x;
+    height: 14px;
     display: inline-block;
     fill: currentColor;
 }
@@ -108,15 +116,11 @@
     font-size: 24px;
     line-height: 32px;
     letter-spacing: -0.24px;
-    color: #0F172A;
+    color: var(--game-text);
 }
 
 .gameDuration {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
-    color: #76777D;
+    color: var(--game-secondary-text);
 }
 
 .gameLocation {
@@ -124,8 +128,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: #ECEEF0 solid 1px;
-    border-top: #ECEEF0 solid 1px;
+    border-bottom: var(--game-divider) solid 1px;
+    border-top: var(--game-divider) solid 1px;
     padding: 4px 0;
 }
 
@@ -133,7 +137,7 @@
     width: 16px;
     height: 20px;
     flex-shrink: 0;
-    fill: #76777D;
+    fill: var(--game-secondary-text);
 }
 
 .gameLocationInfo {
@@ -145,15 +149,11 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #0F172A;
+    color: var(--game-text);
 }
 
 .gameCourtName {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
-    color: #76777D;
+    color: var(--game-secondary-text);
 }
 
 .gamePlayers {
@@ -174,7 +174,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--game-inverse-text);
     margin-right: -10px;
 }
 
@@ -182,8 +182,8 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ECEEF0;
-    border: 2px solid #ffffff;
+    background-color: var(--game-muted-surface);
+    border: 2px solid var(--game-inverse-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +193,7 @@
 .gameAddPlayerIcon {
     width: 20px;
     height: 20px;
-    fill: #76777D;
+    fill: var(--game-secondary-text);
 }
 
 .gamePlayersCount {
@@ -201,7 +201,7 @@
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.14px;
-    color: #45464D;
+    color: var(--game-tertiary-text);
 }
 
 .gameFooter {
@@ -217,11 +217,7 @@
 }
 
 .gamePriceLabel {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0.36px;
-    color: #76777D;
+    color: var(--game-secondary-text);
 }
 
 .gamePriceValue {
@@ -229,12 +225,12 @@
     font-weight: 700;
     line-height: 32px;
     letter-spacing: -0.24px;
-    color: #000000;
+    color: var(--game-strong);
 }
 
 .gameJoinBtn {
     background: linear-gradient(106.96deg, #06B6D4 0%, #10B981 100%);
-    color: #ffffff;
+    color: var(--game-inverse-text);
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;

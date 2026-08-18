@@ -1,4 +1,11 @@
-import { LogoIcon, BotIcon, GroupIcon, EmailIcon, TelephoneIcon, LanguageIcon } from "../Icons/Icons.jsx";
+import {
+    BotIcon,
+    EmailIcon,
+    GroupIcon,
+    LanguageIcon,
+    LogoIcon,
+    TelephoneIcon,
+} from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
 import style from "./Footer.module.scss";
 

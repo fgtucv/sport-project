@@ -1,0 +1,46 @@
+.chart {
+    --chart-text: #191C1E;
+    --chart-secondary-text: #45464D;
+
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.textInChartDiv {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.winRateInChart,
+.descriptionInChart {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.winRateInChart {
+    color: var(--chart-secondary-text);
+
+    & .winRateAccenteInChart {
+        font-weight: 700;
+    }
+}
+
+.matchesInChart {
+    color: var(--chart-text);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: -0.32px;
+}
+
+.descriptionInChart {
+    color: var(--chart-text);
+}

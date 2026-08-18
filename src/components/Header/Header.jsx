@@ -1,12 +1,22 @@
-import { LogoIcon, UserIcon, GameIcon, SettingsIcon, TournamentIcon, StatisticIcon, MessegIcon, CalendarIcon, AddIcon } from "../Icons/Icons.jsx";
+import {
+    AddIcon,
+    CalendarIcon,
+    GameIcon,
+    LogoIcon,
+    MessegIcon,
+    SettingsIcon,
+    StatisticIcon,
+    UserIcon,
+} from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
 import style from "./Header.module.scss";
 
 export const Header = () => {
     return <header className={style.header}>
         <Container>
+            <h1 className={style.headerPageName}>Статистика</h1>
             <a className={style.headerLogo}>
-                <LogoIcon/>
+                <LogoIcon />
             </a>
             <ul className={style.headerNav}>
                 <li className={style.headerNavItem + ' ' + style.active}>
@@ -14,7 +24,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Ігри
                         </span>
-                        <GameIcon className={style.headerNavIcon}/>
+                        <GameIcon className={style.headerNavIcon} />
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -22,7 +32,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Мої ігри
                         </span>
-                        <CalendarIcon className={style.headerNavIcon}/>
+                        <CalendarIcon className={style.headerNavIcon} />
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -30,7 +40,7 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Створити гру
                         </span>
-                        <AddIcon className={style.headerNavIcon}/>
+                        <AddIcon className={style.headerNavIcon} />
                     </a>
                 </li>
                 <li className={style.headerNavItem}>
@@ -38,32 +48,32 @@ export const Header = () => {
                         <span className={style.headerNavSpan}>
                             Статистика
                         </span>
-                        <StatisticIcon className={style.headerNavIcon}/>
+                        <StatisticIcon className={style.headerNavIcon} />
                     </a>
                 </li>
-                <li className={style.headerNavItem}>
+                {/* <li className={style.headerNavItem}>
                     <a className={style.headerNavLink}>
                         <span className={style.headerNavSpan}>
                             Піраміда
                         </span>
-                        <TournamentIcon className={style.headerNavIcon}/>
+                        <TournamentIcon className={style.headerNavIcon} />
                     </a>
-                </li>
+                </li> */}
             </ul>
             <ul className={style.headerList}>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <MessegIcon className={style.headerIcon}/>
+                        <MessegIcon className={style.headerIcon} />
                     </a>
                 </li>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <SettingsIcon className={style.headerIcon}/>
+                        <SettingsIcon className={style.headerIcon} />
                     </a>
                 </li>
                 <li className={style.headerItem}>
                     <a className={style.headerLink}>
-                        <UserIcon className={style.headerIcon}/>
+                        <UserIcon className={style.headerIcon} />
                     </a>
                 </li>
             </ul>

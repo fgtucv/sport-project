@@ -1,5 +1,7 @@
-import { DownArrowIcon } from "../Icons/Icons";
-import { CheckmarkIcon } from "../Icons/Icons"
+import {
+    CheckmarkIcon,
+    DownArrowIcon,
+} from "../Icons/Icons";
 import style from "./Sorted.module.scss";
 
 export const Sorted = () => {

@@ -1,8 +1,9 @@
-// icon
-import { LocationIcon } from "../Icons/Icons";
-import { InfoIcon } from "../Icons/Icons";
-import { ComeToGameIcon } from "../Icons/Icons";
-// style
+import {
+    ComeToGameIcon,
+    InfoIcon,
+    LocationIcon,
+} from "../../../../components/Icons/Icons";
+
 import style from "./GameToJoinItem.module.scss";
 
 export const GameToJoinItem = ({obj}) => {
@@ -34,11 +35,14 @@ export const GameToJoinItem = ({obj}) => {
 
         <div className={style.gamePlayers}>
             <figure className={style.gameAvatarsGroup}>
-                {
-                    obj.players.map((player) => {
-                        return <img className={style.gameAvatarImg} src={player.avatarUrl} alt={"Гравець " + player.nickname} />;
-                    })
-                }
+                {obj.players.map((player) => (
+                    <img
+                        key={player.nickname}
+                        className={style.gameAvatarImg}
+                        src={player.avatarUrl}
+                        alt={`Гравець ${player.nickname}`}
+                    />
+                ))}
                 {obj.maxPlayers > obj.currentPlayers ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}
             </figure>
             <span className={style.gamePlayersCount}>{obj.maxPlayers > obj.currentPlayers ? `${obj.currentPlayers} / ${obj.maxPlayers} гравців` : "Місьці немає"}</span>

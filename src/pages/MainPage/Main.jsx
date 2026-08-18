@@ -1,18 +1,13 @@
-// icon
-import { Category } from "../../components/Category/Category";
-import { Sorted } from "../../components/Sorted/Sorted";
-import { LocationIcon } from "../../components/Icons/Icons";
-import { InfoIcon } from "../../components/Icons/Icons";
-import { ComeToGameIcon } from "../../components/Icons/Icons";
-// data
-import daysData from "../../data/days.json";
-import gamesData from "../../data/AllGames.json"
-// style
-import style from "./Main.module.scss";
-// components
+import { Sorted } from "../../components/Sorted/Sorted.jsx";
+import { Category } from "../../components/Category/Category.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { Container } from "../../components/Container/Container";
-import { GameToJoinItem } from "../../components/GameToJoinItem/GameToJoinItem";
+import { GameToJoinItem } from "./components/GameToJoinItem/GameToJoinItem.jsx";
+
+import daysData from "../../data/days.json";
+import gamesData from "../../data/AllGames.json";
+
+import style from "./Main.module.scss";
 
 const text = {
     title: "Доступні ігри",
@@ -37,9 +32,9 @@ export const Main = () => {
                 <Sorted />
             </div>
             <ul className={style.games}>
-                {
-                    gamesData.map((game) => {return <GameToJoinItem obj={game} /> })
-                }
+                {gamesData.map((game) => (
+                    <GameToJoinItem key={game.id} obj={game} />
+                ))}
             </ul>
         </Container>
     </main>

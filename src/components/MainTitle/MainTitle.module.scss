@@ -1,3 +1,11 @@
+.div {
+    display: none;
+
+    @media (min-width: 1280px) {
+        display: block;
+    }
+}
+
 .title {
     font-weight: 900;
     font-size: 36px;

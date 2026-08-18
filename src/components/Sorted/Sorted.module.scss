@@ -1,16 +1,25 @@
 
 .sorted {
+    --sort-surface: #FFFFFF;
+    --sort-border: #C6C6CD;
+    --sort-text: #0F172A;
+    --sort-active-surface: #ECEEF0;
+
     position: relative;
 }
 
-.sortedSelectedButton {
+.sortedSelectedButton,
+.sortedButton {
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #0F172A;
+}
+
+.sortedSelectedButton {
+    color: var(--sort-text);
     padding: 8px 16px;
-    background-color: #FFFFFF;
-    border: 1px solid #C6C6CD;
+    background-color: var(--sort-surface);
+    border: 1px solid var(--sort-border);
     border-radius: 8px;
     display: inline-flex;
     align-items: center;
@@ -27,8 +36,8 @@
 
 .sortedList {
     position: absolute;
-    background-color: #FFFFFF;
-    border: 1px solid #C6C6CD;
+    background-color: var(--sort-surface);
+    border: 1px solid var(--sort-border);
     border-radius: 8px;
     right: 0;
     padding: 4px 0;
@@ -41,7 +50,7 @@
 }
 
 .activeSorted {
-    background-color: #ECEEF0;
+    background-color: var(--sort-active-surface);
 }
 
 .activeSorted .sortedButtonIcon {
@@ -49,10 +58,7 @@
 }
 
 .sortedButton {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #0F172A;
+    color: var(--sort-text);
     text-align: left;
     white-space: nowrap;
     display: inline-flex;
