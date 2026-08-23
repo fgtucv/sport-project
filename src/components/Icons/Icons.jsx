@@ -469,3 +469,18 @@ export const FireIcon = (props) => {
 };
 
 FireIcon.displayName = 'FireIcon';
+
+export const MenuIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      {...props}
+    >
+      <path d="M30 14h-28c-1.105 0-2 0.895-2 2s0.895 2 2 2h28c1.105 0 2-0.895 2-2s-0.895-2-2-2z"></path>
+      <path d="M2 8.667h28c1.105 0 2-0.895 2-2s-0.895-2-2-2h-28c-1.105 0-2 0.895-2 2s0.895 2 2 2z"></path>
+      <path d="M30 23.333h-28c-1.105 0-2 0.895-2 2s0.895 2 2 2h28c1.105 0 2-0.895 2-2s-0.895-2-2-2z"></path>
+    </svg>
+  );
+};
+
+MenuIcon.displayName = 'MenuIcon';

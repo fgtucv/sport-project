@@ -5,6 +5,11 @@ import {
     LanguageIcon,
     LogoIcon,
     TelephoneIcon,
+    MenuIcon,
+    AddIcon,
+    CalendarIcon,
+    GameIcon,
+    StatisticIcon
 } from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
 import style from "./Footer.module.scss";
@@ -12,6 +17,23 @@ import style from "./Footer.module.scss";
 export const Footer = () => {
     return <footer className={style.footer}>
         <Container>
+            <ul className={style.footerNavList}>
+                <li className={`${style.footerNavItem} ${style.active}`}>
+                    <GameIcon className={style.footerNavIcon} />
+                </li>
+                <li className={style.footerNavItem}>
+                    <CalendarIcon className={style.footerNavIcon} />
+                </li>
+                <li className={style.footerNavItem}>
+                    <AddIcon className={style.footerNavIcon} />
+                </li>
+                <li className={style.footerNavItem}>
+                    <StatisticIcon className={style.footerNavIcon} />
+                </li>
+                <li className={style.footerNavItem}>
+                    <MenuIcon className={style.footerNavIcon} />
+                </li>
+            </ul>
             <div className={style.footerTopDiv}>
                 <div>
                     <a className={style.footerLogo}>
@@ -66,10 +88,10 @@ export const Footer = () => {
             </div>
             <div className={style.footerBottomDiv}>
                 <h4 className={style.footerSecurityText}>© 2023 PadelPulse. Всі права захищені.</h4>
-                    <span className={style.footerLanguage}>
-                        <LanguageIcon className={style.footerLanguageIcon} />
+                <span className={style.footerLanguage}>
+                    <LanguageIcon className={style.footerLanguageIcon} />
                     Українська
-                </span>                                     
+                </span>
             </div>
         </Container>
     </footer >

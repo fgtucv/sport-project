@@ -5,13 +5,22 @@
     --footer-muted-text: #76777D;
     --footer-heading: #000000;
 
-    background-color: var(--footer-surface);
-    border-top: 1px solid var(--footer-border);
+    border-radius: 12px 12px 0 0;
+    background: #FFF;
+    box-shadow: 0 -8px 24px 0 rgba(15, 23, 42, 0.04);
+
+    @media (min-width: 1280px) {
+        background-color: var(--footer-surface);
+        border-top: 1px solid var(--footer-border);
+    }
 }
 
 .footer>div {
-    padding: 64px 16px 40px 16px;
-    flex-direction: column;
+    padding: 16px 24px;
+
+    @media (min-width: 1280px) {
+        padding: 64px 16px 40px 16px;
+    }
 }
 
 .footerTopDiv {
@@ -110,4 +119,27 @@
     width: 14px;
     height: 14px;
     fill: var(--footer-text);
+}
+
+.footerNavList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 1280px) {
+        display: none;
+    }
+}
+
+.active {
+    .footerNavIcon {
+        fill: #0058be;
+    }
+}
+
+.footerNavIcon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    fill: #75859d;
 }

@@ -1,0 +1,182 @@
+.gameItem {
+    --game-surface: #ffffff;
+    --game-muted-surface: #ECEEF0;
+    --game-border: #C6C6CD;
+    --game-divider: #ECEEF0;
+    --game-text: #0F172A;
+    --game-strong: #000000;
+    --game-secondary-text: #76777D;
+    --game-tertiary-text: #45464D;
+    --game-inverse-text: #ffffff;
+    --game-danger: #BA1A1A;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    background: var(--game-surface);
+    border: 1px solid var(--game-border);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    gap: 16px;
+}
+
+.available {
+    .gameJoinBtn {
+        background: linear-gradient(90deg, #2DD4BF 0%, #22C55E 100%);
+        color: #ffffff;
+        box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.20), 0 4px 6px -4px rgba(34, 197, 94, 0.20);
+    }
+
+    .gameStrictLevel {
+        display: none;
+    }
+}
+
+.unavailable {
+    .gameJoinBtn {
+        background: #D8DADC;
+        color: #45464D;
+    }
+
+    .gameStrictLevel {
+        display: block;
+    }
+}
+
+.gameHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.gameHeaderFlexGroup {
+    display: flex;
+    gap: 4px;
+}
+
+.gameBadgeSport {
+    border-radius: 8px;
+    background-color: #E6E8EA;
+    padding: 4px 8px;
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+.gameBadgeLevel {
+    border-radius: 8px;
+    background-color: #E6E8EA;
+    padding: 4px 8px;
+    color: #45464D;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.36px;
+}
+
+.gamePriceValue {
+    margin-left: auto;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.gameTime {
+    color: #191C1E;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.gameLocation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #45464D;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    font-style: normal;
+
+}
+
+.gameLocationIcon {
+    width: 12px;
+    height: 15px;
+    fill: #45464D;
+}
+
+.gamePlayers {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gameAvatarsGroup {
+    display: flex;
+
+}
+
+.gameAvatarImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    margin-left: -8px;
+}
+
+.gameAddPlayerBtn {
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    background-color: #ECEEF0;
+    width: 40px;
+    height: 40px;
+    margin-left: -8px;
+}
+
+.gameAddPlayerIcon {
+    width: 16px;
+    height: 16px;
+    fill: #76777d;
+}
+
+.gamePlayersCount {
+    color: #45464D;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+}
+
+.gameFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.gameStrictLevel {
+    display: none;
+    color: #BA1A1A;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.36px;
+}
+
+.gameJoinBtn {
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+}

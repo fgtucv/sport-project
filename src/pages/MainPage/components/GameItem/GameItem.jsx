@@ -4,9 +4,9 @@ import {
     LocationIcon,
 } from "../../../../components/Icons/Icons";
 
-import style from "./GameToJoinItem.module.scss";
+import style from "./GameItem.module.scss";
 
-export const GameToJoinItem = ({obj}) => {
+export const GameItem = ({obj}) => {
     return <li className={style.gameItem + ' ' + (obj.isFull ? style.isFullgame : '')}>
         <div className={style.gameHeader}>
             <div className={style.gameBadgesGroup}>

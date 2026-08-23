@@ -2,7 +2,8 @@ import { Sorted } from "../../components/Sorted/Sorted.jsx";
 import { Category } from "../../components/Category/Category.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { Container } from "../../components/Container/Container";
-import { GameToJoinItem } from "./components/GameToJoinItem/GameToJoinItem.jsx";
+import { GameItem } from "./components/GameItem/GameItem.jsx";
+import { GameMobileItem } from "./components/GameMobileItem/GameMobileItem.jsx";
 
 import daysData from "../../data/days.json";
 import gamesData from "../../data/AllGames.json";
@@ -15,9 +16,11 @@ const text = {
 }
 
 export const Main = () => {
+    const isMobile = window.matchMedia('(max-width: 1279px)');
+
     return <main className={style.main}>
         <Container>
-            <MainTitle text={text}/>
+            <MainTitle text={text} />
             <ul className={style.mainDates}>
                 {
                     daysData.map((day) => (
@@ -33,7 +36,7 @@ export const Main = () => {
             </div>
             <ul className={style.games}>
                 {gamesData.map((game) => (
-                    <GameToJoinItem key={game.id} obj={game} />
+                    isMobile.matches ? <GameMobileItem key={game.id} obj={game} /> : <GameItem key={game.id} obj={game} />
                 ))}
             </ul>
         </Container>
