@@ -1,0 +1,310 @@
+{
+    "id": "usr-bosla-097",
+    "profile": {
+        "username": "@bosla_097",
+        "firstName": "Олександр",
+        "lastName": "",
+        "initials": "BO",
+        "phoneNumber": "+380...",
+        "languages": [
+            "uk",
+            "es"
+        ],
+        "avatarUrl": "https://..."
+    },
+    "rating": {
+        "level": "2.6",
+        "pts": 379,
+        "elo": null
+    },
+    "statistics": {
+        "overall": {
+            "winRatePercentage": 54,
+            "totalMatches": 126,
+            "wins": 68,
+            "draws": 32,
+            "losses": 26,
+            "tournamentsPlayed": 18,
+            "gamesWon": 460,
+            "winStreak": 9,
+            "achievementsUnlocked": 8
+        },
+        "byTournamentType": [
+            {
+                "type": "Primera",
+                "winRatePercentage": 52,
+                "tournamentsCount": 15,
+                "matchesCount": 105,
+                "record": {
+                    "wins": 55,
+                    "draws": 23,
+                    "losses": 27
+                }
+            },
+            {
+                "type": "Masculino",
+                "winRatePercentage": 62,
+                "tournamentsCount": 3,
+                "matchesCount": 21,
+                "record": {
+                    "wins": 13,
+                    "draws": 3,
+                    "losses": 5
+                }
+            }
+        ],
+        "timeOnCourt": {
+            "averageDurationMin": 14.57,
+            "matchesTracked": 16,
+            "fastestMatch": {
+                "type": "fastest",
+                "durationStr": "11:03",
+                "score": "5:1",
+                "dateInfo": "02 тра • Primera",
+                "teamA": [
+                    "@khmta",
+                    "@bosla_097"
+                ],
+                "teamB": [
+                    "@KostiantynPidhornyi",
+                    "@ksenofontova"
+                ]
+            },
+            "longestMatch": {
+                "type": "longest",
+                "durationStr": "19:52",
+                "score": "3:3",
+                "dateInfo": "02 тра • Primera",
+                "teamA": [
+                    "@bosla_097",
+                    "@Marcos_Medel"
+                ],
+                "teamB": [
+                    "@cotoha_1",
+                    "@KostiantynPidhornyi"
+                ]
+            }
+        },
+        "topOpponents": [
+            {
+                "id": "usr-mario-01",
+                "name": "Mario García",
+                "username": "@mario_g",
+                "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100",
+                "winRatePercentage": -50,
+                "opponentLevel": 0.0,
+                "matchesPlayed": 2,
+                "winsAgainst": 0,
+                "recentForm": [
+                    "loss",
+                    "loss"
+                ]
+            },
+            {
+                "id": "usr-andriy-02",
+                "name": "Андрій",
+                "username": "@andriy_p",
+                "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
+                "winRatePercentage": -25,
+                "opponentLevel": 2.9,
+                "matchesPlayed": 8,
+                "winsAgainst": 2,
+                "recentForm": [
+                    "win",
+                    "loss",
+                    "loss",
+                    "win",
+                    "loss"
+                ]
+            },
+            {
+                "id": "usr-al-91",
+                "name": "Alex",
+                "username": "@al_l_91",
+                "avatarUrl": null,
+                "winRatePercentage": -19,
+                "opponentLevel": 2.5,
+                "matchesPlayed": 16,
+                "winsAgainst": 5,
+                "recentForm": [
+                    "loss",
+                    "win",
+                    "loss",
+                    "loss",
+                    "win"
+                ]
+            }
+        ],
+        "topPartners": [
+            {
+                "id": "usr-ye-alex",
+                "name": "Alex",
+                "username": "@ye_alex",
+                "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
+                "winRatePercentage": 100,
+                "partnerLevel": 2.6,
+                "matchesPlayed": 3,
+                "winsTogether": 3,
+                "recentForm": [
+                    "win",
+                    "win",
+                    "win"
+                ]
+            },
+            {
+                "id": "usr-krapochka",
+                "name": "Krapochka",
+                "username": "@krapochka_case",
+                "avatarUrl": null,
+                "winRatePercentage": 100,
+                "partnerLevel": 2.2,
+                "matchesPlayed": 3,
+                "winsTogether": 3,
+                "recentForm": [
+                    "win",
+                    "win",
+                    "win"
+                ]
+            },
+            {
+                "id": "usr-mario-01",
+                "name": "Mario García",
+                "username": "@mario_g",
+                "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100",
+                "winRatePercentage": 100,
+                "partnerLevel": 0.0,
+                "matchesPlayed": 1,
+                "winsTogether": 1,
+                "recentForm": [
+                    "win"
+                ]
+            }
+        ],
+        "activityByMonth": [
+            {
+                "month": "Січ",
+                "year": 2026,
+                "value": 20,
+                "types": {
+                    "win": 10,
+                    "loss": 5,
+                    "draw": 5
+                }
+            },
+            {
+                "month": "Лют",
+                "year": 2026,
+                "value": 15,
+                "types": {
+                    "win": 7,
+                    "loss": 4,
+                    "draw": 4
+                }
+            }
+        ]
+    },
+    "games": [
+        {
+            "id": "game-001",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Гра з паделу",
+            "status": "Loss",
+            "location": "Kyiv Arena",
+            "matchDate": "2026-10-20",
+            "matchTime": "10:00",
+            "durationMin": 85,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 3,
+                    "teamB": 6,
+                    "durationMin": 40
+                },
+                {
+                    "set": 2,
+                    "teamA": 2,
+                    "teamB": 6,
+                    "durationMin": 45
+                }
+            ],
+            "pricing": {
+                "amount": 7.00,
+                "currency": "EUR",
+                "isPaid": false
+            },
+            "creator": {
+                "id": "usr-101",
+                "username": "@anna_padel"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-103",
+                    "username": "@elena_m",
+                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "team": "B"
+                },
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-103",
+                    "username": "@elena_m",
+                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "draft-001",
+            "type": "draft",
+            "title": "Чернетка №1",
+            "status": "Draft",
+            "createdAt": "2026-10-18T14:30:00Z",
+            "pricing": {
+                "amount": 0,
+                "currency": "EUR",
+                "isPaid": false
+            },
+            "players": []
+        }
+    ],
+    "achievements": [
+        {
+            "id": "first-win",
+            "title": "Перша перемога",
+            "description": "Зіграйте свою першу переможну гру",
+            "icon": "trophy-icon",
+            "isUnlocked": true,
+            "unlockedAt": "2025-05-12T10:00:00Z"
+        }
+    ],
+    "notifications": [
+        {
+            "id": "notif-1",
+            "type": "payment",
+            "title": "Списання: 12.50 €",
+            "subtitle": "Оплата за Padel Club",
+            "date": "2026-08-20T10:00:00Z",
+            "isRead": true
+        },
+        {
+            "id": "notif-2",
+            "type": "invite",
+            "title": "Запрошення на гру",
+            "subtitle": "Марина Т. запрошує вас",
+            "date": "2026-08-26T15:30:00Z",
+            "isRead": false
+        }
+    ],
+    "debts": []
+}

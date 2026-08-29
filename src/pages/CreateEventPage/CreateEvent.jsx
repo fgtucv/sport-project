@@ -7,7 +7,7 @@ import {
 import { Container } from "../../components/Container/Container";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { CreateForm } from "./components/CreateForm/CreateForm";
-import { EventTypeCard } from "./components/EventTypeCard/EventTypeCard";
+import { EventTypeCard } from "./components/EventTypeList/EventTypeList";
 
 import style from "./CreateEvent.module.scss";
 
@@ -15,6 +15,25 @@ const text = {
   title: "Створіть подію",
   subtitle: "Створюйте свої ігри, турніри, кваліфікації",
 };
+
+const eventTypes = [
+  {
+    Icon: GameEventIcon,
+    title: "Звичайна гра",
+    description: "Хороший вибір щоб пограти з друзями або завести нові знайомства",
+    isActive: true,
+  },
+  {
+    Icon: TournamentEventIcon,
+    title: "Турнір",
+    description: "Можна перевірити себе та підвищити рівень гри",
+  },
+  {
+    Icon: QualificationEventIcon,
+    title: "Кваліфікація",
+    description: "Швидкий спосіб підвищитись до Прімавери щоб взяти участь в турнірі",
+  },
+];
 
 export const CreateEvent = () => {
   return (
@@ -35,25 +54,3 @@ export const CreateEvent = () => {
     </section>
   );
 };
-
-const eventTypes = [
-  {
-    Icon: GameEventIcon,
-    iconClassName: style.gameIcon,
-    title: "Звичайна гра",
-    description: "Хороший вибір щоб пограти з друзями або завести нові знайомства",
-    isActive: true,
-  },
-  {
-    Icon: TournamentEventIcon,
-    iconClassName: style.tournamentIcon,
-    title: "Турнір",
-    description: "Можна перевірити себе та підвищити рівень гри",
-  },
-  {
-    Icon: QualificationEventIcon,
-    iconClassName: style.qualificationIcon,
-    title: "Кваліфікація",
-    description: "Швидкий спосіб підвищитись до Прімавери щоб взяти участь в турнірі",
-  },
-];

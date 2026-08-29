@@ -32,7 +32,7 @@ export const MyEventItem = ({obj}) => {
             <div className={style.gameMeta}>
                 <p className={style.gameLocation}>{obj.location}</p>
                 <time dateTime="2026-10-20T10:00" className={style.gameDateTime}>
-                    {obj.date}, {obj.time}
+                    {obj.matchDate}, {obj.matchTime}
                 </time>
             </div>
 
@@ -87,9 +87,9 @@ export const MyEventItem = ({obj}) => {
                 </div>
             )}
 
-            <div className={style.gameDebtStatus + ' ' + (obj.isPaid ? ' ' : style.debtNotPaid)}>
-                <span className={style.gameDebtLabel}>{obj.isPaid ? `Борг перед ${obj.creatorUsername} сплачено:` : `Борг перед ${obj.creatorUsername} несплачено:`}</span>
-                <span className={style.gameDebtAmount}> {obj.pricingAmount} €</span>
+            <div className={style.gameDebtStatus + ' ' + (obj.pricing.isPaid ? ' ' : style.debtNotPaid)}>
+                <span className={style.gameDebtLabel}>{obj.pricing.isPaid ? `Борг перед ${obj.creatorUsername} сплачено:` : `Борг перед ${obj.creator.username} несплачено:`}</span>
+                <span className={style.gameDebtAmount}> {obj.pricing.amount} €</span>
             </div>
 
             <button type="button" className={style.gameDeleteButton}>

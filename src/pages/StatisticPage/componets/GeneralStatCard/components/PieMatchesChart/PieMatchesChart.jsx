@@ -17,7 +17,7 @@ export const PieMatchesChart = () => {
     const totalMatches = dataForPieChart.reduce((sum, item) => sum + item.value, 0);
     const winPercentage = totalMatches ? Math.round(((dataForPieChart.find(item => item.name === "Перемоги")?.value || 0) / totalMatches) * 100) : 0;
 
-    return <div className={style.chart}>
+    return <div style={{ width: '100%', height: '250px', position: 'relative'}}>
         <ResponsiveContainer width="100%" height="100%">
             <PieChart>
                 <Pie

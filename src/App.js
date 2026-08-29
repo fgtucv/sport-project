@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="main">
       <Header/>
-       <Main/>
-       <MyEvent/>
-       <CreateEvent/>
+       {/* <Main/> */}
+       {/* <MyEvent/> */}
+       {/* <CreateEvent/> */}
        <Statistic/>
       <Footer/>
     </div>

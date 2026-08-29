@@ -1,0 +1,130 @@
+.matchCard {
+    background: #f2f4f6;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.matchBlanc {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 3px;
+    left: 0;
+}
+
+.fastestMatch {
+    & .matchBlanc {
+        background-color: var(--stat-success-dark);
+    }
+}
+
+.longestMatch {
+    & .matchBlanc {
+        background-color: var(--stat-danger-dark);
+    }
+}
+
+.matchTag {
+    color: var(--stat-secondary-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.matchCentredDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.matchTime {
+    color: var(--stat-text);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+
+    small {
+        color: var(--stat-secondary-text);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}
+
+.matchPlayers {
+    color: var(--stat-secondary-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.matcMeta {
+    color: var(--stat-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.matchScore {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: var(--stat-text);
+}
+
+.tournamentCard {
+    background: var(--stat-soft-surface);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tournamentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tournamentName {
+    color: var(--stat-text);
+}
+
+.tournamentBadge {
+    background: #DCFCE7;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: var(--stat-success-dark);
+}
+
+.tournamentMetrics {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tournMetric {
+    display: flex;
+    flex-direction: column;
+}
+
+.tournMetricLabel {
+    color: var(--stat-muted-text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.tournMetricValue {
+    color: var(--stat-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}

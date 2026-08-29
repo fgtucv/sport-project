@@ -20,7 +20,7 @@ const data = [
 
 export const ActivityBarChart = () => {
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: '100%', height: '469px' }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}

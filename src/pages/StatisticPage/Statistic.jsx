@@ -1,48 +1,30 @@
-import {
-    FireIcon,
-    GeneralStatIcon,
-    TimeStatIcon,
-    TournamentStatIcon,
-} from "../../components/Icons/Icons";
+import { FireIcon, GeneralStatIcon } from "../../components/Icons/Icons";
 
 import { Container } from "../../components/Container/Container";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
-import { PieMatchesChart } from "./componets/PieMatchesChart/PieMatchesChart.jsx";
+import { PieMatchesChart } from "./componets/GeneralStatCard/components/PieMatchesChart/PieMatchesChart.jsx";
 import { ActivityBarChart } from "./componets/ActivityBarChart/ActivityBarChart.jsx";
 import { UserComparisonCard } from "./componets/UserComparisonCard/UserComparisonCard";
+import { BottomCard } from "./componets/BottomCard/BottomCard.jsx";
 
 import style from "./Statistic.module.scss";
+import data from "../../data/user.json"
 
 const text = { title: "Статистика", subtitle: "Преглядай свою статистику та покращу її" };
 
-const challengingOpponents = [
-    { name: "Mario Garcia", alt: "@al_l_91", summary: "0/2 матчів виграно", dots: ["loss", "loss"], trend: "-50%" },
-    { name: "Андрій", alt: "@al_l_91", summary: "2/8 матчів виграно", dots: ["win", "win", "loss", "loss", "loss"], trend: "-25%" },
-    { name: "@al_l_91", alt: "@al_l_91", summary: "5/16 матчів виграно", dots: ["win", "win", "draw", "loss", "loss"], trend: "-19%" },
-];
-
-const bestPartners = [
-    { name: "@ye_alex", alt: "@ye_alex", summary: "3/3 матчів виграно", dots: ["win", "win", "win"], trend: "+100%" },
-    { name: "@krapochka_case", alt: "@krapochka_case", summary: "3/3 матчів виграно", dots: ["win", "win", "win"], trend: "+100%" },
-    { name: "Mario Garcia", alt: "@al_l_91", summary: "1/1 матчів виграно", dots: ["win"], trend: "+100%" },
-];
-
 export const Statistic = () => {
     return (
-        <Container>
-            <MainTitle text={text} />
-
-            <section className={style.dashboard}>
+        <section className={style.dashboard}>
+            <Container>
+                <MainTitle text={text} />
 
                 <div className={style.card}>
                     <div className={style.cardHeader}>
                         <h2 className={style.cardTitle}>Заголовок</h2>
-                        <GeneralStatIcon className={style.statIcon} />
+                        <GeneralStatIcon className={style.cardIcon} />
                     </div>
 
-                    <div className={style.pieChartDiv}>
-                        <PieMatchesChart />
-                    </div>
+                    <PieMatchesChart />
 
                     <ul className={style.statsLegend}>
                         <li className={style.legendItem}>
@@ -99,110 +81,27 @@ export const Statistic = () => {
                         </div>
                     </div>
 
-                    <div className={style.lineChartPlaceholder}>
-                        <ActivityBarChart />
-                    </div>
+                    <ActivityBarChart />
                 </div>
 
                 <div className={style.rightColumn}>
                     <UserComparisonCard
                         title="Найважчі суперники"
-                        users={challengingOpponents}
+                        users={data.statistics.topOpponents}
                         isPositive={false}
                     />
                     <UserComparisonCard
                         title="Найкращі партнери"
-                        users={bestPartners}
-                        isPositive
+                        users={data.statistics.topPartners}
+                        isPositive={true}
                     />
                 </div>
 
-                <div className={style.card}>
-                    <div className={style.cardHeader}>
-                        <h2 className={style.cardTitle}>Час на корті</h2>
-                        <TimeStatIcon className={style.timeIcon} />
-                    </div>
+                <BottomCard type="time" data={data.statistics.timeOnCourt}/>
 
-                    <div className={style.matchCardsList}>
-                        <div className={`${style.matchCard} ${style.fastestMatch}`}>
-                            <span className={style.matchTag}>Найшвидший матч</span>
-                            <div className={style.matchCentredDiv}>
-                                <time className={style.matchTime}>11:03 <small>хв</small></time>
-                                <strong className={style.matchScore}>5:1</strong>
-                            </div>
-                            <span className={style.matchMeta}>@khmta @bosla_097 • May 02 • Primera</span>
-                            <span className={style.matchBlanc}></span>
-                        </div>
+                <BottomCard type="tournament" data={data.statistics.byTournamentType}/>
 
-                        <div className={`${style.matchCard} ${style.longestMatch}`}>
-                            <span className={style.matchTag}>Найдовший матч</span>
-                            <div className={style.matchCentredDiv}>
-                                <time className={style.matchTime}>19:52 <small>хв</small></time>
-                                <strong className={style.matchScore}>3:3</strong>
-                            </div>
-                            <span className={style.matchMeta}>@bosla_097 @Marcos_Medel • May 02 • Primera</span>
-                            <span className={style.matchBlanc}></span>
-                        </div>
-                    </div>
-
-                    <div className={style.averageTimeBlock}>
-                        <span className={style.averageLabel}>Середній час</span>
-                        <time className={style.averageTime}>14:57 <small>хв</small></time>
-                    </div>
-                </div>
-
-                <div className={style.card}>
-                    <div className={style.cardHeader}>
-                        <h2 className={style.cardTitle}>Турнір</h2>
-                        <TournamentStatIcon className={style.tournamentIcon} />
-                    </div>
-
-                    <div className={style.tournamentList}>
-                        <div className={style.tournamentCard}>
-                            <div className={style.tournamentHeader}>
-                                <span className={style.tournamentName}>Primera</span>
-                                <span className={style.tournamentBadge}>52%</span>
-                            </div>
-                            <div className={style.tournamentMetrics}>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>Тур</span>
-                                    <strong className={style.tournMetricValue}>15</strong>
-                                </div>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>Матч</span>
-                                    <strong className={style.tournMetricValue}>105</strong>
-                                </div>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>W-D-L</span>
-                                    <strong className={style.tournMetricValue}>55–23–27</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={style.tournamentCard}>
-                            <div className={style.tournamentHeader}>
-                                <span className={style.tournamentName}>Masculino</span>
-                                <span className={style.tournamentBadge}>62%</span>
-                            </div>
-                            <div className={style.tournamentMetrics}>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>Тур</span>
-                                    <strong className={style.tournMetricValue}>3</strong>
-                                </div>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>Матч</span>
-                                    <strong className={style.tournMetricValue}>21</strong>
-                                </div>
-                                <div className={style.tournMetric}>
-                                    <span className={style.tournMetricLabel}>W-D-L</span>
-                                    <strong className={style.tournMetricValue}>13–3–5</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        </Container >
+            </Container >
+        </section>
     );
 };

@@ -3,7 +3,7 @@ import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 
-import data from "../../data/MyEvenst.json";
+import data from "../../data/user.json";
 
 import style from "./MyEvent.module.scss";
 
@@ -26,7 +26,7 @@ export const MyEvent = () => {
                 <Sorted />
             </div>
             <ul className={style.myEventGames}>
-                {data.map((obj) => (
+                {data.games.map((obj) => (
                     <MyEventItem key={obj.id} obj={obj} />
                 ))}
             </ul>

@@ -1,22 +1,9 @@
-.dashboard {
-    --stat-surface: #ffffff;
-    --stat-soft-surface: #F2F4F6;
-    --stat-border: #C6C6CD;
-    --stat-card-border: #DDE4DD;
-    --stat-text: #191C1E;
-    --stat-secondary-text: #45464D;
-    --stat-muted-text: #BBCABF;
-    --stat-accent: #0058BE;
-    --stat-success: #10B981;
-    --stat-success-dark: #15803D;
-    --stat-danger: #EF4444;
-    --stat-danger-dark: #B91C1C;
-    --stat-draw: #D1D5DB;
-
+.dashboard>div {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
     padding-top: 24px;
+    flex-direction: row;
 }
 
 .card {
@@ -40,21 +27,14 @@
 
     &Title {
         color: var(--stat-text);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
     }
 }
 
-.pieChartDiv {
-    display: flex;
-    width: 100%;
-    height: 232px;
-    align-items: center;
-    justify-content: center;
-}
-
-.cardTitle,
 .legendValue,
 .metricValue,
-.averageTime,
 .tournamentName {
     font-size: 20px;
     font-weight: 600;
@@ -62,18 +42,13 @@
 }
 
 .legendLabel,
-.metricLabel,
-.matchTag,
-.matchMeta,
-.averageLabel {
+.metricLabel {
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
 }
 
-.statIcon,
-.timeIcon,
-.tournamentIcon,
+
 .fireIcon {
     width: 18px;
     height: 18px;
@@ -185,27 +160,6 @@
     }
 }
 
-.lineChartPlaceholder {
-    height: 469px;
-    width: 100%;
-}
-
-.chartMonths {
-    display: flex;
-    justify-content: space-between;
-
-    span {
-        font-size: 12px;
-        font-weight: 600;
-        color: #c6c6cd;
-
-        &.activeMonth {
-            color: var(--stat-text);
-        }
-    }
-}
-
-/* 3. Права колонка та картки суперників/партнерів */
 .rightColumn {
     display: flex;
     flex-direction: column;
@@ -213,75 +167,20 @@
     flex: 1 1 368px;
     min-width: 0;
 
-    & > .card {
+    &>.card {
         flex: 0 1 auto;
         width: 100%;
     }
 }
 
-.linkMore {
-    color: var(--stat-accent);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-}
-
-.userList {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.userItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-}
-
-.avatarImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-}
-
-.userDetails {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.userName {
-    color: var(--stat-text);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-}
-
-.userSubtext {
-    color: var(--stat-muted-text);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-}
-
-.statusDots {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
 .badge {
     display: flex;
-    width: 48px;
     border-radius: 8px;
     color: var(--stat-danger-dark);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
-    line-height: 15px;
-    padding: 4px 0;
+    line-height: 18px;
+    padding: 4px;
     justify-content: center;
 
     &Negative {
@@ -293,157 +192,4 @@
         background-color: #e8f5e9;
         color: #2e7d32;
     }
-}
-
-.matchCardsList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.matchCard {
-    background: #f2f4f6;
-    border-radius: 8px;
-    padding: 16px;
-    display: flex;
-    gap: 4px;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-.matchBlanc {
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    width: 3px;
-    left: 0;
-}
-
-.fastestMatch {
-    & .matchBlanc {
-        background-color: var(--stat-success-dark);
-    }
-}
-
-.longestMatch {
-    & .matchBlanc {
-        background-color: var(--stat-danger-dark);
-    }
-}
-
-.matchTag {
-    color: var(--stat-secondary-text);
-}
-
-.matchCentredDiv {
-    display: flex;
-    justify-content: space-between;
-}
-
-.matchTime {
-    color: var(--stat-text);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 28px;
-
-    small {
-        color: var(--stat-secondary-text);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-    }
-}
-
-.matchMeta {
-    color: var(--stat-secondary-text);
-}
-
-.matchScore {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 24px;
-    color: var(--stat-text);
-}
-
-.averageTimeBlock {
-    display: flex;
-    padding-top: 8px;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid var(--stat-border);
-}
-
-.averageLabel {
-    color: var(--stat-secondary-text);
-}
-
-.averageTime {
-    color: var(--stat-text);
-
-    small {
-        color: var(--stat-secondary-text);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 20px;
-    }
-}
-
-.tournamentList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.tournamentCard {
-    background: var(--stat-soft-surface);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.tournamentHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tournamentName {
-    color: var(--stat-text);
-}
-
-.tournamentBadge {
-    background: #DCFCE7;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 16px;
-    color: var(--stat-success-dark);
-}
-
-.tournamentMetrics {
-    display: flex;
-    justify-content: space-between;
-}
-
-.tournMetric {
-    display: flex;
-    flex-direction: column;
-}
-
-.tournMetricLabel {
-    color: var(--stat-muted-text);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-}
-
-.tournMetricValue {
-    color: var(--stat-text);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
 }

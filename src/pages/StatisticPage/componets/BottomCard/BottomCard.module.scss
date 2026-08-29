@@ -1,0 +1,40 @@
+.matchList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tournamentList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.averageTimeBlock {
+    display: flex;
+    padding-top: 8px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--stat-border);
+}
+
+.averageLabel {
+    color: var(--stat-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.averageTime {
+    color: var(--stat-text);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+
+    small {
+        color: var(--stat-secondary-text);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+}

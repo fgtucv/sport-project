@@ -1,0 +1,53 @@
+.linkMore {
+    color: var(--stat-accent);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.userList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.userItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.avatarImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.userName {
+    color: var(--stat-text);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+}
+
+.userSubtext {
+    color: var(--stat-muted-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.statusDots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

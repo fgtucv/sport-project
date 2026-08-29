@@ -432,9 +432,12 @@ export const TimeStatIcon = (props) => {
 TimeStatIcon.displayName = 'TimeStatIcon';
 
 export const GeneralStatIcon = (props) => {
+  // console.log("PROPS В ІКОНЦІ:", props);
   return (
     <svg
       viewBox="0 0 32 32"
+      width={18}
+      height={18}
       {...props}
     >
       <path d="M0 32v-3.556l3.556-3.556v7.111h-3.556zM7.111 32v-10.667l3.556-3.556v14.222h-3.556zM14.222 32v-14.222l3.556 3.6v10.622h-3.556zM21.333 32v-10.622l3.556-3.556v14.178h-3.556zM28.444 32v-17.778l3.556-3.556v21.333h-3.556zM0 22.8v-5.022l12.444-12.444 7.111 7.111 12.444-12.444v5.022l-12.444 12.444-7.111-7.111-12.444 12.444z"></path>
