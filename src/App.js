@@ -10,9 +10,9 @@ function App() {
     <div className="main">
       <Header/>
        {/* <Main/> */}
-       {/* <MyEvent/> */}
+       <MyEvent/>
        {/* <CreateEvent/> */}
-       <Statistic/>
+       {/* <Statistic/> */}
       <Footer/>
     </div>
   );

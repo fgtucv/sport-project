@@ -317,25 +317,139 @@
                 {
                     "id": "usr-bosla-097",
                     "username": "@bosla_097",
-                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-102",
+                    "username": "@max_b",
+                    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
                     "team": "A"
                 },
                 {
                     "id": "usr-103",
                     "username": "@elena_m",
-                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100",
                     "team": "B"
                 },
                 {
+                    "id": "usr-104",
+                    "username": "@dima_pro",
+                    "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "game-002",
+            "type": "game",
+            "sport": "Теніс",
+            "title": "Тенісний турнір",
+            "status": "Win",
+            "location": "Olympic Center",
+            "matchDate": "2026-10-22",
+            "matchTime": "14:30",
+            "durationMin": 110,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 6,
+                    "teamB": 4,
+                    "durationMin": 45
+                },
+                {
+                    "set": 2,
+                    "teamA": 3,
+                    "teamB": 6,
+                    "durationMin": 35
+                },
+                {
+                    "set": 3,
+                    "teamA": 6,
+                    "teamB": 2,
+                    "durationMin": 30
+                }
+            ],
+            "pricing": {
+                "amount": 12.50,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-bosla-097",
+                "username": "@bosla_097"
+            },
+            "players": [
+                {
                     "id": "usr-bosla-097",
                     "username": "@bosla_097",
-                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
                     "team": "A"
                 },
                 {
-                    "id": "usr-103",
-                    "username": "@elena_m",
-                    "avatarUrl": "https://mi100.info/wp-content/uploads/2025/06/znimok-ekrana-z-2025-06-22-16-28-56.png",
+                    "id": "usr-105",
+                    "username": "@oleksandr_k",
+                    "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "game-003",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Вечірній парний матч",
+            "status": "Win",
+            "location": "Padel Hub Central",
+            "matchDate": "2026-10-25",
+            "matchTime": "19:00",
+            "durationMin": 65,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 6,
+                    "teamB": 2,
+                    "durationMin": 30
+                },
+                {
+                    "set": 2,
+                    "teamA": 6,
+                    "teamB": 3,
+                    "durationMin": 35
+                }
+            ],
+            "pricing": {
+                "amount": 8.00,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-108",
+                "username": "@masham"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-108",
+                    "username": "@masham",
+                    "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-110",
+                    "username": "@serg_b",
+                    "avatarUrl": "https://images.unsplash.com/photo-1521119989659-a83eee488004?w=100",
+                    "team": "B"
+                },
+                {
+                    "id": "usr-111",
+                    "username": "@yulia_l",
+                    "avatarUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100",
                     "team": "B"
                 }
             ]
@@ -343,15 +457,342 @@
         {
             "id": "draft-001",
             "type": "draft",
-            "title": "Чернетка №1",
+            "sport": "Падель",
+            "title": "Чернетка гри №1",
             "status": "Draft",
-            "createdAt": "2026-10-18T14:30:00Z",
+            "location": "Sport Life Podil",
+            "matchDate": null,
+            "matchTime": null,
+            "durationMin": null,
             "pricing": {
                 "amount": 0,
                 "currency": "EUR",
                 "isPaid": false
             },
+            "creator": {
+                "id": "usr-bosla-097",
+                "username": "@bosla_097"
+            },
             "players": []
+        },
+        {
+            "id": "game-004",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Ранкова тренувальна гра",
+            "status": "Soon",
+            "location": "Kyiv Padel Center",
+            "matchDate": "2026-11-02",
+            "matchTime": "09:00",
+            "durationMin": 90,
+            "score": [],
+            "pricing": {
+                "amount": 6.50,
+                "currency": "EUR",
+                "isPaid": false
+            },
+            "creator": {
+                "id": "usr-106",
+                "username": "@ira_tennis"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-106",
+                    "username": "@ira_tennis",
+                    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
+                    "team": "A"
+                }
+            ]
+        },
+        {
+            "id": "game-005",
+            "type": "game",
+            "sport": "Теніс",
+            "title": "Товариський одиночний матч",
+            "status": "Loss",
+            "location": "Marina Tennis Club",
+            "matchDate": "2026-11-05",
+            "matchTime": "16:00",
+            "durationMin": 95,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 4,
+                    "teamB": 6,
+                    "durationMin": 45
+                },
+                {
+                    "set": 2,
+                    "teamA": 5,
+                    "teamB": 7,
+                    "durationMin": 50
+                }
+            ],
+            "pricing": {
+                "amount": 10.00,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-107",
+                "username": "@artem_s"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-107",
+                    "username": "@artem_s",
+                    "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "game-006",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Primera League: Round 5",
+            "status": "Win",
+            "location": "Padel Hub Central",
+            "matchDate": "2026-11-08",
+            "matchTime": "18:00",
+            "durationMin": 75,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 7,
+                    "teamB": 5,
+                    "durationMin": 40
+                },
+                {
+                    "set": 2,
+                    "teamA": 6,
+                    "teamB": 3,
+                    "durationMin": 35
+                }
+            ],
+            "pricing": {
+                "amount": 9.00,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-101",
+                "username": "@anna_padel"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-101",
+                    "username": "@anna_padel",
+                    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-109",
+                    "username": "@bogdan_k",
+                    "avatarUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100",
+                    "team": "B"
+                },
+                {
+                    "id": "usr-104",
+                    "username": "@dima_pro",
+                    "avatarUrl": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "draft-002",
+            "type": "draft",
+            "sport": "Теніс",
+            "title": "Чернетка турніру",
+            "status": "Draft",
+            "location": "Olympic Center",
+            "matchDate": null,
+            "matchTime": null,
+            "durationMin": null,
+            "pricing": {
+                "amount": 0,
+                "currency": "EUR",
+                "isPaid": false
+            },
+            "creator": {
+                "id": "usr-bosla-097",
+                "username": "@bosla_097"
+            },
+            "players": []
+        },
+        {
+            "id": "game-007",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Товариський парний матч",
+            "status": "Draw",
+            "location": "Sport Life Podil",
+            "matchDate": "2026-11-12",
+            "matchTime": "20:00",
+            "durationMin": 90,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 6,
+                    "teamB": 4,
+                    "durationMin": 45
+                },
+                {
+                    "set": 2,
+                    "teamA": 4,
+                    "teamB": 6,
+                    "durationMin": 45
+                }
+            ],
+            "pricing": {
+                "amount": 7.50,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-110",
+                "username": "@serg_b"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-102",
+                    "username": "@max_b",
+                    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-110",
+                    "username": "@serg_b",
+                    "avatarUrl": "https://images.unsplash.com/photo-1521119989659-a83eee488004?w=100",
+                    "team": "B"
+                },
+                {
+                    "id": "usr-103",
+                    "username": "@elena_m",
+                    "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "game-008",
+            "type": "game",
+            "sport": "Теніс",
+            "title": "Запланований вихідний матч",
+            "status": "Soon",
+            "location": "Marina Tennis Club",
+            "matchDate": "2026-11-20",
+            "matchTime": "11:00",
+            "durationMin": 60,
+            "score": [],
+            "pricing": {
+                "amount": 11.00,
+                "currency": "EUR",
+                "isPaid": false
+            },
+            "creator": {
+                "id": "usr-105",
+                "username": "@oleksandr_k"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-105",
+                    "username": "@oleksandr_k",
+                    "avatarUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100",
+                    "team": "B"
+                }
+            ]
+        },
+        {
+            "id": "game-009",
+            "type": "game",
+            "sport": "Падель",
+            "title": "Зимовий відкритий кубок",
+            "status": "Win",
+            "location": "Kyiv Arena",
+            "matchDate": "2026-12-01",
+            "matchTime": "15:00",
+            "durationMin": 80,
+            "score": [
+                {
+                    "set": 1,
+                    "teamA": 6,
+                    "teamB": 3,
+                    "durationMin": 35
+                },
+                {
+                    "set": 2,
+                    "teamA": 7,
+                    "teamB": 6,
+                    "durationMin": 45
+                }
+            ],
+            "pricing": {
+                "amount": 10.00,
+                "currency": "EUR",
+                "isPaid": true
+            },
+            "creator": {
+                "id": "usr-bosla-097",
+                "username": "@bosla_097"
+            },
+            "players": [
+                {
+                    "id": "usr-bosla-097",
+                    "username": "@bosla_097",
+                    "avatarUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-108",
+                    "username": "@masham",
+                    "avatarUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100",
+                    "team": "A"
+                },
+                {
+                    "id": "usr-107",
+                    "username": "@artem_s",
+                    "avatarUrl": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=100",
+                    "team": "B"
+                },
+                {
+                    "id": "usr-111",
+                    "username": "@yulia_l",
+                    "avatarUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100",
+                    "team": "B"
+                }
+            ]
         }
     ],
     "achievements": [

@@ -5,9 +5,9 @@ import {
 
 import style from "./MyEventItem.module.scss";
 
-export const MyEventItem = ({obj}) => {
+export const MyEventItem = ({obj, deleteCard}) => {
     if (obj.status === "Draft") {
-        return <li className={style.game + ' ' + style.gameDraft}>
+        return <li className={style.game + ' ' + style.gameDraft} id={obj.id}>
             <div className={style.gameCardHeader}>
                 <h2 className={style.gameTitle}>{obj.title}</h2>
             </div>
@@ -15,12 +15,12 @@ export const MyEventItem = ({obj}) => {
                 <DraftIcon className={style.gameDraftIcon} />
                 <a className={style.gameDraftText} href="">Редагувати чернетку</a>
             </div>
-            <button type="button" className={style.gameDeleteButton}>
+            <button onClick={deleteCard} type="button" className={style.gameDeleteButton}>
                 Видалити чернетку
             </button>
         </li>
     } else {
-        return <li className={`${style.game} ${style[`is${obj.status}`]}`}>
+        return <li className={`${style.game} ${style[`is${obj.status}`]}`} id={obj.id}>
             <div className={style.gameCardHeader}>
                 <div className={style.gameIconBackgraund}>
                     <PadelIcon className={style.gameTypeIcon} />
@@ -92,7 +92,7 @@ export const MyEventItem = ({obj}) => {
                 <span className={style.gameDebtAmount}> {obj.pricing.amount} €</span>
             </div>
 
-            <button type="button" className={style.gameDeleteButton}>
+            <button onClick={deleteCard} type="button" className={style.gameDeleteButton}>
                 {obj.status === "Soon" ? "Покинути гру" : "Видалити гру"}
             </button>
         </li>
