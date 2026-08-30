@@ -185,21 +185,97 @@
                 "month": "Січ",
                 "year": 2026,
                 "value": 20,
-                "types": {
-                    "win": 10,
-                    "loss": 5,
-                    "draw": 5
-                }
+                "win": 10,
+                "loss": 5,
+                "draw": 5
             },
             {
                 "month": "Лют",
                 "year": 2026,
                 "value": 15,
-                "types": {
-                    "win": 7,
-                    "loss": 4,
-                    "draw": 4
-                }
+                "win": 7,
+                "loss": 4,
+                "draw": 4
+            },
+            {
+                "month": "Бер",
+                "year": 2026,
+                "value": 22,
+                "win": 12,
+                "loss": 6,
+                "draw": 4
+            },
+            {
+                "month": "Квi",
+                "year": 2026,
+                "value": 18,
+                "win": 9,
+                "loss": 5,
+                "draw": 4
+            },
+            {
+                "month": "Тра",
+                "year": 2026,
+                "value": 25,
+                "win": 14,
+                "loss": 6,
+                "draw": 5
+            },
+            {
+                "month": "Чер",
+                "year": 2026,
+                "value": 12,
+                "win": 6,
+                "loss": 4,
+                "draw": 2
+            },
+            {
+                "month": "Лип",
+                "year": 2026,
+                "value": 8,
+                "win": 4,
+                "loss": 3,
+                "draw": 1
+            },
+            {
+                "month": "Сер",
+                "year": 2026,
+                "value": 10,
+                "win": 5,
+                "loss": 3,
+                "draw": 2
+            },
+            {
+                "month": "Вер",
+                "year": 2026,
+                "value": 16,
+                "win": 9,
+                "loss": 4,
+                "draw": 3
+            },
+            {
+                "month": "Жов",
+                "year": 2026,
+                "value": 21,
+                "win": 11,
+                "loss": 6,
+                "draw": 4
+            },
+            {
+                "month": "Лис",
+                "year": 2026,
+                "value": 19,
+                "win": 10,
+                "loss": 5,
+                "draw": 4
+            },
+            {
+                "month": "Гру",
+                "year": 2026,
+                "value": 14,
+                "win": 7,
+                "loss": 4,
+                "draw": 3
             }
         ]
     },

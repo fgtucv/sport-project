@@ -1,0 +1,36 @@
+.statsLegend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    border-bottom: 1px solid var(--stat-border);
+    padding-bottom: 16px;
+}
+
+.legendItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.legendLabelDiv {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.legendLabel {
+    color: var(--stat-secondary-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.legendValue {
+    color: var(--stat-text);
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+}

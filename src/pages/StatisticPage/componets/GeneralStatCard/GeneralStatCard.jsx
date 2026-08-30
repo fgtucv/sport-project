@@ -1,62 +1,46 @@
 import { Component } from "react";
-import { PieMatchesChart } from "./components/PieMatchesChart/PieMatchesChart.jsx";
 import { StatHeader } from "../StatHeader/StatHeader.jsx";
-import { GeneralStatIcon, FireIcon } from "../../../../components/Icons/Icons.jsx";
+import { StatList } from "./components/StatList/StatList.jsx";
+import { GeneralStatIcon } from "../../../../components/Icons/Icons.jsx";
+import { PieMatchesChart } from "./components/PieMatchesChart/PieMatchesChart.jsx";
 
 import style from "./GeneralStatCard.module.scss";
+import cardstyle from "../../Statistic.module.scss";
 
 export class GeneralStatCard extends Component {
     render() {
+        const { data } = this.props;
         return (
-            <div className={style.card}>
+            <div className={cardstyle.card}>
                 <StatHeader titel={"Заголовок"} Icon={GeneralStatIcon}/>
 
-                <PieMatchesChart />
+                <PieMatchesChart data={data}/>
 
                 <ul className={style.statsLegend}>
                     <li className={style.legendItem}>
                         <div className={style.legendLabelDiv}>
-                            <span className={`${style.dot} ${style.winDot}`}></span>
+                            <span className={`${cardstyle.dot} ${cardstyle.winDot}`}></span>
                             <span className={style.legendLabel}>Перемоги</span>
                         </div>
-                        <strong className={style.legendValue}>68</strong>
+                        <strong className={style.legendValue}>{data.wins}</strong>
                     </li>
                     <li className={style.legendItem}>
                         <div className={style.legendLabelDiv}>
-                            <span className={`${style.dot} ${style.drawDot}`}></span>
+                            <span className={`${cardstyle.dot} ${cardstyle.drawDot}`}></span>
                             <span className={style.legendLabel}>Нічії</span>
                         </div>
-                        <strong className={style.legendValue}>32</strong>
+                        <strong className={style.legendValue}>{data.draws}</strong>
                     </li>
                     <li className={style.legendItem}>
                         <div className={style.legendLabelDiv}>
-                            <span className={`${style.dot} ${style.lossDot}`}></span>
+                            <span className={`${cardstyle.dot} ${cardstyle.lossDot}`}></span>
                             <span className={style.legendLabel}>Поразки</span>
                         </div>
-                        <strong className={style.legendValue}>26</strong>
+                        <strong className={style.legendValue}>{data.losses}</strong>
                     </li>
                 </ul>
 
-                <div className={style.metricsGrid}>
-                    <div className={style.metricCard}>
-                        <span className={style.metricLabel}>Турніри</span>
-                        <strong className={style.metricValue}>18</strong>
-                    </div>
-                    <div className={style.metricCard}>
-                        <span className={style.metricLabel}>Гейм-W</span>
-                        <strong className={style.metricValue}>460</strong>
-                    </div>
-                    <div className={style.metricCard}>
-                        <span className={style.metricLabel}>Стрік</span>
-                        <strong className={`${style.metricValue} ${style.metricValueStreak}`}>
-                            9 <FireIcon className={style.fireIcon} />
-                        </strong>
-                    </div>
-                    <div className={style.metricCard}>
-                        <span className={style.metricLabel}>Досягненя</span>
-                        <strong className={style.metricValue}>8</strong>
-                    </div>
-                </div>
+                <StatList data={data}/>
             </div>
         )
     }

@@ -1,0 +1,38 @@
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+    gap: 8px;
+}
+
+.metricCard {
+    background: var(--stat-soft-surface);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.metricLabel {
+    color: var(--stat-secondary-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.metricValue {
+    color: var(--stat-text);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+
+    &Streak {
+        color: var(--stat-success);
+    }
+}
+
+.fireIcon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: var(--stat-success);
+}

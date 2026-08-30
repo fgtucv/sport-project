@@ -18,77 +18,6 @@
     width: min(100%, 368px);
     min-width: 0;
     box-shadow: 0 8px 24px 0 rgba(15, 23, 42, 0.04);
-
-    &Header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &Title {
-        color: var(--stat-text);
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 28px;
-    }
-}
-
-.legendValue,
-.metricValue,
-.tournamentName {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 28px;
-}
-
-.legendLabel,
-.metricLabel {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-}
-
-
-.fireIcon {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    fill: var(--stat-text);
-}
-
-.fireIcon {
-    fill: var(--stat-success);
-}
-
-.statsLegend {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    border-bottom: 1px solid var(--stat-border);
-    padding-bottom: 16px;
-}
-
-.legendItem {
-    display: flex;
-    flex-direction: column;
-}
-
-.legendLabelDiv {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-}
-
-.legendLabel {
-    color: var(--stat-secondary-text);
-}
-
-.legendValue {
-    color: var(--stat-text);
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .dot {
@@ -108,55 +37,6 @@
 
     &.lossDot {
         background-color: var(--stat-danger);
-    }
-}
-
-.metricsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
-    gap: 8px;
-}
-
-.metricCard {
-    background: var(--stat-soft-surface);
-    border-radius: 8px;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-}
-
-.metricLabel {
-    color: var(--stat-secondary-text);
-}
-
-.metricValue {
-    color: var(--stat-text);
-
-    &Streak {
-        color: var(--stat-success);
-    }
-}
-
-.yearToggle {
-    display: flex;
-    background: var(--stat-soft-surface);
-    padding: 4px;
-    border-radius: 8px;
-}
-
-.toggleBtn {
-    padding: 4px 12px;
-    border-radius: 8px;
-    color: #000;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    cursor: pointer;
-
-    &.active {
-        background: var(--stat-surface);
-        color: var(--stat-text);
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
 }
 

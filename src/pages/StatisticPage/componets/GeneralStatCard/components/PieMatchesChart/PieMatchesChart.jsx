@@ -13,10 +13,12 @@ const dataForPieChart = [
     { name: "Нічії", value: 4, color: "#D1D5DB" }
 ]
 
-export const PieMatchesChart = () => {
-    const totalMatches = dataForPieChart.reduce((sum, item) => sum + item.value, 0);
-    const winPercentage = totalMatches ? Math.round(((dataForPieChart.find(item => item.name === "Перемоги")?.value || 0) / totalMatches) * 100) : 0;
-
+export const PieMatchesChart = ({data}) => {
+    const dataForPieChart = [
+    { name: "Перемоги", value: data.wins, color: "#10B981" },
+    { name: "Поразки", value: data.losses, color: "#EF4444" },
+    { name: "Нічії", value: data.draws, color: "#D1D5DB" }
+]
     return <div style={{ width: '100%', height: '250px', position: 'relative'}}>
         <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -46,8 +48,8 @@ export const PieMatchesChart = () => {
             </PieChart>
         </ResponsiveContainer>
         <div className={style.textInChartDiv}>
-            <span className={style.winRateInChart}>Win rate <span className={style.winRateAccenteInChart}>{`${winPercentage}%`}</span></span>
-            <span className={style.matchesInChart}>{totalMatches}</span>
+            <span className={style.winRateInChart}>Win rate <span className={style.winRateAccenteInChart}>{`${data.winRatePercentage}%`}</span></span>
+            <span className={style.matchesInChart}>{data.totalMatches}</span>
             <span className={style.descriptionInChart}>матчів</span>
         </div>
     </div>
