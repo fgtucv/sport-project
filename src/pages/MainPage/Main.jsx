@@ -39,6 +39,7 @@ export const Main = () => {
                     isMobile.matches ? <GameMobileItem key={game.id} obj={game} /> : <GameItem key={game.id} obj={game} />
                 ))}
             </ul>
+            
         </Container>
     </main>
 }

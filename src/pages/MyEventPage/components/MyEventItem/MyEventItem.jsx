@@ -1,17 +1,14 @@
-import {
-    DraftIcon,
-    PadelIcon,
-} from "../../../../components/Icons/Icons.jsx";
+import { DraftIcon, PadelIcon } from "../../../../components/Icons/Icons.jsx";
 
 import style from "./MyEventItem.module.scss";
 
-export const MyEventItem = ({obj, deleteCard}) => {
+export const MyEventItem = ({ obj, deleteCard }) => {
     if (obj.status === "Draft") {
-        return <li className={style.game + ' ' + style.gameDraft} id={obj.id}>
+        return <li className={`${style.game} ${style.gameDraft}`} id={obj.id}>
             <div className={style.gameCardHeader}>
                 <h2 className={style.gameTitle}>{obj.title}</h2>
             </div>
-            <div className={style.gameBody + ' ' + style.gameDraftBody}>
+            <div className={`${style.gameBody} ${style.gameDraftBody}`}>
                 <DraftIcon className={style.gameDraftIcon} />
                 <a className={style.gameDraftText} href="">Редагувати чернетку</a>
             </div>
@@ -44,7 +41,7 @@ export const MyEventItem = ({obj, deleteCard}) => {
                                 .filter((player) => player.team === "A")
                                 .map((player) => (
                                     <img
-                                        key={`team-a-${player.name}`}
+                                        key={`${player.team}-${player.username}`}
                                         src={player.avatarUrl}
                                         alt={player.name}
                                         className={style.gamePlayerAvatar}
@@ -61,7 +58,7 @@ export const MyEventItem = ({obj, deleteCard}) => {
                                 .filter((player) => player.team === "B")
                                 .map((player) => (
                                     <img
-                                        key={`team-b-${player.name}`}
+                                        key={`${player.team}-${player.username}`}
                                         src={player.avatarUrl}
                                         alt={player.name}
                                         className={style.gamePlayerAvatar}
@@ -72,12 +69,12 @@ export const MyEventItem = ({obj, deleteCard}) => {
                 </div>
             )}
 
-            {(obj.status === "Soon" || obj.status === "Draft") && (
+            {(obj.status === "Soon" || obj.status === "Draw") && (
                 <div className={style.gameBody}>
                     <div className={style.gamePlayersList}>
                         {obj.players.map((player) => (
                             <img
-                                key={`${player.team}-${player.name}`}
+                                key={`none-team-${player.username}`}
                                 src={player.avatarUrl}
                                 alt={player.name}
                                 className={style.gamePlayerAvatar}

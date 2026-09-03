@@ -487,3 +487,16 @@ export const MenuIcon = (props) => {
 };
 
 MenuIcon.displayName = 'MenuIcon';
+
+export const PaginationIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 21 32"
+      {...props}
+    >
+      <path d="M12.267 16l-12.267-12.267 3.733-3.733 16 16-16 16-3.733-3.733 12.267-12.267z"></path>
+</svg>
+  );
+};
+
+PaginationIcon.displayName = 'PaginationIcon';

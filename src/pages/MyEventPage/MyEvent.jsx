@@ -2,6 +2,7 @@ import { Container } from "../../components/Container/Container";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
 import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
+import { Pagination } from "../../components/Pagination/Pagination.jsx";
 
 import data from "../../data/user.json";
 
@@ -15,7 +16,8 @@ const text = {
 
 export class MyEvent extends Component {
     state = {
-        games: data.games
+        games: data.games.slice(0, 9),
+        currentPage: 1,
     }
 
     deleteCard = (event) => {
@@ -25,6 +27,17 @@ export class MyEvent extends Component {
 
         this.setState({
             games: this.state.games
+        })
+    }
+
+    paginate = (pageNumber) => {
+        // console.log(pageNumber)
+        const startIndex = (pageNumber - 1) * 9;
+        const endIndex = startIndex + 9;
+        
+        this.setState({
+            games: data.games.slice(startIndex, endIndex),
+            currentPage: pageNumber
         })
     }
 
@@ -43,11 +56,11 @@ export class MyEvent extends Component {
                         <Sorted />
                     </div>
                     <ul className={style.myEventGames}>
-                        {console.log(this.state.games)}
                         {this.state.games.map((obj) => (
                             <MyEventItem deleteCard={this.deleteCard} key={obj.id} obj={obj} />
                         ))}
                     </ul>
+                    <Pagination paginate={this.paginate} paginateData={data.games} currentPage={this.state.currentPage} />
                 </Container>
             </section>
         )
