@@ -1,0 +1,42 @@
+.chooseSport {
+    display: flex;
+    align-self: stretch;
+    padding: 4px;
+    border-radius: 12px;
+    background: #ECEEF0;
+}
+
+.chooseSportItem {
+    width: 100%;
+
+    &.activeSportItem {
+        border-radius: 8px;
+        background: #FFF;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+        & .chooseSportButton {
+            color: #000000;
+        }
+    }
+}
+
+.chooseSportButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    padding: 8px 0;
+    color: #45464D;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+}
+
+.chooseSportIcon {
+    flex-shrink: 0;
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+}

@@ -1,9 +1,15 @@
 .footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
     border-radius: 12px 12px 0 0;
     background: #FFF;
     box-shadow: 0 -8px 24px 0 rgba(15, 23, 42, 0.04);
 
     @media (min-width: 1280px) {
+        position: static;
+        border-radius: 0;
         background-color: var(--footer-surface);
         border-top: 1px solid var(--footer-border);
     }

@@ -1,20 +1,17 @@
 .createFrom {
-  --form-surface: #ffffff;
-  --form-muted-surface: #f2f4f6;
-  --form-border: #c6c6cd;
-  --form-text: #191c1e;
-  --form-secondary-text: #45464d;
-  --form-inverse-text: #ffffff;
-
   display: flex;
   flex-direction: column;
+  gap: 24px;
   padding: 24px;
   background: var(--form-surface);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
   border-radius: 20px;
+  border: 1px solid #C6C6CD;
 
   @media (min-width: 1280px) {
     padding: 32px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border: none;
   }
 }
 
@@ -26,48 +23,6 @@
   text-transform: uppercase;
   color: var(--form-secondary-text);
   margin-bottom: 12px;
-}
-
-.createFromList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  width: 100%;
-  margin-bottom: 32px;
-}
-
-.createFromItem {
-  flex: 1 1 180px;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--form-text);
-  border: 1px solid var(--form-border);
-  padding: 8px 24px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.createFromSportItem {
-  width: 100%;
-  padding: 18px 0;
-  justify-content: center;
-}
-
-.activeItem {
-  color: var(--form-inverse-text);
-  background-color: #000000;
-  border-color: #000000;
-}
-
-.createFromIcon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
 }
 
 .createFromInputDiv {

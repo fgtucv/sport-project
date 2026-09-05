@@ -1,0 +1,46 @@
+.createFromList {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+
+    @media (min-width: 1280px) {
+        gap: 16px;
+    }
+}
+
+.createFromItem {
+    display: flex;
+    padding: 8px 16px;
+    border: 1px solid var(--choice-border);
+    color: #45464D;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.36px;
+
+    @media (min-width: 1280px) {
+        color: var(--choice-text);
+        border-radius: 20px;
+        padding: 8px 24px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.activeItem {
+    color: var(--choice-active-text);
+    background-color: #2170E4;
+
+    @media (min-width: 1280px) {
+        background-color: var(--choice-active-surface);
+        border: none;
+    }
+}
+
+.createFromIcon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

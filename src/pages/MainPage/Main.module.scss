@@ -1,5 +1,13 @@
 .main {
     background: var(--main-surface);
+
+    &>div {
+        padding: 16px 16px 84px 16px;
+
+        @media (min-width: 1280px) {
+            padding: 40px 32px;
+        }
+    }
 }
 
 .mainDates {
@@ -38,67 +46,6 @@
         &:hover {
             background: #94a3b8;
         }
-    }
-}
-
-.mainDateItem {
-    background-color: var(--main-card-surface);
-    border: 1px solid var(--main-border);
-    width: 56px;
-    height: 74px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 20px;
-    flex-shrink: 0;
-
-    @media (min-width: 1280px) {
-        width: 96px;
-        height: 98px;
-        border-radius: 12px;
-    }
-}
-
-.activeDay {
-    background-color: var(--main-accent);
-    border: none;
-
-    & .mainDate {
-        color: var(--main-card-surface);
-    }
-
-    & .mainDateDay {
-        color: var(--main-card-surface);
-    }
-}
-
-.mainDate {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-    letter-spacing: 0.36px;
-    color: var(--main-muted-text);
-    text-align: center;
-
-    @media (min-width: 1280px) {
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-        letter-spacing: 0.36px;
-    }
-}
-
-.mainDateDay {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--main-text);
-
-    @media (min-width: 1280px) {
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 32px;
-        letter-spacing: -0.24px;
     }
 }
 
