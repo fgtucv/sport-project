@@ -1,13 +1,6 @@
 .level {
-  --level-surface: #eceef0;
-  --level-input-surface: #f2f4f6;
-  --level-border: #c6c6cd;
-  --level-text: #191c1e;
-  --level-secondary-text: #45464d;
-  --level-inverse: #ffffff;
-
   padding: 24px;
-  background: var(--level-surface);
+  background: var(--event-neutral-surface);
   border-radius: 20px;
   margin-bottom: 32px;
 }
@@ -25,7 +18,7 @@
   line-height: 20px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
-  color: var(--level-secondary-text);
+  color: var(--form-secondary-text);
 }
 
 .levelInputDiv {
@@ -49,23 +42,23 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
-  color: var(--level-secondary-text);
+  color: var(--form-secondary-text);
 }
 
 .levelInput {
   height: 42px;
   padding: 0 16px;
-  background: var(--level-input-surface);
-  border: 1px solid var(--level-border);
+  background: var(--form-surface);
+  border: 1px solid var(--form-border);
   border-radius: 20px;
   font-weight: 700;
   font-size: 16px;
-  color: var(--level-text);
+  color: var(--form-text);
   outline: none;
   transition: border-color 0.2s ease;
 
   &:focus {
-    border-color: var(--level-text);
+    border-color: var(--form-text);
   }
 }
 
@@ -73,14 +66,14 @@
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
-  color: var(--level-secondary-text);
+  color: var(--form-secondary-text);
 }
 
 .levelSlider {
   position: relative;
   width: 50px;
   height: 26px;
-  background-color: #ccc;
+  background-color: var(--form-border);
   border-radius: 50px;
   transition: background-color 0.3s ease;
 
@@ -91,7 +84,7 @@
     width: 20px;
     left: 3px;
     bottom: 3px;
-    background-color: var(--level-inverse);
+    background-color: var(--form-inverse-text);
     border-radius: 50%;
     transition: transform 0.3s ease;
   }
@@ -110,7 +103,7 @@
     opacity: 0;
 
     &:checked + .levelSlider {
-      background-color: #000000;
+      background-color: var(--color-black);
 
       &::before {
         transform: translateX(24px);

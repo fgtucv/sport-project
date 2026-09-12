@@ -1,13 +1,43 @@
 .formBlock {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .formBlockTitle {
-    color: #191C1E;
+    color: var(--form-text);
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.14px;
+}
+
+.formBlockInput {
+    height: 50px;
+    padding: 0 16px 0 48px;
+    background: var(--form-muted-surface);
+    border: 1px solid var(--form-border);
+    border-radius: 20px;
+    color: var(--form-text);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    @media (min-width: 1280px) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+.formBlockIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(25%);
+    width: 20px;
+    height: 20px;
+    fill: var(--form-secondary-text);
+    pointer-events: none;
 }

@@ -2,21 +2,20 @@
   background-color: var(--create-surface);
 }
 
-.create>div {
+.create > div {
   @media (max-width: 1279px) {
     padding: 16px 16px 84px 16px;
   }
 }
 
 .createStepTitle {
-  color: #45464D;
+  color: var(--create-secondary-text);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
   margin: 0 0 12px 0;
-
 
   @media (min-width: 1280px) {
     margin: 48px 0 24px 0;

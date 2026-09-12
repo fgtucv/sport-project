@@ -1,4 +1,4 @@
-.createFromList {
+.createFormList {
     display: flex;
     overflow-x: auto;
     gap: 8px;
@@ -8,16 +8,17 @@
     }
 }
 
-.createFromItem {
+.createFormItem {
     display: flex;
     padding: 8px 16px;
     border: 1px solid var(--choice-border);
-    color: #45464D;
+    color: var(--form-secondary-text);
     border-radius: 9999px;
     font-size: 12px;
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.36px;
+    cursor: pointer;
 
     @media (min-width: 1280px) {
         color: var(--choice-text);
@@ -31,7 +32,7 @@
 
 .activeItem {
     color: var(--choice-active-text);
-    background-color: #2170E4;
+    background-color: var(--choice-active-blue);
 
     @media (min-width: 1280px) {
         background-color: var(--choice-active-surface);
@@ -39,7 +40,7 @@
     }
 }
 
-.createFromIcon {
+.createFormIcon {
     width: 20px;
     height: 20px;
     fill: currentColor;

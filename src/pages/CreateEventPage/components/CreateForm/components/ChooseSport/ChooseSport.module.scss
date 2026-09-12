@@ -3,7 +3,7 @@
     align-self: stretch;
     padding: 4px;
     border-radius: 12px;
-    background: #ECEEF0;
+    background: var(--event-neutral-surface);
 }
 
 .chooseSportItem {
@@ -11,11 +11,11 @@
 
     &.activeSportItem {
         border-radius: 8px;
-        background: #FFF;
+        background: var(--color-white);
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
         & .chooseSportButton {
-            color: #000000;
+            color: var(--color-black);
         }
     }
 }
@@ -27,7 +27,7 @@
     width: 100%;
     gap: 8px;
     padding: 8px 0;
-    color: #45464D;
+    color: var(--form-secondary-text);
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;

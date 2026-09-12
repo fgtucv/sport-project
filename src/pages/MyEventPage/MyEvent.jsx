@@ -4,7 +4,7 @@ import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 import { Pagination } from "../../components/Pagination/Pagination.jsx";
 
-import data from "../../data/user.json";
+import dataf from "../../data/user.json";
 
 import style from "./MyEvent.module.scss";
 import { Component } from "react";
@@ -30,15 +30,15 @@ export class MyEvent extends Component {
         })
     }
 
-    paginate = (pageNumber) => {
-        const startIndex = (pageNumber - 1) * 9;
-        const endIndex = startIndex + 9;
+    // paginate = (pageNumber) => {
+    //     const startIndex = (pageNumber - 1) * 9;
+    //     const endIndex = startIndex + 9;
         
-        this.setState({
-            games: data.games.slice(startIndex, endIndex),
-            currentPage: pageNumber
-        })
-    }
+    //     this.setState({
+    //         games: dataf.games.slice(startIndex, endIndex),
+    //         currentPage: pageNumber
+    //     })
+    // }
 
     async componentDidMount(){
         try {
@@ -72,7 +72,7 @@ export class MyEvent extends Component {
                             <MyEventItem deleteCard={this.deleteCard} key={obj.id} obj={obj} />
                         ))}
                     </ul>
-                    <Pagination paginate={this.paginate} paginateData={data.games} currentPage={this.state.currentPage} />
+                    {/* <Pagination paginate={this.paginate} paginateData={dataf.games} currentPage={this.state.currentPage} /> */}
                 </Container>
             </section>
         )

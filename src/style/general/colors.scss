@@ -1,64 +1,113 @@
 :root {
-    --category-surface: #F2F4F6;
-    --category-border: #C6C6CD;
-    --category-text: #000000;
-    --category-active-surface: #FFFFFF;
-    --footer-surface: #F2F4F6;
-    --footer-border: #C6C6CD;
-    --footer-text: #45464D;
-    --footer-muted-text: #76777D;
-    --footer-heading: #000000;
-    --header-border: #C6C6CD;
-    --header-text: #45464D;
-    --header-active: #0058BE;
-    --sort-surface: #FFFFFF;
-    --sort-border: #C6C6CD;
-    --sort-text: #0F172A;
-    --sort-active-surface: #ECEEF0;
-    --create-surface: #f7f9fb;
-    --create-card-surface: #ffffff;
-    --create-border: #c6c6cd;
-    --create-text: #191c1e;
-    --main-surface: #F7F9FB;
-    --main-card-surface: #ffffff;
-    --main-border: #C6C6CD;
-    --main-accent: #0058BE;
-    --main-muted-text: #76777D;
-    --main-text: #0F172A;
-    --event-surface: #F7F9FB;
-    --event-card-surface: #FFFFFF;
-    --event-border: #C6C6CD;
-    --event-text: #191C1E;
-    --event-secondary-text: #45464D;
-    --event-strong: #000000;
-    --event-danger: #B91C1C;
-    --event-danger-surface: #FEE2E2;
-    --event-success: #15803D;
-    --event-success-surface: #DCFCE7;
-    --event-neutral-surface: #ECEEF0;
-    --stat-surface: #ffffff;
-    --stat-soft-surface: #F2F4F6;
-    --stat-border: #C6C6CD;
-    --stat-card-border: #DDE4DD;
-    --stat-text: #191C1E;
-    --stat-secondary-text: #45464D;
-    --stat-muted-text: #BBCABF;
-    --stat-accent: #0058BE;
-    --stat-success: #10B981;
-    --stat-success-dark: #15803D;
-    --stat-danger: #EF4444;
-    --stat-danger-dark: #B91C1C;
-    --stat-draw: #D1D5DB;
-    --chart-text: #191C1E;
-    --chart-secondary-text: #45464D;
-    --form-surface: #ffffff;
-    --form-muted-surface: #f2f4f6;
-    --form-border: #c6c6cd;
-    --form-text: #191c1e;
-    --form-secondary-text: #45464d;
-    --form-inverse-text: #ffffff;
-    --choice-text: #191C1E;
-    --choice-border: #C6C6CD;
-    --choice-active-text: #FFFFFF;
-    --choice-active-surface: #000000;
+    /* ---------------------------------------------------- */
+    /* Base Color Tokens (Single source of truth)           */
+    /* ---------------------------------------------------- */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-gray-50: #F7F9FB;
+    --color-gray-100: #F2F4F6;
+    --color-gray-200: #ECEEF0;
+    --color-gray-300: #DDE4DD;
+    --color-gray-400: #C6C6CD;
+    --color-gray-500: #76777D;
+    --color-gray-600: #6B7280;
+    --color-gray-700: #45464D;
+    --color-gray-800: #191C1E;
+    --color-slate-900: #0F172A;
+
+    --color-blue-600: #0058BE;
+    --color-blue-500: #2170E4;
+
+    --color-green-700: #15803D;
+    --color-green-600: #10B981;
+    --color-green-500: #22C55E;
+    --color-green-surface: #DCFCE7;
+
+    --color-red-600: #B91C1C;
+    --color-red-500: #EF4444;
+    --color-red-surface: #FEE2E2;
+
+    --color-purple-500: #A855F7;
+    --color-neutral-draw: #D1D5DB;
+    --color-stat-muted: #BBCABF;
+
+    /* ---------------------------------------------------- */
+    /* Semantic Variable Mappings                           */
+    /* ---------------------------------------------------- */
+    --category-surface: var(--color-gray-100);
+    --category-border: var(--color-gray-400);
+    --category-text: var(--color-black);
+    --category-active-surface: var(--color-white);
+
+    --footer-surface: var(--color-gray-100);
+    --footer-border: var(--color-gray-400);
+    --footer-text: var(--color-gray-700);
+    --footer-muted-text: var(--color-gray-500);
+    --footer-heading: var(--color-black);
+
+    --header-border: var(--color-gray-400);
+    --header-text: var(--color-gray-700);
+    --header-active: var(--color-blue-600);
+
+    --sort-surface: var(--color-white);
+    --sort-border: var(--color-gray-400);
+    --sort-text: var(--color-slate-900);
+    --sort-active-surface: var(--color-gray-200);
+
+    --create-surface: var(--color-gray-50);
+    --create-card-surface: var(--color-white);
+    --create-border: var(--color-gray-400);
+    --create-text: var(--color-gray-800);
+    --create-secondary-text: var(--color-gray-700);
+    --create-active-border: var(--color-black);
+
+    --main-surface: var(--color-gray-50);
+    --main-card-surface: var(--color-white);
+    --main-border: var(--color-gray-400);
+    --main-accent: var(--color-blue-600);
+    --main-muted-text: var(--color-gray-500);
+    --main-text: var(--color-slate-900);
+
+    --event-surface: var(--color-gray-50);
+    --event-card-surface: var(--color-white);
+    --event-border: var(--color-gray-400);
+    --event-text: var(--color-gray-800);
+    --event-secondary-text: var(--color-gray-700);
+    --event-strong: var(--color-black);
+    --event-danger: var(--color-red-600);
+    --event-danger-surface: var(--color-red-surface);
+    --event-success: var(--color-green-700);
+    --event-success-surface: var(--color-green-surface);
+    --event-neutral-surface: var(--color-gray-200);
+
+    --stat-surface: var(--color-white);
+    --stat-soft-surface: var(--color-gray-100);
+    --stat-border: var(--color-gray-400);
+    --stat-card-border: var(--color-gray-300);
+    --stat-text: var(--color-gray-800);
+    --stat-secondary-text: var(--color-gray-700);
+    --stat-muted-text: var(--color-stat-muted);
+    --stat-accent: var(--color-blue-600);
+    --stat-success: var(--color-green-600);
+    --stat-success-dark: var(--color-green-700);
+    --stat-danger: var(--color-red-500);
+    --stat-danger-dark: var(--color-red-600);
+    --stat-draw: var(--color-neutral-draw);
+
+    --chart-text: var(--color-gray-800);
+    --chart-secondary-text: var(--color-gray-700);
+
+    --form-surface: var(--color-white);
+    --form-muted-surface: var(--color-gray-100);
+    --form-border: var(--color-gray-400);
+    --form-text: var(--color-gray-800);
+    --form-secondary-text: var(--color-gray-700);
+    --form-inverse-text: var(--color-white);
+    --form-placeholder-text: var(--color-gray-600);
+
+    --choice-text: var(--color-gray-800);
+    --choice-border: var(--color-gray-400);
+    --choice-active-text: var(--color-white);
+    --choice-active-surface: var(--color-black);
+    --choice-active-blue: var(--color-blue-500);
 }

@@ -21,53 +21,53 @@
 .gameEventsCard {
   @media (max-width: 1279px) {
     &.activeType {
-      border: 2px solid #22c55e;
+      border: 2px solid var(--color-green-500);
     }
 
     & .createEventTypeName {
-      color: #22c55e;
+      color: var(--color-green-500);
     }
   }
 
   & .createEventTypeIcon {
-    fill: #22c55e;
+    fill: var(--color-green-500);
   }
 }
 
 .tournamentEventsCard {
   @media (max-width: 1279px) {
     &.activeType {
-      border: 2px solid #ef4444;
+      border: 2px solid var(--color-red-500);
     }
 
     & .createEventTypeName {
-      color: #ef4444;
+      color: var(--color-red-500);
     }
   }
 
   & .createEventTypeIcon {
-    fill: #ef4444;
+    fill: var(--color-red-500);
   }
 }
 
 .qualificationEventsCard {
   @media (max-width: 1279px) {
     &.activeType {
-      border: 2px solid #a855f7;
+      border: 2px solid var(--color-purple-500);
     }
 
     & .createEventTypeName {
-      color: #a855f7;
+      color: var(--color-purple-500);
     }
   }
 
   & .createEventTypeIcon {
-    fill: #a855f7;
+    fill: var(--color-purple-500);
   }
 }
 
 .activeType {
-  border: 2px solid #000000;
+  border: 2px solid var(--create-active-border);
 }
 
 .createEventTypeIcon {
@@ -82,7 +82,7 @@
 }
 
 .qualificationIcon {
-  fill: #a855f7;
+  fill: var(--color-purple-500);
 }
 
 .createEventTypeName {
@@ -108,7 +108,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: #45464d;
+    color: var(--create-secondary-text);
     text-align: center;
   }
 }
