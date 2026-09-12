@@ -16,7 +16,7 @@ const text = {
 
 export class MyEvent extends Component {
     state = {
-        games: data.games.slice(0, 9),
+        games: [],
         currentPage: 1,
     }
 
@@ -31,7 +31,6 @@ export class MyEvent extends Component {
     }
 
     paginate = (pageNumber) => {
-        // console.log(pageNumber)
         const startIndex = (pageNumber - 1) * 9;
         const endIndex = startIndex + 9;
         
@@ -39,6 +38,19 @@ export class MyEvent extends Component {
             games: data.games.slice(startIndex, endIndex),
             currentPage: pageNumber
         })
+    }
+
+    async componentDidMount(){
+        try {
+            const data = await fetch("https://6aa2acebccb3db9689a6e211.mockapi.io/user");
+            const userData = await data.json();
+
+            this.setState({
+                games: userData[0].games,
+            })
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     render() {
