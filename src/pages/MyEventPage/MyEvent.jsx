@@ -4,52 +4,97 @@ import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 import { Pagination } from "../../components/Pagination/Pagination.jsx";
 
-import dataf from "../../data/user.json";
-
 import style from "./MyEvent.module.scss";
 import { Component } from "react";
 
 const text = {
     title: "Ваші ігри",
     subtitle: "Переглядайте свої ігри та керуйте ними",
-}
+};
+
+const PAGE_SIZE = 9;
 
 export class MyEvent extends Component {
     state = {
-        games: [],
+        allGames: [],
+        renderGames: [],
         currentPage: 1,
     }
 
-    deleteCard = (event) => {
-        const clikedCard = event.target.parentElement.id;
-        const indexCardToDelete = this.state.games.findIndex(game => game.id === clikedCard)
-        this.state.games.splice(indexCardToDelete, 1)
+    getSlicedGames = (gamesList, page) => {
+        const totalPages = Math.ceil(gamesList.length / PAGE_SIZE) || 1;
+        const validPage = page > totalPages ? totalPages : page;
+        const startIndex = (validPage - 1) * PAGE_SIZE;
+        const endIndex = startIndex + PAGE_SIZE;
 
-        this.setState({
-            games: this.state.games
-        })
+        return {
+            slicedGames: gamesList.slice(startIndex, endIndex),
+            validPage: validPage,
+        };
     }
 
-    // paginate = (pageNumber) => {
-    //     const startIndex = (pageNumber - 1) * 9;
-    //     const endIndex = startIndex + 9;
-        
-    //     this.setState({
-    //         games: dataf.games.slice(startIndex, endIndex),
-    //         currentPage: pageNumber
-    //     })
-    // }
+    deleteCard = (event) => {
+        const clickedCardId = event.target.parentElement.id;
+        const newArray = this.state.allGames.filter(game => game.id !== clickedCardId);
 
-    async componentDidMount(){
+        this.reloadApiAndState(newArray);
+    }
+
+    reloadApiAndState = async (newData) => {
         try {
-            const data = await fetch("https://6aa2acebccb3db9689a6e211.mockapi.io/user");
+            const patchResponse = await fetch(
+                `https://6aa2acebccb3db9689a6e211.mockapi.io/user/${JSON.parse(localStorage.getItem("userId"))}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        games: newData,
+                    }),
+                }
+            );
+
+            if (patchResponse.ok) {
+                this.setState((prevState) => {
+                    const { slicedGames, validPage } = this.getSlicedGames(newData, prevState.currentPage);
+
+                    return {
+                        allGames: newData,
+                        currentPage: validPage,
+                        renderGames: slicedGames,
+                    };
+                });
+            }
+        } catch (error) {
+            console.error("Помилка при оновленні списку ігор:", error);
+        }
+    }
+
+    paginate = (pageNumber) => {
+        const { slicedGames } = this.getSlicedGames(this.state.allGames, pageNumber);
+
+        this.setState({
+            renderGames: slicedGames,
+            currentPage: pageNumber,
+        });
+    }
+
+    async componentDidMount() {
+        try {
+            const data = await fetch(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${JSON.parse(localStorage.getItem("userId"))}`);
             const userData = await data.json();
 
+            const games = userData.games || [];
+            const { slicedGames } = this.getSlicedGames(games, 1);
+
             this.setState({
-                games: userData[0].games,
-            })
+                allGames: games,
+                renderGames: slicedGames,
+                currentPage: 1,
+            });
         } catch (error) {
-            console.log(error);
+            console.error("Помилка завантаження даних:", error);
         }
     }
 
@@ -68,14 +113,17 @@ export class MyEvent extends Component {
                         <Sorted />
                     </div>
                     <ul className={style.myEventGames}>
-                        {this.state.games.map((obj) => (
+                        {this.state.renderGames.map((obj) => (
                             <MyEventItem deleteCard={this.deleteCard} key={obj.id} obj={obj} />
                         ))}
                     </ul>
-                    {/* <Pagination paginate={this.paginate} paginateData={dataf.games} currentPage={this.state.currentPage} /> */}
+                    <Pagination 
+                        paginate={this.paginate} 
+                        paginateData={this.state.allGames} 
+                        currentPage={this.state.currentPage} 
+                    />
                 </Container>
             </section>
-        )
+        );
     }
-
-};
+}

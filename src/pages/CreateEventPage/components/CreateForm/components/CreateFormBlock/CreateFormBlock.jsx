@@ -27,7 +27,7 @@ export const CreateFormBlock = ({
       ) : (
         children
       )}
-      {isInput && <Icon/> ? <Icon className={style.formBlockIcon} /> : null}
+      {isInput && <Icon /> ? <Icon className={style.formBlockIcon} /> : null}
     </div>
   );
 };

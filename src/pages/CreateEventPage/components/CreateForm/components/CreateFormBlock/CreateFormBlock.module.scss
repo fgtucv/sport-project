@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media (min-width: 1280px) {
+        gap: 12px;
+    }
 }
 
 .formBlockTitle {
@@ -11,15 +15,23 @@
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.14px;
+
+    @media (min-width: 1280px) {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.7px;
+        color: #45464D;
+    }
 }
 
 .formBlockInput {
     height: 50px;
     padding: 0 16px 0 48px;
-    background: var(--form-muted-surface);
-    border: 1px solid var(--form-border);
-    border-radius: 20px;
-    color: var(--form-text);
+    border-radius: 12px;
+    border: 1.8px solid var(--form-border);
+    background: var(--create-surface);
+    color: var(--form-placeholder-text);
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
@@ -28,6 +40,10 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
+        background: var(--form-muted-surface);
+        border: 1px solid var(--form-border);
+        border-radius: 20px;
+        color: var(--form-text);
     }
 }
 
