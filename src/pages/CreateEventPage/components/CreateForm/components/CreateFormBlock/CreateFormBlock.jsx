@@ -7,7 +7,15 @@ export const CreateFormBlock = ({
   Icon,
   id,
   placeholder,
+  setInputValue
 }) => {
+
+  const getInputValue = (event) => {
+    const input = event.target;
+
+    setInputValue(input.value);
+  }
+
   return (
     <div className={style.formBlock}>
       {isInput ? (
@@ -23,6 +31,7 @@ export const CreateFormBlock = ({
           placeholder={placeholder}
           id={id}
           type="text"
+          onChange={getInputValue}
         />
       ) : (
         children

@@ -1,24 +1,14 @@
-import { Component } from "react";
+import { useState } from "react";
 import style from "./ChoiceGameParmList.module.scss";
 
-export class ChoiceGameParmList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedIndex: 0,
-    };
+export const ChoiceGameParmList = ({ setParm, arr }) => {
+
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
+  const choosedThisParm = (num, index) => {
+    setSelectedIndex(index);
+    setParm(parseInt(num));
   }
-
-  handleSelect = (index) => {
-    this.setState({ selectedIndex: index });
-    if (this.props.onSelect) {
-      this.props.onSelect(this.props.arr[index]);
-    }
-  };
-
-  render() {
-    const { arr } = this.props;
-    const { selectedIndex } = this.state;
 
     return (
       <ul className={style.createFormList}>
@@ -28,12 +18,11 @@ export class ChoiceGameParmList extends Component {
             className={`${style.createFormItem} ${
               index === selectedIndex ? style.activeItem : ""
             }`}
-            onClick={() => this.handleSelect(index)}
+            onClick={() => choosedThisParm(num, index)}
           >
             {num}
           </li>
         ))}
       </ul>
     );
-  }
-}
+  };

@@ -1,0 +1,9 @@
+.dateAndTimePicker {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+
+    @media (min-width: 1280px) {
+        gap: 24px;
+    }
+}

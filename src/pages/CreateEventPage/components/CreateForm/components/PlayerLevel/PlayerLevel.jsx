@@ -1,28 +1,7 @@
-import { Component } from "react";
+// import { useState } from "react";
 import style from "./PlayerLevel.module.scss";
 
-export class PlayerLevel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isStrict: false,
-      minLevel: "1.5",
-      maxLevel: "4.0",
-    };
-  }
-
-  handleToggleStrict = (e) => {
-    this.setState({ isStrict: e.target.checked });
-  };
-
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  render() {
-    const { isStrict, minLevel, maxLevel } = this.state;
-
+export const PlayerLevel = ({setLevel, setIsStrict}) => {
     return (
       <div className={style.level}>
         <div className={style.levelHeader}>
@@ -31,43 +10,23 @@ export class PlayerLevel extends Component {
             <span className={style.levelSpan}>Строгий рівень</span>
             <input
               type="checkbox"
-              checked={isStrict}
-              onChange={this.handleToggleStrict}
+              onChange={(event) => (setIsStrict(event.target.checked))}
             />
             <span className={style.levelSlider}></span>
           </label>
         </div>
         <div className={style.levelInputDiv}>
-          <div className={style.levelInputFlexDiv}>
             <label className={style.levelLabel} htmlFor="eventMinLev">
-              Мінімальний рівень
+              Бажаний рівень граців
             </label>
             <input
               className={style.levelInput}
-              placeholder="1.5"
               type="text"
               name="minLevel"
               id="eventMinLev"
-              value={minLevel}
-              onChange={this.handleInputChange}
+              onChange={(event) => (setLevel(event.target.value))}
             />
-          </div>
-          <div className={style.levelInputFlexDiv}>
-            <label className={style.levelLabel} htmlFor="eventMaxLev">
-              Максимальний рівень
-            </label>
-            <input
-              className={style.levelInput}
-              placeholder="4.0"
-              type="text"
-              name="maxLevel"
-              id="eventMaxLev"
-              value={maxLevel}
-              onChange={this.handleInputChange}
-            />
-          </div>
         </div>
       </div>
     );
-  }
-}
+  };

@@ -1,0 +1,178 @@
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 70%;
+}
+
+.label {
+    color: var(--form-text);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.14px;
+
+    @media (min-width: 1280px) {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.7px;
+        color: #45464D;
+    }
+}
+
+.inputGroup {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1.8px solid var(--form-border);
+    background: var(--create-surface);
+    color: var(--form-placeholder-text);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    @media (min-width: 1280px) {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        background: var(--form-muted-surface);
+        border: 1px solid var(--form-border);
+        border-radius: 20px;
+        color: var(--form-text);
+    }
+}
+
+.calendarButton {
+    width: 18px;
+    height: 20px;
+    margin-right: 12px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &>svg {
+        fill: var(--color-gray-700);
+    }
+}
+
+.dateInput {
+    display: flex;
+    gap: 2px;
+}
+
+.popover {
+    background-color: #ffffff;
+    border: 1px solid #C6C6CD;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dialog {
+    padding: 12px;
+    outline: none;
+}
+
+.calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+// Шапка календаря (Заголовок "Вересень 2026" та стрілки)
+.calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.heading {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.navButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: #f0f0f0;
+    }
+}
+
+// Сітка календаря та відступи між датами
+.calendarGrid {
+    border-collapse: separate;
+    border-spacing: 6px; // 👈 ВІДСТУПИ між комірками дат
+    margin: 0 auto;
+}
+
+// Заголовки днів тижня (Пн, Вт, Ср...)
+.headerCell {
+    font-size: 12px;
+    font-weight: 600;
+    color: #8e8e93;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+// Окремі комірки дат
+.cell {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; // Кругла форма для дат
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    cursor: pointer;
+    outline: none;
+
+    // При наведенні курсором
+    &[data-hovered] {
+        background-color: #f2f4f6;
+    }
+
+    // Вибрана дата
+    &[data-selected] {
+        background-color: #0066cc;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    // Сьогоднішня дата (якщо не вибрана)
+    &[data-today]:not([data-selected]) {
+        border: 1px solid #0066cc;
+        color: #0066cc;
+    }
+
+    // Дати з інших місяців
+    &[data-outside-month] {
+        color: #c6c6cd;
+    }
+
+    // Неактивні дати (неможливо вибрати)
+    &[data-disabled] {
+        color: #e0e0e0;
+        cursor: not-allowed;
+    }
+}

@@ -4,18 +4,39 @@
     padding: 4px;
     border-radius: 12px;
     background: var(--event-neutral-surface);
+
+    @media (min-width: 1280px) {
+        padding: 0;
+        background: transparent;
+        gap: 16px;
+    }
 }
 
 .chooseSportItem {
     width: 100%;
+    border-radius: 8px;
 
     &.activeSportItem {
-        border-radius: 8px;
         background: var(--color-white);
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
         & .chooseSportButton {
             color: var(--color-black);
+        }
+    }
+
+    @media (min-width: 1280px) {
+        border-radius: 20px;
+        border: 1px var(--color-gray-400) solid;
+
+        &.activeSportItem {
+            background: var(--color-black);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            border: none;
+
+            & .chooseSportButton {
+                color: var(--color-white);
+            }
         }
     }
 }
@@ -32,6 +53,10 @@
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.14px;
+
+    @media (min-width: 1280px) {
+        padding: 16px 0;
+    }
 }
 
 .chooseSportIcon {

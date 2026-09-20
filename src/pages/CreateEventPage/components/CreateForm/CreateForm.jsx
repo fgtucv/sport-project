@@ -1,4 +1,3 @@
-import { Component } from "react";
 import {
   PriceIcon,
   CourtIcon,
@@ -11,62 +10,40 @@ import { CreateFormBlock } from "./components/CreateFormBlock/CreateFormBlock.js
 import { ChoiceGameParmList } from "./components/ChoiceGameParmList/ChoiceGameParmList.jsx";
 import { ChooseSport } from "./components/ChooseSport/ChooseSport.jsx";
 import { PlayerLevel } from "./components/PlayerLevel/PlayerLevel.jsx";
-import { DateTimeInputs } from "./components/DateTimeInputs/DateTimeInputs.jsx";
+import { DateTimePicker } from "./components/DateTimePickers/DateTimePickers.jsx";
 
-export class CreateForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      eventLocation: "",
-      eventCourt: "",
-      eventPrice: "",
-    };
-  }
+export const CreateForm = ({ formatedNewGameObject, setSport, setDate, setTime, setPlayers, setDuration, setLocation, setCourt, setLevel, setIsStrict, setPrice}) => {
 
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+  return (
+    <form className={style.createForm} onSubmit={formatedNewGameObject}>
+      <CreateFormBlock title="Вид спорту" isInput={false}>
+        <ChooseSport setSport={setSport} />
+      </CreateFormBlock>
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submit logic
-  };
+      <DateTimePicker setDate={setDate} setTime={setTime}/>
 
-  render() {
-    const { eventLocation, eventCourt, eventPrice } = this.state;
+      <CreateFormBlock title="Кількість гравців" isInput={false}>
+        <ChoiceGameParmList setParm={setPlayers} arr={["2 гравця", "4 гравця"]} />
+      </CreateFormBlock>
 
-    return (
-      <form className={style.createForm} onSubmit={this.handleSubmit}>
-        <CreateFormBlock title="Вид спорту" isInput={false}>
-          <ChooseSport />
-        </CreateFormBlock>
+      <CreateFormBlock title="Виберіть тривалість події" isInput={false}>
+        <ChoiceGameParmList setParm={setDuration} arr={["60 хв", "90 хв", "120 хв", "150 хв"]} />
+      </CreateFormBlock>
 
-        <DateTimeInputs />
+      <CreateFormBlock title="Локація" isInput={true} Icon={LocationIcon} placeholder="Наприклад: Padel club Oviedo" id="eventLocation" setInputValue={setLocation} />
 
-        <CreateFormBlock title="Кількість гравців" isInput={false}>
-          <ChoiceGameParmList arr={["2 гравця", "4 гравця"]} />
-        </CreateFormBlock>
+      <CreateFormBlock title="Корт" isInput={true} Icon={CourtIcon} placeholder="Наприклад: №4" id="eventCourt" setInputValue={setCourt} />
 
-        <CreateFormBlock title="Виберіть тривалість події" isInput={false}>
-          <ChoiceGameParmList arr={["60 хв", "90 хв", "120 хв", "150 хв"]} />
-        </CreateFormBlock>
+      <PlayerLevel setIsStrict={setIsStrict} setLevel={setLevel}/>
 
-        <CreateFormBlock title="Локація" isInput={true} Icon={LocationIcon} placeholder="Наприклад: Padel club Oviedo" id="eventLocation"/>
-          
-        <CreateFormBlock title="Корт" isInput={true} Icon={CourtIcon} placeholder="Наприклад: №4" id="eventCourt"/>
+      <CreateFormBlock title="Загальна ціна" isInput={true} Icon={PriceIcon} placeholder="Наприклад: 26 €" id="eventPrice" setInputValue={setPrice} />
 
-        <PlayerLevel />
-
-        <CreateFormBlock title="Загальна ціна" isInput={true} Icon={PriceIcon} placeholder="Наприклад: 26 €" id="eventPrice"/>
-
-        <button className={style.createFormDraftButton} type="button">
-          Зберегти до чернеток
-        </button>
-        <button className={style.createFormSubmitButton} type="submit">
-          Опублікувати
-        </button>
-      </form>
-    );
-  }
-}
+      <button className={style.createFormDraftButton} type="button">
+        Зберегти до чернеток
+      </button>
+      <button className={style.createFormSubmitButton} type="submit">
+        Опублікувати
+      </button>
+    </form>
+  );
+};
