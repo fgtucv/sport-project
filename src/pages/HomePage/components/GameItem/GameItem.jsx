@@ -37,10 +37,11 @@ export const GameItem = ({ obj }) => {
             <div className={style.gamePlayers}>
                 <figure className={style.gameAvatarsGroup}>
                     {obj.players.map((player) => (
+                        // console.log(player.avatarUrl)
                         <img
                             key={player.nickname}
                             className={style.gameAvatarImg}
-                            src={player.avatarUrl}
+                            src={!player.avatarUrl ? player.avatarUrl : "https://cdn-icons-png.flaticon.com/128/1144/1144760.png"}
                             alt={`Гравець ${player.nickname}`}
                         />
                     ))}
@@ -52,7 +53,7 @@ export const GameItem = ({ obj }) => {
             <div className={style.gameFooter}>
                 <div className={style.gamePriceGroup}>
                     <span className={style.gamePriceLabel}>Ціна з гравця</span>
-                    <span className={style.gamePriceValue}>{obj.price} €</span>
+                    <span className={style.gamePriceValue}>{obj.price / 4} €</span>
                 </div>
                 <button type="button" className={style.gameJoinBtn}>{obj.isFull ? "Недоступно" : "Приєднатися"}</button>
             </div>

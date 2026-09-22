@@ -2,22 +2,20 @@ import {
     AddIcon,
     CalendarIcon,
     GameIcon,
-    LogoIcon,
     MessegIcon,
     SettingsIcon,
     StatisticIcon,
     UserIcon,
 } from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
+import { Logo } from "../Logo/Logo.jsx";
 import style from "./Header.module.scss";
 
 export const Header = () => {
     return <header className={style.header}>
         <Container>
             <h1 className={style.headerPageName}>Статистика</h1>
-            <a className={style.headerLogo}>
-                <LogoIcon />
-            </a>
+            <Logo />
             <ul className={style.headerNav}>
                 <li className={style.headerNavItem + ' ' + style.active}>
                     <a className={style.headerNavLink}>

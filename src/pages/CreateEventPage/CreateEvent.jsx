@@ -39,7 +39,7 @@ export const CreateEvent = () => {
 
   const formatedNewGameObject = async (event) => {
     event.preventDefault();
-    const userInfo = await getSomeUserInfo(JSON.parse(localStorage.getItem("userId")));
+    const userInfo = await getSomeUserInfo("usr-bosla-097");
 
     const newGame = {
       "uuid": nanoid(),
@@ -69,6 +69,8 @@ export const CreateEvent = () => {
     };
 
     submitGameToServer(newGame);
+
+    event.target.reset();
   };
 
   const submitGameToServer = async (newGame) => {

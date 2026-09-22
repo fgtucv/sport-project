@@ -3,7 +3,6 @@ import {
     EmailIcon,
     GroupIcon,
     LanguageIcon,
-    LogoIcon,
     TelephoneIcon,
     MenuIcon,
     AddIcon,
@@ -12,6 +11,7 @@ import {
     StatisticIcon
 } from "../Icons/Icons.jsx";
 import { Container } from "../Container/Container.jsx";
+import { Logo } from "../Logo/Logo.jsx";
 import style from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -36,9 +36,7 @@ export const Footer = () => {
             </ul>
             <div className={style.footerTopDiv}>
                 <div>
-                    <a className={style.footerLogo}>
-                        <LogoIcon />
-                    </a>
+                    <Logo/>
                     <p className={style.footerText}>
                         Ваш надійний супутник у світі паделу
                         та тенісу. Керуйте матчами,

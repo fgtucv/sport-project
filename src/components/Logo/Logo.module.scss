@@ -1,0 +1,44 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.icon {
+  width: 64px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.05;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
+.blueText {
+  color: #0A66C2;
+}
+
+.goldText {
+  color: #F59E0B;
+}
