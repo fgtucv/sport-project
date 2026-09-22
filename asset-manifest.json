@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/sport-project/static/css/main.ba1b2a81.css",
-    "main.js": "/sport-project/static/js/main.afed58f8.js",
+    "main.css": "/sport-project/static/css/main.bbe8091b.css",
+    "main.js": "/sport-project/static/js/main.5bdab217.js",
+    "static/css/375.31d6cfe0.chunk.css": "/sport-project/static/css/375.31d6cfe0.chunk.css",
+    "static/js/375.ab18847d.chunk.js": "/sport-project/static/js/375.ab18847d.chunk.js",
     "index.html": "/sport-project/index.html",
-    "main.ba1b2a81.css.map": "/sport-project/static/css/main.ba1b2a81.css.map",
-    "main.afed58f8.js.map": "/sport-project/static/js/main.afed58f8.js.map"
+    "main.bbe8091b.css.map": "/sport-project/static/css/main.bbe8091b.css.map",
+    "main.5bdab217.js.map": "/sport-project/static/js/main.5bdab217.js.map",
+    "375.ab18847d.chunk.js.map": "/sport-project/static/js/375.ab18847d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba1b2a81.css",
-    "static/js/main.afed58f8.js"
+    "static/css/main.bbe8091b.css",
+    "static/js/main.5bdab217.js"
   ]
 }
