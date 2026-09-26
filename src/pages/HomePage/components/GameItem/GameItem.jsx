@@ -41,7 +41,7 @@ export const GameItem = ({ obj }) => {
                         <img
                             key={player.nickname}
                             className={style.gameAvatarImg}
-                            src={!player.avatarUrl ? player.avatarUrl : "https://cdn-icons-png.flaticon.com/128/1144/1144760.png"}
+                            src={!(player.avatarUrl === "https://...") ? player.avatarUrl : "https://cdn-icons-png.flaticon.com/512/17561/17561717.png"}
                             alt={`Гравець ${player.nickname}`}
                         />
                     ))}

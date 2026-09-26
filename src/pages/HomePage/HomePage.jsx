@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useIsMobile } from "../../hooks/useIsMobile.js";
+import { use, useContext, useEffect, useRef, useState } from "react";
+import { IsMobileContext } from "../../contexts/IsMobileContext/IsMobileContext.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
@@ -18,7 +18,7 @@ const text = {
 
 export const HomePage = () => {
     const [games, setGames] = useState([]);
-    const isMobile = useIsMobile();
+    const { isMobile } = useContext(IsMobileContext);
 
     useEffect(() => {
         const getGamesFromApi = async () => {
@@ -48,15 +48,16 @@ export const HomePage = () => {
                     <Category />
                     <Sorted />
                 </div>
-                <ul className={style.games}>
-                    {games.map((game) =>
-                        isMobile ? (
+
+                    <ul className={style.games}>
+                        {games.map((game) =>
+                            isMobile ? (
                             <GameMobileItem key={game.id} obj={game} />
-                        ) : (
+                            ) : (
                             <GameItem key={game.id} obj={game} />
-                        )
-                    )}
-                </ul>
+                            )
+                        )}
+                    </ul>
             </Container>
         </main>
     );

@@ -47,7 +47,7 @@ export const CreateEvent = () => {
       "hostNickname": userInfo.nickname,
       "typeOfGame": type,
       "sportType": sport.toUpperCase(),
-      "level": level,
+      "level": Number(level),
       "isStrict": isStrict,
       "time": `${String(time.hour).padStart(2, '0')}:${String(time.minute).padStart(2, '0')}`,
       "date": `${String(date.day).padStart(2, '0')}.${String(date.month).padStart(2, '0')}.${String(date.year).padStart(2, '0')}`,
@@ -74,7 +74,6 @@ export const CreateEvent = () => {
   };
 
   const submitGameToServer = async (newGame) => {
-    console.log(5)
     try {
       const option = {
         method: "POST",

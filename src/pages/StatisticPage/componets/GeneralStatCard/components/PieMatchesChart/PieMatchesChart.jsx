@@ -7,12 +7,6 @@ import {
 } from 'recharts';
 import style from "./PieMatchesChart.module.scss";
 
-const dataForPieChart = [
-    { name: "Перемоги", value: 20, color: "#10B981" },
-    { name: "Поразки", value: 10, color: "#EF4444" },
-    { name: "Нічії", value: 4, color: "#D1D5DB" }
-]
-
 export const PieMatchesChart = ({data}) => {
     const dataForPieChart = [
     { name: "Перемоги", value: data.wins, color: "#10B981" },

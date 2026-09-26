@@ -15,7 +15,7 @@ export const Header = () => {
     return <header className={style.header}>
         <Container>
             <h1 className={style.headerPageName}>Статистика</h1>
-            <Logo />
+            <Logo/>
             <ul className={style.headerNav}>
                 <li className={style.headerNavItem + ' ' + style.active}>
                     <a className={style.headerNavLink}>

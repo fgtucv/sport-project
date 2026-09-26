@@ -5,7 +5,6 @@ import { Time } from '@internationalized/date';
 export const TimePickerCustom = ({ setTime }) => {
     return (
         <TimeField
-            defaultValue={new Time(18, 30)}
             onChange={setTime}
             className={styles.timePicker}
             granularity="minute"
