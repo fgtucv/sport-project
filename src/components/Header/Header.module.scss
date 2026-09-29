@@ -62,17 +62,24 @@
 }
 
 .headerNavIcon {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     fill: var(--header-text);
 }
 
 .headerList {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
 }
 
+.headerItem {
+    display: flex;
+}
+
 .headerIcon {
-    height: 20px;
+    height: 24px;
+    width: 24px;
+    fill: #45464D;
 }

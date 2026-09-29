@@ -27,8 +27,12 @@ export const GameMobileItem = ({ obj }) => {
                         <img
                             key={player.nickname}
                             className={style.gameAvatarImg}
-                            src={!(player.avatarUrl === "https://...") ? player.avatarUrl : "https://cdn-icons-png.flaticon.com/512/17561/17561717.png"}
+                            src={player.avatarUrl}
                             alt={`Гравець ${player.nickname}`}
+                            onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = 'https://cdn-icons-png.flaticon.com/512/17561/17561717.png';
+                            }}
                         />
                     ))}
                     {obj.maxPlayers > obj.currentPlayers ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}

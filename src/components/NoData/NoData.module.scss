@@ -1,0 +1,71 @@
+// @media (max-width: 600px) {}
+
+.noData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.noDataIconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #D8E2FF;
+    margin-bottom: 24px;
+}
+
+.noDataTitle {
+    margin-bottom: 8px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.24px;
+    color: #000000;
+}
+
+.noDataText {
+    text-align: center;
+    max-width: 447px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #45464D;
+}
+
+.noDataActions {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.noDataButton {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    gap: 4px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.primaryBtn {
+    color: #ffffff;
+    background-color: #0058BE;
+}
+
+.secondaryBtn {
+    color: #0058BE;
+    border: 1.5px #0058BE solid;
+}
+
+.buttonIcon {}

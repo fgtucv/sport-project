@@ -3,12 +3,11 @@ import {
     InfoIcon,
     LocationIcon,
 } from "../../../../components/Icons/Icons";
-
 import style from "./GameItem.module.scss";
 
 export const GameItem = ({ obj }) => {
     return (
-        <li className={`${style.gameItem } ${obj.isFull ? style.isFullgame : ''}`}>
+        <li className={`${style.gameItem} ${obj.isFull ? style.isFullgame : ''}`}>
             <div className={style.gameHeader}>
                 <div className={style.gameBadgesGroup}>
                     <div className={style.gameTagsRow}>
@@ -37,12 +36,15 @@ export const GameItem = ({ obj }) => {
             <div className={style.gamePlayers}>
                 <figure className={style.gameAvatarsGroup}>
                     {obj.players.map((player) => (
-                        // console.log(player.avatarUrl)
                         <img
                             key={player.nickname}
                             className={style.gameAvatarImg}
-                            src={!(player.avatarUrl === "https://...") ? player.avatarUrl : "https://cdn-icons-png.flaticon.com/512/17561/17561717.png"}
+                            src={player.avatarUrl}
                             alt={`Гравець ${player.nickname}`}
+                            onError={(e) => {
+                                e.currentTarget.onerror = null;
+                                e.currentTarget.src = 'https://cdn-icons-png.flaticon.com/512/17561/17561717.png';
+                            }}
                         />
                     ))}
                     {obj.maxPlayers > obj.currentPlayers ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}

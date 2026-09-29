@@ -1,3 +1,4 @@
+import { IoIosArrowDown } from "react-icons/io";
 import {
     CheckmarkIcon,
     DownArrowIcon,
@@ -8,7 +9,7 @@ export const Sorted = () => {
     return <div className={style.sorted}>
         <button className={style.sortedSelectedButton} type="button">
             Спочатку найближчі
-            <DownArrowIcon className={style.sortedelectedButtonIcon}/>
+            <IoIosArrowDown size={18} color="#000000" className={style.sortedelectedButtonIcon}/>
         </button>
         <ul className={`${style.sortedList} isHidden`}>
             <li className={style.sortedItem + ' ' + style.activeSorted}>
