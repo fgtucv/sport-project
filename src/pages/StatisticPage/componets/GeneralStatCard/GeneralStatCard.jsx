@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { StatHeader } from "../StatHeader/StatHeader.jsx";
 import { StatList } from "./components/StatList/StatList.jsx";
-import { GeneralStatIcon } from "../../../../components/Icons/Icons.jsx";
+import { IoMdStats } from "react-icons/io";
 import { PieMatchesChart } from "./components/PieMatchesChart/PieMatchesChart.jsx";
 
 import style from "./GeneralStatCard.module.scss";
@@ -11,8 +11,8 @@ export class GeneralStatCard extends Component {
     render() {
         const { data } = this.props;
         return (
-            <div className={cardstyle.card}>
-                <StatHeader titel={"Заголовок"} Icon={GeneralStatIcon}/>
+            <article className={cardstyle.card}>
+                <StatHeader titel={"Заголовок"} Icon={IoMdStats}/>
 
                 <PieMatchesChart data={data}/>
 
@@ -41,7 +41,7 @@ export class GeneralStatCard extends Component {
                 </ul>
 
                 <StatList data={data}/>
-            </div>
+            </article>
         )
     }
 }

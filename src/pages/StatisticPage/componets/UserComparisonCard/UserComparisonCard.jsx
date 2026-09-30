@@ -13,7 +13,7 @@ export const UserComparisonCard = ({ title, users, isPositive }) => {
     const badgeClassName = isPositive ? cardStyle.badgePositive : cardStyle.badgeNegative;
 
     return (
-        <div className={cardStyle.card}>
+        <article className={cardStyle.card}>
             <StatHeader titel={title}/>
 
             <ul className={style.userList}>
@@ -33,6 +33,6 @@ export const UserComparisonCard = ({ title, users, isPositive }) => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </article>
     );
 };

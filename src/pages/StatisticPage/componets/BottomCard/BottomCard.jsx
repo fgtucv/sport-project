@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { TimeStatIcon, TournamentStatIcon } from "../../../../components/Icons/Icons.jsx";
+import { MdOutlineTimer } from "react-icons/md";
+import { CgTrophy } from "react-icons/cg";
 import { StatHeader } from "../StatHeader/StatHeader.jsx";
 import { BottomCardItem } from "./components/BottomCardItem/BottomCardItem.jsx";
 
@@ -13,8 +14,8 @@ export class BottomCard extends Component {
         if (type === "time") {
             const dataArray = [data.fastestMatch, data.longestMatch]
             return (
-                <div className={cardStyle.card}>
-                    <StatHeader titel={"Час на корті"} Icon={TimeStatIcon} />
+                <article className={cardStyle.card}>
+                    <StatHeader titel={"Час на корті"} Icon={MdOutlineTimer} />
 
                     <ul className={style.matchList}>
                         {
@@ -28,12 +29,12 @@ export class BottomCard extends Component {
                         <span className={style.averageLabel}>Середній час</span>
                         <time className={style.averageTime}>14:57 <small>хв</small></time>
                     </div>
-                </div>
+                </article>
             )
         } else if (type === "tournament") {
             return (
-                <div className={cardStyle.card}>
-                    <StatHeader titel={"Турніри"} Icon={TournamentStatIcon} />
+                <article className={cardStyle.card}>
+                    <StatHeader titel={"Турніри"} Icon={CgTrophy} />
 
                     <ul className={style.tournamentList}>
                         {
@@ -42,7 +43,7 @@ export class BottomCard extends Component {
                             })
                         }
                     </ul>
-                </div>
+                </article>
             )
         }
     }

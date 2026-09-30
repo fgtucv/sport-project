@@ -3,11 +3,18 @@ import {
     InfoIcon,
     LocationIcon,
 } from "../../../../components/Icons/Icons";
+import { userStore } from "../../../../contexts/userStore/userStore";
 import style from "./GameItem.module.scss";
 
-export const GameItem = ({ obj }) => {
+const myLevel = 4;
+
+export const GameItem = ({ obj, joinToGame }) => {
+    const myLevel = userStore().user.rating.level;
+    const iSMyLevelUnavailable = myLevel <= obj.level && obj.isStrict ? true : false;
+    const isFull = obj.maxPlayers <= obj.players.length;
+
     return (
-        <li className={`${style.gameItem} ${obj.isFull ? style.isFullgame : ''}`}>
+        <li className={`${style.gameItem} ${(isFull || iSMyLevelUnavailable) ? style.isFullgame : ''}`}>
             <div className={style.gameHeader}>
                 <div className={style.gameBadgesGroup}>
                     <div className={style.gameTagsRow}>
@@ -35,21 +42,21 @@ export const GameItem = ({ obj }) => {
 
             <div className={style.gamePlayers}>
                 <figure className={style.gameAvatarsGroup}>
-                    {obj.players.map((player) => (
-                        <img
-                            key={player.nickname}
+                    {obj.players.map((player, index) => {                        
+                        return (<img
+                            key={`${player.id}-${index}`}
                             className={style.gameAvatarImg}
                             src={player.avatarUrl}
-                            alt={`Гравець ${player.nickname}`}
+                            alt={`Гравець ${player.username}`}
                             onError={(e) => {
                                 e.currentTarget.onerror = null;
                                 e.currentTarget.src = 'https://cdn-icons-png.flaticon.com/512/17561/17561717.png';
                             }}
-                        />
-                    ))}
-                    {obj.maxPlayers > obj.currentPlayers ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}
+                        />)
+                    })}
+                    {obj.maxPlayers > obj.players.length ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}
                 </figure>
-                <span className={style.gamePlayersCount}>{obj.maxPlayers > obj.currentPlayers ? `${obj.currentPlayers} / ${obj.maxPlayers} гравців` : "Місьці немає"}</span>
+                <span className={style.gamePlayersCount}>{isFull ? "Місьці немає" : iSMyLevelUnavailable ? "Зависокий рівнень" : `${obj.currentPlayers} / ${obj.maxPlayers} гравців`}</span>
             </div>
 
             <div className={style.gameFooter}>
@@ -57,7 +64,7 @@ export const GameItem = ({ obj }) => {
                     <span className={style.gamePriceLabel}>Ціна з гравця</span>
                     <span className={style.gamePriceValue}>{obj.price / 4} €</span>
                 </div>
-                <button type="button" className={style.gameJoinBtn}>{obj.isFull ? "Недоступно" : "Приєднатися"}</button>
+                <button type="button" onClick={() => joinToGame(obj.id)} className={style.gameJoinBtn}>{(isFull || iSMyLevelUnavailable) ? "Недоступно" : "Приєднатися"}</button>
             </div>
         </li>
     )

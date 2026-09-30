@@ -33,6 +33,7 @@ export const CreateEvent = () => {
 
       return userInfoToNewGame;
     } catch (error) {
+      console.log(9)
       console.log(error)
     }
   }
@@ -42,7 +43,7 @@ export const CreateEvent = () => {
     const userInfo = await getSomeUserInfo("usr-bosla-097");
 
     const newGame = {
-      "uuid": nanoid(),
+      "id": nanoid(),
       "hostId": JSON.parse(localStorage.getItem("userId")),
       "hostNickname": userInfo.nickname,
       "typeOfGame": type,

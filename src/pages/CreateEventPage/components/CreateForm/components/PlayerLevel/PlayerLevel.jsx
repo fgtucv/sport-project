@@ -23,10 +23,10 @@ export const PlayerLevel = ({ setLevel, setIsStrict }) => {
         <span className={style.levelMarkSpan}>0.0</span>
         <span className={style.levelMarkSpan}>4.0</span>
       </footer>
-      <label className={style.levelSwitch}>
+      <label className={style.levelSwitch} htmlFor="strict" aria-label="Перемикач типу рівння гри">
         <PiSealCheckBold size={22} color="#0058BE" />
         <span className={style.levelSpan}>Строгий рівень</span>
-        <input type="checkbox" onChange={(event) => (setIsStrict(event.target.checked))} />
+        <input onChange={(event) => (setIsStrict(event.target.checked))} aria-label="Строгий рівень" type="checkbox" id="strict"/>
         <span className={style.levelSlider}></span>
       </label>
     </div>

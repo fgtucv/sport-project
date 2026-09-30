@@ -5,7 +5,7 @@ export const StatHeader = ({ titel, Icon, badge }) => {
     return (
         <div className={style.cardHeader}>
             <h2 className={style.cardTitle}>{titel}</h2>
-            {Icon ? <Icon className={style.cardIcon} /> : null}
+            {Icon ? <Icon size={22} color="#191C1E"/> : null}
             {badge === "yearToggle" ? <div className={style.yearToggle}>
                 <button type="button" className={`${style.toggleBtn} ${style.active}`}>2026</button>
                 <button type="button" className={style.toggleBtn}>2025</button>

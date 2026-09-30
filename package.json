@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.20.0",
     "gh-pages": "^6.3.0",
     "nanoid": "^6.0.1",
     "react": "^19.2.8",
@@ -19,7 +20,8 @@
     "react-scripts": "5.0.1",
     "recharts": "^3.10.1",
     "sass": "^1.102.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zustand": "^5.0.15"
   },
   "scripts": {
     "start": "react-scripts start",
