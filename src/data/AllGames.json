@@ -1,0 +1,27 @@
+{
+    "hostId": "usr-marta-882",
+    "hostNickname": "@marta_v",
+    "sportType": "PADEL",
+    "level": 1.5,
+    "isStrict": false,
+    "time": "18:00",
+    "durationMinutes": 60,
+    "clubName": "Asturias Padel Center",
+    "courtNumber": "1",
+    "players": [
+        {
+            "id": "usr-marta-882",
+            "nickname": "@marta_v",
+            "avatarUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100"
+        }
+    ],
+    "currentPlayers": 1,
+    "maxPlayers": 4,
+    "price": "18",
+    "currency": "€",
+    "isFull": false,
+    "id": "k83JdxN92mPl10aZsYxQ",
+    "typeOfGame": "tournamentEventsCard",
+    "date": "10.02.2026",
+    "type": "soon"
+}

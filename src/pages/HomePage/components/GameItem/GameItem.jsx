@@ -8,8 +8,8 @@ import style from "./GameItem.module.scss";
 
 const myLevel = 4;
 
-export const GameItem = ({ obj, joinToGame }) => {
-    const myLevel = userStore().user.rating.level;
+export const GameItem = ({ obj, joinToGame, rating }) => {
+    const myLevel = rating;
     const iSMyLevelUnavailable = myLevel <= obj.level && obj.isStrict ? true : false;
     const isFull = obj.maxPlayers <= obj.players.length;
 

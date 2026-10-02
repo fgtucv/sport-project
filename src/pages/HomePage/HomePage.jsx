@@ -78,7 +78,7 @@ export const HomePage = () => {
             status: "soon",
         }
 
-        const newGame = { ...foundGame, type: "soon" };
+        const newGame = { ...foundGame, ...additionalObjectPart, };
 
         const newGames = [...user?.games || [], newGame];
 
@@ -86,7 +86,6 @@ export const HomePage = () => {
             const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${userId}`,
                 {
                     ...user,
-                    ...additionalObjectPart,
                     games: newGames
                 }
             );
@@ -117,7 +116,7 @@ export const HomePage = () => {
                         // <GameMobileItem key={game.id} obj={game} />
                         // ) : (
                         // console.log(game.id === "_iHfqFZgtM01bZGYAidus")
-                        return <GameItem key={game.id} obj={game} joinToGame={joinToGame} />
+                        return <GameItem key={game.id} obj={game} rating={user?.profile?.rating} joinToGame={joinToGame} />
                     }
                         // )
                     )}

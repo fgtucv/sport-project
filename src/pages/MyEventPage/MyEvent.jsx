@@ -7,9 +7,6 @@ import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 import { Pagination } from "../../components/Pagination/Pagination.jsx";
 import { NoData } from "../../components/NoData/NoData.jsx";
 import { userStore } from "../../contexts/userStore/userStore.jsx";
-
-import { LoginedUserContext } from '../../contexts/userStore/userStore.jsx';
-
 import style from "./MyEvent.module.scss";
 
 const text = {
@@ -26,7 +23,9 @@ export const MyEvent = () => {
 
     if (isLoading || !user) return <div>завантаження...</div>;
 
-    const games = user.games
+    const games = user?.games;
+
+    console.log(games);
 
     return (
         <section className={style.myEvent}>
@@ -41,8 +40,8 @@ export const MyEvent = () => {
                     </ul>
                     <Sorted />
                 </div>
-                <ul>
-                    {games.length > 0 ? (
+                <ul className={style.myEventGames}>
+                    {games && games.length > 0 ? (
                         games.map((obj) => (
                             <MyEventItem
                                 key={obj.id}
