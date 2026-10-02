@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useMemo, useCallback } from "react";
 import { IsMobileContext } from "../../contexts/IsMobileContext/IsMobileContext.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
@@ -21,8 +21,10 @@ const text = {
 const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
 export const HomePage = () => {
-    const user = userStore((state) => state.user)
+    const { user, fetchUser } = userStore();
     const [games, setGames] = useState([]);
+    const [renderedGames, setRenderedGames] = useState([]);
+    const [category, setCategory] = useState("all");
     // const { isMobile } = useContext(IsMobileContext);
 
     useEffect(() => {
@@ -31,6 +33,7 @@ export const HomePage = () => {
                 const respose = await axios.get("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
 
                 setGames(respose.data);
+                setRenderedGames(respose.data);
             } catch (error) {
                 console.error(error);
             }
@@ -40,7 +43,6 @@ export const HomePage = () => {
     }, []);
 
     const addNewPlayer = async (id, game) => {
-
         const player = {
             "id": user.id,
             "nickname": user.profile.username,
@@ -59,6 +61,10 @@ export const HomePage = () => {
                     players: newPlayersList
                 }
             );
+
+            if (respons.status === 200) {
+                fetchUser();
+            }
         } catch (error) {
             console.error(error);
         }
@@ -96,6 +102,41 @@ export const HomePage = () => {
         addNewPlayer(id, foundGame);
     };
 
+    const sortedGamesCategory = useMemo(
+        () => {
+            if (category !== "all") {
+                const newGames = games.filter(game => game.sportType === category);
+                setRenderedGames(newGames);
+                return newGames;
+            } else {
+                setRenderedGames(games);
+                return games;
+            }
+
+        },
+        [category, games]
+    );
+
+    const sortedGames = useCallback(
+        (sortCategoryId) => {
+            console.log(sortCategoryId);
+            if (sortCategoryId === 1) {
+                setRenderedGames(renderedGames.sort((a, b) => a.price - b.price));
+                return renderedGames;
+            } else if (sortCategoryId === 2) {
+                setRenderedGames(renderedGames.sort((a, b) => b.price + a.price));
+                return renderedGames;
+            } else if (sortCategoryId === 3) {
+                setRenderedGames(renderedGames.sort((a, b) => a.rating - b.rating));
+                return renderedGames;
+            } else if (sortCategoryId === 4) {
+                setRenderedGames(renderedGames.sort((a, b) => b.rating + a.rating));
+                return renderedGames;
+            }
+        },
+        [games]
+    );
+
     return (
         <main className={style.main}>
             <Container>
@@ -106,12 +147,12 @@ export const HomePage = () => {
                     ))}
                 </ul>
                 <div className={style.mainFilter}>
-                    <Category />
-                    <Sorted />
+                    <Category setCategory={setCategory} />
+                    <Sorted sortedGames={sortedGames} />
                 </div>
 
                 <ul className={style.games}>
-                    {games.map((game) => {
+                    {sortedGamesCategory.map((game) => {
                         // isMobile ? (
                         // <GameMobileItem key={game.id} obj={game} />
                         // ) : (
