@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useMemo, useCallback } from "react";
-import { IsMobileContext } from "../../contexts/IsMobileContext/IsMobileContext.jsx";
+import { IsMobileContext } from "../../contexts/useIsMobile.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
@@ -11,7 +11,7 @@ import { GameItem } from "./components/GameItem/GameItem.jsx";
 import style from "./HomePage.module.scss";
 import daysData from "../../data/days.json";
 import axios from "axios";
-import { userStore } from "../../contexts/userStore/userStore.jsx";
+import { userStore } from "../../contexts/useUserStore.jsx";
 
 const text = {
     title: "Доступні ігри",

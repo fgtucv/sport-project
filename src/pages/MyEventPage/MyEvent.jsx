@@ -6,7 +6,7 @@ import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 import { Pagination } from "../../components/Pagination/Pagination.jsx";
 import { NoData } from "../../components/NoData/NoData.jsx";
-import { userStore } from "../../contexts/userStore/userStore.jsx";
+import { userStore } from "../../contexts/useUserStore.jsx";
 import style from "./MyEvent.module.scss";
 
 const text = {

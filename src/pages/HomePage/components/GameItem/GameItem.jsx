@@ -3,7 +3,7 @@ import {
     InfoIcon,
     LocationIcon,
 } from "../../../../components/Icons/Icons";
-import { userStore } from "../../../../contexts/userStore/userStore";
+import { userStore } from "../../../../contexts/useUserStore";
 import style from "./GameItem.module.scss";
 
 const myLevel = 4;

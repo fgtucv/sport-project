@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { IsMobileProvider } from './contexts/IsMobileContext/IsMobileContext.jsx';
+import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
 import { Header } from './components/Header/Header.jsx';
 import { Footer } from "./components/Footer/Footer.jsx";
@@ -11,7 +11,7 @@ import { MyEvent } from "./pages/MyEventPage/MyEvent.jsx";
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
-import { userStore } from './contexts/userStore/userStore.jsx';
+import { userStore } from './contexts/useUserStore.jsx';
 
 
 function App() {
@@ -40,6 +40,6 @@ function App() {
       </IsMobileProvider>
     </main>
   );
-}
+};
 
 export default App;
