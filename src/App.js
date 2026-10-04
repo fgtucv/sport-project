@@ -11,11 +11,10 @@ import { MyEvent } from "./pages/MyEventPage/MyEvent.jsx";
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
-import { userStore } from './contexts/useUserStore.jsx';
-
+import { useUserStore } from './contexts/useUserStore.jsx';
 
 function App() {
-  const fetchUser = userStore((state) => state.fetchUser);
+  const fetchUser = useUserStore((state) => state.fetchUser);
 
   useEffect(() => { fetchUser() }, [fetchUser]);
 

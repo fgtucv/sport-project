@@ -85,15 +85,18 @@ export const MyEventItem = ({ obj, deleteCard }) => {
 
             {/* {(obj.status === "Soon" || obj.status === "Draw") && ( */}
                 <div className={style.gameBody}>
+                    {console.log(obj)}
                     <div className={style.gamePlayersList}>
-                        {obj.players.map((player) => (
-                            <img
+                        {console.log(obj)}
+                        {obj.players.map((player) =>{ 
+                            console.log(player);
+                            return <img
                                 key={`${obj.id}-${player.nickname}`}
                                 src={player.avatarUrl}
                                 alt={player.nickname}
                                 className={style.gamePlayerAvatar}
                             />
-                        ))}
+                        })}
                     </div>
                 </div>
             {/* )} */}

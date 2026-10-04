@@ -11,7 +11,7 @@ import { GameItem } from "./components/GameItem/GameItem.jsx";
 import style from "./HomePage.module.scss";
 import daysData from "../../data/days.json";
 import axios from "axios";
-import { userStore } from "../../contexts/useUserStore.jsx";
+import { useUserStore } from "../../contexts/useUserStore.jsx";
 
 const text = {
     title: "Доступні ігри",
@@ -21,7 +21,7 @@ const text = {
 const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
 export const HomePage = () => {
-    const { user, fetchUser } = userStore();
+    const { user, fetchUser } = useUserStore();
     const [games, setGames] = useState([]);
     const [renderedGames, setRenderedGames] = useState([]);
     const [category, setCategory] = useState("all");
@@ -117,25 +117,25 @@ export const HomePage = () => {
         [category, games]
     );
 
-    const sortedGames = useCallback(
-        (sortCategoryId) => {
-            console.log(sortCategoryId);
-            if (sortCategoryId === 1) {
-                setRenderedGames(renderedGames.sort((a, b) => a.price - b.price));
-                return renderedGames;
-            } else if (sortCategoryId === 2) {
-                setRenderedGames(renderedGames.sort((a, b) => b.price + a.price));
-                return renderedGames;
-            } else if (sortCategoryId === 3) {
-                setRenderedGames(renderedGames.sort((a, b) => a.rating - b.rating));
-                return renderedGames;
-            } else if (sortCategoryId === 4) {
-                setRenderedGames(renderedGames.sort((a, b) => b.rating + a.rating));
-                return renderedGames;
-            }
-        },
-        [games]
-    );
+    // const sortedGames = useCallback(
+    //     (sortCategoryId) => {
+    //         console.log(sortCategoryId);
+    //         if (sortCategoryId === 1) {
+    //             setRenderedGames(renderedGames.sort((a, b) => a.price - b.price));
+    //             return renderedGames;
+    //         } else if (sortCategoryId === 2) {
+    //             setRenderedGames(renderedGames.sort((a, b) => b.price + a.price));
+    //             return renderedGames;
+    //         } else if (sortCategoryId === 3) {
+    //             setRenderedGames(renderedGames.sort((a, b) => a.rating - b.rating));
+    //             return renderedGames;
+    //         } else if (sortCategoryId === 4) {
+    //             setRenderedGames(renderedGames.sort((a, b) => b.rating + a.rating));
+    //             return renderedGames;
+    //         }
+    //     },
+    //     [games]
+    // );
 
     return (
         <main className={style.main}>
@@ -148,7 +148,9 @@ export const HomePage = () => {
                 </ul>
                 <div className={style.mainFilter}>
                     <Category setCategory={setCategory} />
-                    <Sorted sortedGames={sortedGames} />
+                    <Sorted
+                    //  sortedGames={sortedGames} 
+                     />
                 </div>
 
                 <ul className={style.games}>

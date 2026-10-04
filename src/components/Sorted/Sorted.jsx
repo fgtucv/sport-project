@@ -30,8 +30,7 @@ export const Sorted = ({ sortedGames }) => {
     const [isHidden, setIsHidden] = useState(true);
 
     const handleCategoryClick = (categoryId) => {
-        console.log(categoryId);
-        sortedGames(categoryId);
+        // sortedGames(categoryId);
         setActiveCategory(categoryId);
         setIsHidden(true);
     }

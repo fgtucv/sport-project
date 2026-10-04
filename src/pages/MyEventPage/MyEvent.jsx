@@ -6,7 +6,7 @@ import { Sorted } from "../../components/Sorted/Sorted";
 import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 import { Pagination } from "../../components/Pagination/Pagination.jsx";
 import { NoData } from "../../components/NoData/NoData.jsx";
-import { userStore } from "../../contexts/useUserStore.jsx";
+import { useUserStore } from "../../contexts/useUserStore.jsx";
 import style from "./MyEvent.module.scss";
 
 const text = {
@@ -17,15 +17,11 @@ const text = {
 const PAGE_SIZE = 9;
 
 export const MyEvent = () => {
-    const { user, isLoading } = userStore();
-
-    // const [currentPage, setRenderedGames] = useState(1);
+    const { user, isLoading } = useUserStore();
 
     if (isLoading || !user) return <div>завантаження...</div>;
 
     const games = user?.games;
-
-    console.log(games);
 
     return (
         <section className={style.myEvent}>
@@ -42,12 +38,7 @@ export const MyEvent = () => {
                 </div>
                 <ul className={style.myEventGames}>
                     {games && games.length > 0 ? (
-                        games.map((obj) => (
-                            <MyEventItem
-                                key={obj.id}
-                                obj={obj}
-                            />
-                        ))
+                        games.map((obj) => <MyEventItem key={obj.id} obj={obj} />)
                     ) : (
                         <NoData />
                     )}
