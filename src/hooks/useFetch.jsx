@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = ({ url, options }) => {
+export const useFetch = (url, options) => {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -26,7 +26,9 @@ export const useFetch = ({ url, options }) => {
                 setIsLoading(false);
             } catch (error) {
                 if (error.name === "AbortError") {
-                    setError(error.message);
+                    setError(null);
+                } else {
+                    setError(error);
                 }
             } finally {
                 setIsLoading(false);

@@ -1,9 +1,8 @@
-import { createContext,  useState } from "react";
+import { createContext } from "react";
 
-export const IsMobileContext = createContext(() => typeof window !== 'undefined' && window.innerWidth < 1280);
+export const IsMobileContext = createContext(false);
 
 export const IsMobileProvider = ({ children }) => {
-    const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 1280);
 
     return (
         <IsMobileContext.Provider value={{isMobile}}>

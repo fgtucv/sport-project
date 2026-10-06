@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState, useMemo, useCallback } from "react";
-import { IsMobileContext } from "../../contexts/useIsMobile.jsx";
+import { IsMobileContext } from "../../hooks/useFetch.jsx";
+import { useFetch } from "../../hooks/useFetch.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
@@ -21,26 +22,19 @@ const text = {
 const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
 export const HomePage = () => {
-    const { user, fetchUser } = useUserStore();
+    const { user } = useUserStore();
     const [games, setGames] = useState([]);
     const [renderedGames, setRenderedGames] = useState([]);
     const [category, setCategory] = useState("all");
     // const { isMobile } = useContext(IsMobileContext);
 
+    const { data, isLoading, error } = useFetch("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
+
     useEffect(() => {
-        const getGamesFromApi = async () => {
-            try {
-                const respose = await axios.get("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
-
-                setGames(respose.data);
-                setRenderedGames(respose.data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        getGamesFromApi();
-    }, []);
+        if (data) {
+            setGames(data);
+        }
+    }, [games, data]);
 
     const addNewPlayer = async (id, game) => {
         const player = {
@@ -62,9 +56,6 @@ export const HomePage = () => {
                 }
             );
 
-            if (respons.status === 200) {
-                fetchUser();
-            }
         } catch (error) {
             console.error(error);
         }
@@ -137,6 +128,12 @@ export const HomePage = () => {
     //     [games]
     // );
 
+    if (isLoading) {
+        return <div>Loading...</div>;
+    } else if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     return (
         <main className={style.main}>
             <Container>
@@ -150,7 +147,7 @@ export const HomePage = () => {
                     <Category setCategory={setCategory} />
                     <Sorted
                     //  sortedGames={sortedGames} 
-                     />
+                    />
                 </div>
 
                 <ul className={style.games}>
