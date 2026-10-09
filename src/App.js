@@ -2,12 +2,14 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
+import { Layout } from './components/Layout/Layout.jsx';
+
 import { Header } from './components/Header/Header.jsx';
 import { Footer } from "./components/Footer/Footer.jsx";
 
 import { CreateEvent } from "./pages/CreateEventPage/CreateEvent";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
-import { MyEvent } from "./pages/MyEventPage/MyEvent.jsx";
+import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
@@ -19,25 +21,32 @@ function App() {
   useEffect(() => { fetchUser() }, [fetchUser]);
 
   return (
-    <main className="main">
-      <IsMobileProvider>
-        <Header />
+    // <Layout>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+        <Route path="/create-event" element={<CreateEvent />} />
 
-          <Route path="/create-event" element={<CreateEvent />} />
+        <Route path="/my-events" element={<MyEventPage />} />
 
-          <Route path="/my-events" element={<MyEvent />} />
+        <Route path="/statistic" element={<Statistic />} />
 
-          <Route path="/statistic" element={<Statistic />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+    </Routes>
+    // </Layout>
+    
+    // <main className="main">
+    //   <IsMobileProvider>
+    //     <Header />
 
-        <Footer />
-      </IsMobileProvider>
-    </main>
+
+
+    //     <Footer />
+    //   </IsMobileProvider>
+    // </main>
   );
 };
 

@@ -136,7 +136,6 @@ export const HomePage = () => {
 
     return (
         <main className={style.main}>
-            <Container>
                 <MainTitle text={text} />
                 <ul className={style.mainDates}>
                     {daysData.map((day) => (
@@ -161,7 +160,6 @@ export const HomePage = () => {
                         // )
                     )}
                 </ul>
-            </Container>
         </main>
     );
 };

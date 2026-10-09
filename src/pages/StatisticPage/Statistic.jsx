@@ -14,31 +14,29 @@ const text = { title: "Статистика", subtitle: "Преглядай св
 export const Statistic = () => {
     return (
         <section className={style.dashboard}>
-            <Container>
-                <MainTitle text={text} />
+            <MainTitle text={text} />
 
-                <GeneralStatCard data={data.statistics.overall}/>
+            <GeneralStatCard data={data.statistics.overall} />
 
-                <ActivityCard data={data.statistics.activityByMonth}/>
+            <ActivityCard data={data.statistics.activityByMonth} />
 
-                <div className={style.rightColumn}>
-                    <UserComparisonCard
-                        title="Найважчі суперники"
-                        users={data.statistics.topOpponents}
-                        isPositive={false}
-                    />
-                    <UserComparisonCard
-                        title="Найкращі партнери"
-                        users={data.statistics.topPartners}
-                        isPositive={true}
-                    />
-                </div>
+            <div className={style.rightColumn}>
+                <UserComparisonCard
+                    title="Найважчі суперники"
+                    users={data.statistics.topOpponents}
+                    isPositive={false}
+                />
+                <UserComparisonCard
+                    title="Найкращі партнери"
+                    users={data.statistics.topPartners}
+                    isPositive={true}
+                />
+            </div>
 
-                <BottomCard type="time" data={data.statistics.timeOnCourt}/>
+            <BottomCard type="time" data={data.statistics.timeOnCourt} />
 
-                <BottomCard type="tournament" data={data.statistics.byTournamentType}/>
+            <BottomCard type="tournament" data={data.statistics.byTournamentType} />
 
-            </Container >
         </section>
     );
 };

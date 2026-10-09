@@ -93,7 +93,6 @@ export const CreateEvent = () => {
 
   return (
     <section className={style.create}>
-      <Container>
         <MainTitle text={TEXT_DATA} />
 
         <h2 className={style.createStepTitle}>Крок 1: Виберіть тип події</h2>
@@ -105,7 +104,6 @@ export const CreateEvent = () => {
 
         <h2 className={style.createStepTitle}>Крок 2: Виберіть деталі події</h2>
         <CreateForm formatedNewGameObject={formatedNewGameObject} setSport={setSport} setDate={setDate} setTime={setTime} setPlayers={setPlayers} setDuration={setDuration} setLocation={setLocation} setCourt={setCourt} setLevel={setLevel} setIsStrict={setIsStrict} setPrice={setPrice} />
-      </Container>
     </section>
   );
 };
