@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, useMemo, useCallback } from "react";
-import { IsMobileContext } from "../../hooks/useFetch.jsx";
+// import { IsMobileContext } from "../../hooks/useFetch.jsx";
 import { useFetch } from "../../hooks/useFetch.jsx";
-import { Container } from "../../components/Container/Container.jsx";
+// import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
 import { Category } from "../../components/Category/Category.jsx";
@@ -29,6 +29,8 @@ export const HomePage = () => {
     // const { isMobile } = useContext(IsMobileContext);
 
     const { data, isLoading, error } = useFetch("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
+
+
 
     useEffect(() => {
         if (data) {

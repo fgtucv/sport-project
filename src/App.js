@@ -1,15 +1,16 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { IsMobileProvider } from './contexts/useIsMobile.jsx';
+// import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
 import { Layout } from './components/Layout/Layout.jsx';
 
-import { Header } from './components/Header/Header.jsx';
-import { Footer } from "./components/Footer/Footer.jsx";
+// import { Header } from './components/Header/Header.jsx';
+// import { Footer } from "./components/Footer/Footer.jsx";
 
 import { CreateEvent } from "./pages/CreateEventPage/CreateEvent";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
+import { SingleMyEventPage } from "./pages/SingleMyEventPage/SingleMyEventPage.jsx";
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
@@ -21,9 +22,9 @@ function App() {
   useEffect(() => { fetchUser() }, [fetchUser]);
 
   return (
-    // <Layout>
     <Routes>
       <Route element={<Layout />}>
+
         <Route path="/" element={<HomePage />} />
 
         <Route path="/create-event" element={<CreateEvent />} />
@@ -33,20 +34,10 @@ function App() {
         <Route path="/statistic" element={<Statistic />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
+
+        <Route path="/my-events/:eventId" element={<SingleMyEventPage />}/>
       </Route>
-
     </Routes>
-    // </Layout>
-    
-    // <main className="main">
-    //   <IsMobileProvider>
-    //     <Header />
-
-
-
-    //     <Footer />
-    //   </IsMobileProvider>
-    // </main>
   );
 };
 
