@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { BiTennisBall, BiCalendar, BiPlusCircle, BiStats, BiUserCircle, BiMessage } from "react-icons/bi";
 import { MdOutlineSettings } from "react-icons/md";
 import { Container } from "../Container/Container.jsx";
@@ -78,7 +78,9 @@ export const Header = () => {
                         <MdOutlineSettings className={style.headerIcon} />
                     </li>
                     <li className={style.headerItem}>
-                        <BiUserCircle className={style.headerIcon} />
+                        <Link to="/logining">
+                            <BiUserCircle className={style.headerIcon} />
+                        </Link>
                     </li>
                 </ul>
             </Container>

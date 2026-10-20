@@ -11,10 +11,15 @@ import { CreateEvent } from "./pages/CreateEventPage/CreateEvent";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
 import { SingleMyEventPage } from "./pages/SingleMyEventPage/SingleMyEventPage.jsx";
+import { ProfilePage } from "./pages/ProfilePage/Profile.jsx";
+import { LoginPage } from './pages/LoginPage/LoginPage.jsx';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage.jsx';
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
 import { useUserStore } from './contexts/useUserStore.jsx';
+
+const isAuth = false;
 
 function App() {
   const fetchUser = useUserStore((state) => state.fetchUser);
@@ -33,9 +38,16 @@ function App() {
 
         <Route path="/statistic" element={<Statistic />} />
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
 
-        <Route path="/my-events/:eventId" element={<SingleMyEventPage />}/>
+        <Route path="/my-events/:eventId" element={<SingleMyEventPage />} />
+
+        <Route path="/profile" element={<ProfilePage />} />
+
+        <Route path="/logining" element={<LoginPage />} />
+
+        <Route path="/regisration" element={<RegisterPage />} />
+
       </Route>
     </Routes>
   );

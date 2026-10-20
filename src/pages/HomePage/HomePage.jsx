@@ -1,23 +1,20 @@
-import { useContext, useEffect, useState, useMemo, useCallback } from "react";
-// import { IsMobileContext } from "../../hooks/useFetch.jsx";
+// react
+import {  useEffect, useState, useMemo, useCallback } from "react";
+// library
+import axios from "axios";
+// custome hooks and conetexts
+import { useUserStore } from "../../contexts/useUserStore.jsx";
 import { useFetch } from "../../hooks/useFetch.jsx";
-// import { Container } from "../../components/Container/Container.jsx";
+// components
+import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
 import { Category } from "../../components/Category/Category.jsx";
 import { Sorted } from "../../components/Sorted/Sorted.jsx";
 import { GameItem } from "./components/GameItem/GameItem.jsx";
-// import { GameMobileItem } from "./components/GameMobileItem/GameMobileItem.jsx";
-
+// this page
 import style from "./HomePage.module.scss";
-import daysData from "../../data/days.json";
-import axios from "axios";
-import { useUserStore } from "../../contexts/useUserStore.jsx";
-
-const text = {
-    title: "Доступні ігри",
-    subtitle: "Знайдіть гру для себе щоб пограти",
-};
+import { TEXT_DATA, DAYS_DATA } from "./HomePage.constants.js";
 
 const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
@@ -137,10 +134,11 @@ export const HomePage = () => {
     }
 
     return (
-        <main className={style.main}>
-                <MainTitle text={text} />
+        <section className={style.main}>
+            <Container>
+                <MainTitle text={TEXT_DATA} />
                 <ul className={style.mainDates}>
-                    {daysData.map((day) => (
+                    {DAYS_DATA.map((day) => (
                         <DateItem day={day} key={day.id} />
                     ))}
                 </ul>
@@ -162,6 +160,7 @@ export const HomePage = () => {
                         // )
                     )}
                 </ul>
-        </main>
+            </Container>
+        </section>
     );
 };
