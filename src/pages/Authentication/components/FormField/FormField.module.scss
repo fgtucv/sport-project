@@ -1,0 +1,15 @@
+@use '../../../../style//general/mixin.scss' as *;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  @include field-label;
+}
+
+.input {
+  @include field-input;
+}

@@ -299,5 +299,40 @@
         "isRead": false
       }
     ]
+  },
+  {
+    "id": "usr-bosla-097",
+    "profile": {
+      "username": "@bosla_097",
+      "firstName": "Олександр",
+      "lastName": "Олександр",
+      "initials": "BO",
+      "avatarUrl": ""
+    },
+    "rating": {
+      "level": 0,
+      "pts": 0,
+      "elo": 0
+    },
+    "statistics": {
+      "overall": {
+        "winRatePercentage": null,
+        "totalMatches": 0,
+        "wins": 0,
+        "draws": 0,
+        "losses": 0,
+        "tournamentsPlayed": 0,
+        "gamesWon": 0,
+        "winStreak": 0,
+        "achievementsUnlocked": 0
+      },
+      "byTournamentType": [],
+      "timeOnCourt": null,
+      "topOpponents": [],
+      "topPartners": [],
+      "activityByMonth": []
+    },
+    "games": [],
+    "notifications": []
   }
 ]

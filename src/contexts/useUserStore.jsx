@@ -4,7 +4,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 
 const USER_API_URL = "https://6aa2acebccb3db9689a6e211.mockapi.io/user";
 
-export const useUserStore = create((set) => ({
+const useUserStore = create((set) => ({
   user: null,
   isLoading: false,
   error: null,

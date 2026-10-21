@@ -1,0 +1,73 @@
+@use '../../../../style/general/variables.scss' as *;
+
+.brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: calc(100dvh - 80px);
+  // min-height: 820px;
+  padding: 48px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, $navy 0%, $blue 55%, $green 100%);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: -180px;
+    right: -120px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.55), transparent 70%);
+  }
+
+  &::after {
+    bottom: -200px;
+    left: -160px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.5), transparent 70%);
+  }
+
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.brandLogo {
+  align-self: flex-start;
+}
+
+.brandTitle {
+  margin: auto 0 0;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.brandAccent {
+  display: block;
+  color: $mint;
+}
+
+.brandText {
+  max-width: 400px;
+  margin: 16px 0 auto;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(#fff, 0.8);
+}
+
+.brandCopy {
+  font-size: 13px;
+  color: rgba(#fff, 0.6);
+}

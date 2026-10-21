@@ -78,7 +78,7 @@ export const Header = () => {
                         <MdOutlineSettings className={style.headerIcon} />
                     </li>
                     <li className={style.headerItem}>
-                        <Link to="/logining">
+                        <Link to="/register">
                             <BiUserCircle className={style.headerIcon} />
                         </Link>
                     </li>

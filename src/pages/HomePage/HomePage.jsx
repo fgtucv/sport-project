@@ -16,10 +16,10 @@ import { GameItem } from "./components/GameItem/GameItem.jsx";
 import style from "./HomePage.module.scss";
 import { TEXT_DATA, DAYS_DATA } from "./HomePage.constants.js";
 
-const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
+// const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
 export const HomePage = () => {
-    const { user } = useUserStore();
+    // const { user } = useUserStore();
     const [games, setGames] = useState([]);
     const [renderedGames, setRenderedGames] = useState([]);
     const [category, setCategory] = useState("all");
@@ -27,70 +27,68 @@ export const HomePage = () => {
 
     const { data, isLoading, error } = useFetch("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
 
-
-
     useEffect(() => {
         if (data) {
             setGames(data);
         }
     }, [games, data]);
 
-    const addNewPlayer = async (id, game) => {
-        const player = {
-            "id": user.id,
-            "nickname": user.profile.username,
-            "avatarUrl": user.profile.avatarUrl
-        }
+    // const addNewPlayer = async (id, game) => {
+    //     const player = {
+    //         "id": user.id,
+    //         "nickname": user.profile.username,
+    //         "avatarUrl": user.profile.avatarUrl
+    //     }
 
-        const newPlayersList = [
-            ...game.players,
-            player
-        ]
+    //     const newPlayersList = [
+    //         ...game.players,
+    //         player
+    //     ]
 
-        try {
-            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/game/${id}`,
-                {
-                    ...game,
-                    players: newPlayersList
-                }
-            );
+    //     try {
+    //         const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/game/${id}`,
+    //             {
+    //                 ...game,
+    //                 players: newPlayersList
+    //             }
+    //         );
 
-        } catch (error) {
-            console.error(error);
-        }
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
 
-    };
+    // };
 
-    const joinToGame = async (id) => {
-        const foundGame = games.find(game => game.id === id);
+    // const joinToGame = async (id) => {
+    //     const foundGame = games.find(game => game.id === id);
 
-        if (foundGame.players.find((palyer) => palyer.id === user.id)) {
-            console.log("ви вже доєдналися");
-            return;
-        }
+    //     if (foundGame.players.find((palyer) => palyer.id === user.id)) {
+    //         console.log("ви вже доєдналися");
+    //         return;
+    //     }
 
-        const additionalObjectPart = {
-            isPaid: false,
-            status: "soon",
-        }
+    //     const additionalObjectPart = {
+    //         isPaid: false,
+    //         status: "soon",
+    //     }
 
-        const newGame = { ...foundGame, ...additionalObjectPart, };
+    //     const newGame = { ...foundGame, ...additionalObjectPart, };
 
-        const newGames = [...user?.games || [], newGame];
+    //     const newGames = [...user?.games || [], newGame];
 
-        try {
-            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${userId}`,
-                {
-                    ...user,
-                    games: newGames
-                }
-            );
-        } catch (error) {
-            console.error(error)
-        }
+    //     try {
+    //         const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${userId}`,
+    //             {
+    //                 ...user,
+    //                 games: newGames
+    //             }
+    //         );
+    //     } catch (error) {
+    //         console.error(error)
+    //     }
 
-        addNewPlayer(id, foundGame);
-    };
+    //     addNewPlayer(id, foundGame);
+    // };
 
     const sortedGamesCategory = useMemo(
         () => {
@@ -149,17 +147,19 @@ export const HomePage = () => {
                     />
                 </div>
 
-                <ul className={style.games}>
+                {/* <ul className={style.games}>
                     {sortedGamesCategory.map((game) => {
                         // isMobile ? (
                         // <GameMobileItem key={game.id} obj={game} />
                         // ) : (
                         // console.log(game.id === "_iHfqFZgtM01bZGYAidus")
-                        return <GameItem key={game.id} obj={game} rating={user?.profile?.rating} joinToGame={joinToGame} />
+                        return <GameItem key={game.id} obj={game} rating={user?.profile?.rating} 
+                        // joinToGame={joinToGame}
+                         />
                     }
                         // )
                     )}
-                </ul>
+                </ul> */}
             </Container>
         </section>
     );

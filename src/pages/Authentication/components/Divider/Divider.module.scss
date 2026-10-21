@@ -1,0 +1,21 @@
+@use '../../../../style//general/variables.scss' as *;
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0 16px;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $line;
+  }
+}
+
+.text {
+  font-size: 13px;
+  color: $placeholder;
+}

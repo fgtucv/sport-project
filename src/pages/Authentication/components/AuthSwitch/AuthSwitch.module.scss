@@ -1,0 +1,18 @@
+@use '../../../../style//general/variables.scss' as *;
+
+.switch {
+  margin: -8px 0 0;
+  font-size: 14px;
+  text-align: center;
+  color: $muted;
+}
+
+.link {
+  font-weight: 600;
+  color: $link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

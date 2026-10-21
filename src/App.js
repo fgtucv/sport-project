@@ -12,19 +12,19 @@ import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
 import { SingleMyEventPage } from "./pages/SingleMyEventPage/SingleMyEventPage.jsx";
 import { ProfilePage } from "./pages/ProfilePage/Profile.jsx";
-import { LoginPage } from './pages/LoginPage/LoginPage.jsx';
-import { RegisterPage } from './pages/RegisterPage/RegisterPage.jsx';
+import { LoginPage } from "./pages/Authentication/pages/LoginPage/LoginPage.jsx";
+import { RegisterPage } from "./pages/Authentication/pages/RegisterPage/RegisterPage.jsx";
 // import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
 import { useEffect } from 'react';
-import { useUserStore } from './contexts/useUserStore.jsx';
+// import { useUserStore } from './contexts/useUserStore.jsx';
 
 const isAuth = false;
 
 function App() {
-  const fetchUser = useUserStore((state) => state.fetchUser);
+  // const fetchUser = useUserStore((state) => state.fetchUser);
 
-  useEffect(() => { fetchUser() }, [fetchUser]);
+  // useEffect(() => { fetchUser() }, [fetchUser]);
 
   return (
     <Routes>
@@ -44,11 +44,11 @@ function App() {
 
         <Route path="/profile" element={<ProfilePage />} />
 
-        <Route path="/logining" element={<LoginPage />} />
-
-        <Route path="/regisration" element={<RegisterPage />} />
-
       </Route>
+
+      <Route path="/login" element={<LoginPage />} />
+
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   );
 };

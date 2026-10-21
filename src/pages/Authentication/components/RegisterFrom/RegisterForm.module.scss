@@ -1,0 +1,76 @@
+// components/RegisterForm/RegisterForm.module.scss
+@use '../../../../style/general/variables' as *;
+
+.inner {
+    width: 100%;
+    max-width: 400px;
+    max-height: calc(100dvh - 80px);
+    margin-left: auto;
+    margin-right: auto;
+
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.title {
+    margin: 0 0 8px;
+    font-size: 34px;
+    font-weight: 700;
+    color: $text;
+}
+
+.subtitle {
+    margin: 0 0 32px;
+    font-size: 15px;
+    font-weight: 400;
+    color: $muted;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+// ім'я та прізвище в одну лінію
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+// посилання в підписі чекбокса
+.link {
+    font-weight: 600;
+    color: $link;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.submitBtn {
+    height: 54px;
+    margin-top: 4px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, $green, $green-light);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.1s;
+
+    &:hover {
+        filter: brightness(1.06);
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+}

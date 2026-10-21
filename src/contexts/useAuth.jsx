@@ -11,14 +11,10 @@ export const AuthProvider = ({ children }) => {
     const isAuth = !!user;
 
     return (
-        <AuthContext.Provider value={{user, isAuth, authorization, logout}}>
+        <AuthContext.Provider value={{ user, isAuth, authorization, logout }}>
             {children}
         </AuthContext.Provider>
     );
 };
 
-export const useAuth = () => {
-    const context = useContext(AuthContext);
-
-    return context;
-};
+export const useAuth = () => useContext(AuthContext);

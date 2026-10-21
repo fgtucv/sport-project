@@ -1,0 +1,31 @@
+@use './variables.scss' as *;
+
+@mixin field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: $label;
+}
+
+@mixin field-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 15px;
+  color: $text;
+  background: #fff;
+  border: 1px solid $border;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &:focus {
+    border-color: $green;
+    box-shadow: 0 0 0 4px rgba($green, 0.15);
+  }
+}
