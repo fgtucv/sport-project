@@ -6,8 +6,6 @@ import {
 import { userStore } from "../../../../contexts/useUserStore";
 import style from "./GameItem.module.scss";
 
-const myLevel = 4;
-
 export const GameItem = ({ obj, joinToGame, rating }) => {
     const myLevel = rating;
     const iSMyLevelUnavailable = myLevel <= obj.level && obj.isStrict ? true : false;

@@ -50,7 +50,7 @@ export const LoginForm = () => {
 
             context.authorization(user);
             setConfirm(true);
-            navigation("/");
+            navigation("/sport-project");
         } catch (error) {
             if (error.response?.status === 404) {
                 navigation("/register");

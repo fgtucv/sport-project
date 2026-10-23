@@ -3,8 +3,8 @@ import {  useEffect, useState, useMemo, useCallback } from "react";
 // library
 import axios from "axios";
 // custome hooks and conetexts
-import { useUserStore } from "../../contexts/useUserStore.jsx";
 import { useFetch } from "../../hooks/useFetch.jsx";
+import { useAuth } from "../../contexts/useAuth.jsx";
 // components
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
@@ -15,11 +15,13 @@ import { GameItem } from "./components/GameItem/GameItem.jsx";
 // this page
 import style from "./HomePage.module.scss";
 import { TEXT_DATA, DAYS_DATA } from "./HomePage.constants.js";
+import { useNavigate } from "react-router-dom";
 
 // const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
 export const HomePage = () => {
-    // const { user } = useUserStore();
+    const navigate = useNavigate();
+    const { user, isAuth } = useAuth();
     const [games, setGames] = useState([]);
     const [renderedGames, setRenderedGames] = useState([]);
     const [category, setCategory] = useState("all");
@@ -33,62 +35,67 @@ export const HomePage = () => {
         }
     }, [games, data]);
 
-    // const addNewPlayer = async (id, game) => {
-    //     const player = {
-    //         "id": user.id,
-    //         "nickname": user.profile.username,
-    //         "avatarUrl": user.profile.avatarUrl
-    //     }
+    const addNewPlayer = async (id, game) => {
+        const player = {
+            "id": user.id,
+            "nickname": user.profile.username,
+            "avatarUrl": user.profile.avatarUrl
+        }
 
-    //     const newPlayersList = [
-    //         ...game.players,
-    //         player
-    //     ]
+        const newPlayersList = [
+            ...game.players,
+            player
+        ]
 
-    //     try {
-    //         const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/game/${id}`,
-    //             {
-    //                 ...game,
-    //                 players: newPlayersList
-    //             }
-    //         );
+        try {
+            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/game/${id}`,
+                {
+                    ...game,
+                    players: newPlayersList
+                }
+            );
 
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
+        } catch (error) {
+            console.error(error);
+        }
 
-    // };
+    };
 
-    // const joinToGame = async (id) => {
-    //     const foundGame = games.find(game => game.id === id);
+    const joinToGame = async (id) => {
+        if (!user) {
+            navigate("/login");
+            return
+        }
 
-    //     if (foundGame.players.find((palyer) => palyer.id === user.id)) {
-    //         console.log("ви вже доєдналися");
-    //         return;
-    //     }
+        const foundGame = games.find(game => game.id === id);
 
-    //     const additionalObjectPart = {
-    //         isPaid: false,
-    //         status: "soon",
-    //     }
+        if (foundGame.players.find((palyer) => palyer.id === user.id)) {
+            console.log("ви вже доєдналися");
+            return;
+        }
 
-    //     const newGame = { ...foundGame, ...additionalObjectPart, };
+        const additionalObjectPart = {
+            isPaid: false,
+            status: "soon",
+        }
 
-    //     const newGames = [...user?.games || [], newGame];
+        const newGame = { ...foundGame, ...additionalObjectPart, };
 
-    //     try {
-    //         const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${userId}`,
-    //             {
-    //                 ...user,
-    //                 games: newGames
-    //             }
-    //         );
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
+        const newGames = [...user?.games || [], newGame];
 
-    //     addNewPlayer(id, foundGame);
-    // };
+        try {
+            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${user.id}`,
+                {
+                    ...user,
+                    games: newGames
+                }
+            );
+        } catch (error) {
+            console.error(error)
+        }
+
+        addNewPlayer(id, foundGame);
+    };
 
     const sortedGamesCategory = useMemo(
         () => {
@@ -147,19 +154,17 @@ export const HomePage = () => {
                     />
                 </div>
 
-                {/* <ul className={style.games}>
+                <ul className={style.games}>
                     {sortedGamesCategory.map((game) => {
                         // isMobile ? (
                         // <GameMobileItem key={game.id} obj={game} />
                         // ) : (
                         // console.log(game.id === "_iHfqFZgtM01bZGYAidus")
-                        return <GameItem key={game.id} obj={game} rating={user?.profile?.rating} 
-                        // joinToGame={joinToGame}
-                         />
+                        return <GameItem key={game.id} obj={game} rating={isAuth ? 10 : user?.profile?.rating} joinToGame={joinToGame}/>
                     }
                         // )
                     )}
-                </ul> */}
+                </ul>
             </Container>
         </section>
     );

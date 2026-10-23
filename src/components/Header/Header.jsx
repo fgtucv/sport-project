@@ -15,7 +15,7 @@ export const Header = () => {
                 <ul className={style.headerNav}>
                     <li className={style.headerNavItem}>
                         <NavLink
-                            to="/"
+                            to="/sport-project"
                             className={({ isActive }) =>
                                 isActive ? `${style.headerNavLink} ${style.active}` : style.headerNavLink
                             }

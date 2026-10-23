@@ -84,12 +84,13 @@ export const RegisterForm = () => {
 
             if (isEmailTaken) {
                 console.log('Вже є користувач з цією поштою');
+                 navigation("/login")
                 return;
             }
 
             const { data: createdUser } = await axios.post(url, user);
             context.authorization(createdUser);
-            navigation('/');
+            navigation('/sport-project');
         } catch (error) {
             console.error(`Помилка при запиті на сервер: ${error.message}`);
         }
