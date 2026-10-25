@@ -1,12 +1,8 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useLocation, } from 'react-router-dom';
 
 // import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
 import { Layout } from './components/Layout/Layout.jsx';
-
-// import { Header } from './components/Header/Header.jsx';
-// import { Footer } from "./components/Footer/Footer.jsx";
-
 import { CreateEvent } from "./pages/CreateEventPage/CreateEvent";
 import { HomePage } from "./pages/HomePage/HomePage.jsx";
 import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
@@ -14,21 +10,17 @@ import { SingleMyEventPage } from "./pages/SingleMyEventPage/SingleMyEventPage.j
 import { ProfilePage } from "./pages/ProfilePage/Profile.jsx";
 import { LoginPage } from "./pages/Authentication/pages/LoginPage/LoginPage.jsx";
 import { RegisterPage } from "./pages/Authentication/pages/RegisterPage/RegisterPage.jsx";
-// import { userObject } from "./contexts/userStore/userStore.jsx";
 import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
-import { useEffect } from 'react';
-// import { useUserStore } from './contexts/useUserStore.jsx';
+import { lazy } from 'react';
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
 
 const isAuth = false;
 
 function App() {
-  // const fetchUser = useUserStore((state) => state.fetchUser);
-
-  // useEffect(() => { fetchUser() }, [fetchUser]);
-
   return (
     <Routes>
       <Route element={<Layout />}>
+        <Route path="*" element={<NotFoundPage/>}/>
 
         <Route path="/sport-project" element={<HomePage />} />
 

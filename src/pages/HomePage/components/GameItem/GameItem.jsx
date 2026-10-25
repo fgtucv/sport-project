@@ -3,7 +3,6 @@ import {
     InfoIcon,
     LocationIcon,
 } from "../../../../components/Icons/Icons";
-import { userStore } from "../../../../contexts/useUserStore";
 import style from "./GameItem.module.scss";
 
 export const GameItem = ({ obj, joinToGame, rating }) => {

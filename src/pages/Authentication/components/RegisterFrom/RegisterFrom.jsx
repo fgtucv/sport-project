@@ -90,7 +90,6 @@ export const RegisterForm = () => {
 
             const { data: createdUser } = await axios.post(url, user);
             context.authorization(createdUser);
-            navigation('/sport-project');
         } catch (error) {
             console.error(`Помилка при запиті на сервер: ${error.message}`);
         }

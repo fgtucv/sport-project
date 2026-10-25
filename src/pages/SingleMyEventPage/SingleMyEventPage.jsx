@@ -1,28 +1,23 @@
-// import { useUserStore } from "../../contexts/useUserStore";
-// import { useParams } from "react-router-dom";
+import { useAuth } from "../../contexts/useAuth";
+import { useParams, useSearchParams, useLocation } from "react-router-dom";
 
-// export const SingleMyEventPage = () => {
-//     const [searchParam, setSearchParams] = useSearchParams();
-//     const { user, isLoading, error } = useUserStore()
-//     const parms = useParams();
+export const SingleMyEventPage = (state) => {
+    const location = useLocation();
+    const [searchParam, setSearchParams] = useSearchParams();
+    const { user } = useAuth();
+    const parms = useParams();
+    
+    if (!user) return <h1>Помилка</h1>;
 
-//     if (isLoading && !user) {
-//         return <h1>Завантаження...</h1>
-//     } else if (!user?.games || user?.games == []) {
-//         return <h1>Немає ігор</h1>
-//     }
+    const game = user?.games.find((game) => game.id === parms.eventId);
 
-//             // console.log(user)
+    if (!game) return <h1>Гра недоступна</h1>;
 
-//     const game = user?.games.find((game) => game.id === parms.eventId);
-
-//     console.log(game)
-
-//     return (
-//         <div>
-//             <h2>{game.sportType}</h2>
-//             <h3>{game.date}</h3>
-//             <h3>{game.hostId}</h3>
-//         </div>
-//     )
-// };
+    return (
+        <div>
+            <h2>{game.sportType}</h2>
+            <h3>{game.date}</h3>
+            <h3>{game.hostId}</h3>
+        </div>
+    )
+};

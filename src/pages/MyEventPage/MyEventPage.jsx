@@ -4,10 +4,9 @@ import { useAuth } from "../../contexts/useAuth.jsx";
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { Sorted } from "../../components/Sorted/Sorted.jsx";
-// import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
+import { MyEventItem } from "./components/MyEventItem/MyEventItem.jsx";
 // import { Pagination } from "../../components/Pagination/Pagination.jsx";
-// import { NoData } from "../../components/NoData/NoData.jsx";
-// import { useUserStore } from "../../contexts/useUserStore.jsx";
+import { NoData } from "../../components/NoData/NoData.jsx";
 // this page
 import style from "./MyEventPage.module.scss";
 import { TEXT_DATA, PAGE_SIZE } from "./MyEventPage.constants.js";
@@ -15,20 +14,19 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export const MyEventPage = () => {
-    const { isAuth } = useAuth();
+    const { isAuth, user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (!isAuth) {
             navigate('/login');
-            return
+            return;
         }
     }, [])
-    // const { user, isLoading } = useUserStore();
 
     // if (isLoading || !user) return <div>завантаження...</div>;
 
-    // const games = user?.games;
+    const games = user?.games;
 
     return (
         <section className={style.myEvent}>
@@ -43,13 +41,13 @@ export const MyEventPage = () => {
                     </ul>
                     <Sorted />
                 </div>
-                {/* <ul className={style.myEventGames}>
+                <ul className={style.myEventGames}>
                     {games && games.length > 0 ? (
                         games.map((obj) => <MyEventItem key={obj.id} obj={obj} />)
                     ) : (
                         <NoData />
                     )}
-                </ul> */}
+                </ul>
             </Container>
         </section >
     );

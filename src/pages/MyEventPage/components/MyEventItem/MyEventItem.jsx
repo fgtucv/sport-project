@@ -1,9 +1,11 @@
 import { DraftIcon, PadelIcon } from "../../../../components/Icons/Icons.jsx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import style from "./MyEventItem.module.scss";
 
 export const MyEventItem = ({ obj, deleteCard }) => {
+
+    const location = useLocation();
 
     const formatedTitel = (type, sport) => {
         const firstPart = type === "tournamentEventsCard" ? "Турнір" : type === "gameEventsCard" ? "Гра" : "Кваліфікація";
@@ -35,7 +37,7 @@ export const MyEventItem = ({ obj, deleteCard }) => {
 
     return (
         <li className={`${style.game} ${style[`is${obj.status}`]}`}>
-            <Link to={`/my-events/${obj.id}`}  id={obj.id}>
+            <Link state={{from: location}} to={`/my-events/${obj.id}`} id={obj.id}>
 
 
                 <div className={style.gameCardHeader}>
