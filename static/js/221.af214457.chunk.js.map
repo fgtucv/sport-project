@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/221.860bb69e.chunk.js","mappings":"oJAA2BA,KAEnBC,EAAAA,EAAAA,KAAA,MAAAC,SAAI","sources":["pages/ProfilePage/Profile.jsx"],"sourcesContent":["export const ProfilePage = () => {\r\n    return (\r\n        <h1>Профіль</h1>\r\n    )\r\n};"],"names":["ProfilePage","_jsx","children"],"sourceRoot":""}

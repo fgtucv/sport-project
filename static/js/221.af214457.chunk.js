@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksport_project=self.webpackChunksport_project||[]).push([[221],{221(e,r,s){s.r(r);var p=s(579);s.d(r,["ProfilePage",0,()=>(0,p.jsx)("h1",{children:"\u041f\u0440\u043e\u0444\u0456\u043b\u044c"})])}}]);
+//# sourceMappingURL=221.af214457.chunk.js.map
