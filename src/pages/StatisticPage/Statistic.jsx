@@ -13,7 +13,7 @@ import { TEXT_DATA } from "./StatisticPage.constants.js";
 
 const text = { title: "Статистика", subtitle: "Преглядай свою статистику та покращу її" };
 
-export const Statistic = () => {
+export default function Statistic () {
     return (
         <section className={style.dashboard}>
             <Container>

@@ -1,12 +1,12 @@
 import { useAuth } from "../../contexts/useAuth";
 import { useParams, useSearchParams, useLocation } from "react-router-dom";
 
-export const SingleMyEventPage = (state) => {
+export default function SingleMyEventPage (state) {
     const location = useLocation();
     const [searchParam, setSearchParams] = useSearchParams();
     const { user } = useAuth();
     const parms = useParams();
-    
+
     if (!user) return <h1>Помилка</h1>;
 
     const game = user?.games.find((game) => game.id === parms.eventId);

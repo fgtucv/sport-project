@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 
 // const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
 
-export const HomePage = () => {
+export default function HomePage (){
     const navigate = useNavigate();
     const { user, isAuth } = useAuth();
     const [games, setGames] = useState([]);

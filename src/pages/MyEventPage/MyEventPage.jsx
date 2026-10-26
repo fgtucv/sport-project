@@ -13,7 +13,7 @@ import { TEXT_DATA, PAGE_SIZE } from "./MyEventPage.constants.js";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-export const MyEventPage = () => {
+export default function MyEventPage () {
     const { isAuth, user } = useAuth();
     const navigate = useNavigate();
 

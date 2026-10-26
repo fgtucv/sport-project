@@ -1,0 +1,14 @@
+{
+    "id": "a2c430fe-d92a-43aa-b3a6-6d824a71d8bc", // UUID
+    "create_at": "2026-11-15 14:26:07+00", // TIMESPAMTZ
+    "host_id": "664f24c5-66da-4737-9495-e169061ad568", // UUID
+    "sport": "padel", // padel, tenis  TEXT
+    "status": "loss", // loss, win, draw  TEXT
+    "type": "game", // game, turnoment, qualification  TEXT
+    "location": "Kyiv Padel club", // TEXT
+    "location_url": "https://maps.app.goo.gl/oiR1ETzbygwVpJ6c8", // TEXT
+    "take_at": "2026-11-17 16:30:00+00", // TIMESPAMTZ
+    "duration_time": 120, // INTEGER
+    "price": 12.20, // NUMETRIC
+    "score": ["6:3", "6:4"] // JSONB
+}

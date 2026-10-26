@@ -1,47 +1,50 @@
 import { Routes, Route, useLocation, } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 // import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
-import { Layout } from './components/Layout/Layout.jsx';
-import { CreateEvent } from "./pages/CreateEventPage/CreateEvent";
-import { HomePage } from "./pages/HomePage/HomePage.jsx";
-import { MyEventPage } from "./pages/MyEventPage/MyEventPage.jsx";
-import { SingleMyEventPage } from "./pages/SingleMyEventPage/SingleMyEventPage.jsx";
-import { ProfilePage } from "./pages/ProfilePage/Profile.jsx";
-import { LoginPage } from "./pages/Authentication/pages/LoginPage/LoginPage.jsx";
-import { RegisterPage } from "./pages/Authentication/pages/RegisterPage/RegisterPage.jsx";
-import { Statistic } from "./pages/StatisticPage/Statistic.jsx";
-import { lazy } from 'react';
+import { Layout } from "./components/Layout/Layout.jsx";
+import { LoadingPage } from './pages/LoadingPage/LoadingPage.jsx';
+const CreateEvent = lazy(() => import("./pages/CreateEventPage/CreateEvent"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
+const MyEventPage = lazy(() => import("./pages/MyEventPage/MyEventPage.jsx"));
+const SingleMyEventPage = lazy(() => import("./pages/SingleMyEventPage/SingleMyEventPage.jsx"));
+const ProfilePage = lazy(() => import("./pages/ProfilePage/Profile.jsx"));
+const LoginPage = lazy(() => import("./pages/Authentication/pages/LoginPage/LoginPage.jsx"));
+const RegisterPage = lazy(() => import("./pages/Authentication/pages/RegisterPage/RegisterPage.jsx"));
+const Statistic = lazy(() => import("./pages/StatisticPage/Statistic.jsx"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
-
-const isAuth = false;
 
 function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="*" element={<NotFoundPage/>}/>
+    <Suspense fallback={<LoadingPage />}>
+      <Routes>
 
-        <Route path="/sport-project" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
 
-        <Route path="/create-event" element={<CreateEvent />} />
+        <Route element={<Layout />}>
 
-        <Route path="/my-events" element={<MyEventPage />} />
+          <Route path="/sport-project" element={<HomePage />} />
 
-        <Route path="/statistic" element={<Statistic />} />
+          <Route path="/create-event" element={<CreateEvent />} />
 
-        {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
+          <Route path="/my-events" element={<MyEventPage />} />
 
-        <Route path="/my-events/:eventId" element={<SingleMyEventPage />} />
+          <Route path="/statistic" element={<Statistic />} />
 
-        <Route path="/profile" element={<ProfilePage />} />
+          {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
 
-      </Route>
+          <Route path="/my-events/:eventId" element={<SingleMyEventPage />} />
 
-      <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
 
-      <Route path="/register" element={<RegisterPage />} />
-    </Routes>
+        </Route>
+
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </Suspense>
   );
 };
 

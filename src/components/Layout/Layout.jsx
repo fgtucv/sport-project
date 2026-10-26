@@ -3,7 +3,7 @@ import { Footer } from "../Footer/Footer";
 import { IsMobileProvider } from "../../contexts/useIsMobile";
 import { Outlet } from "react-router-dom";
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
     return (
         <IsMobileProvider>
             <Header />

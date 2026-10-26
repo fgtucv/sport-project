@@ -3,7 +3,7 @@ import { AuthLayout } from '../../components/AuthLauot/AuthLauot.jsx';
 import { BrandPanel } from '../../components/BrandPanel/BrandPanel';
 import { RegisterForm } from '../../components/RegisterFrom/RegisterFrom.jsx';
 
-export const RegisterPage = () => {
+export default function RegisterPage () {
   return (
     <AuthLayout
       brand={

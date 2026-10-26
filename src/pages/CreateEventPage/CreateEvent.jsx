@@ -11,7 +11,7 @@ import { EventTypeCard } from "./components/EventTypeItem/EventTypeItem";
 import { TEXT_DATA, EVENT_TYPES } from "./CreateEvent.constants";
 import style from "./CreateEvent.module.scss";
 
-export const CreateEvent = () => {
+export default function CreateEvent () {
   const [type, setType] = useState("gameEventsCard");
   const [sport, setSport] = useState("padel");
   const [date, setDate] = useState("");

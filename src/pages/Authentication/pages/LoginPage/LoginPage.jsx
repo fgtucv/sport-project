@@ -3,7 +3,7 @@ import { AuthLayout } from '../../components/AuthLauot/AuthLauot.jsx';
 import { BrandPanel } from '../../components/BrandPanel/BrandPanel.jsx';
 import { LoginForm } from '../../components/LoginForm/LoginForm.jsx';
 
-export const LoginPage = () => {
+export default function LoginPage() {
     return (
         <AuthLayout
             brand={
