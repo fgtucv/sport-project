@@ -18,7 +18,7 @@ export const MyEventItem = ({ obj, deleteCard }) => {
     if (obj.status === "Draft") {
         return (
             <li>
-                <Link to={`/my-events/${obj.id}`} className={`${style.game} ${style.gameDraft}`} id={obj.id}>
+                <Link to={`/my-events/${obj.id}`} state={{from: location}} className={`${style.game} ${style.gameDraft}`} id={obj.id}>
                     <div className={style.gameCardHeader}>
                         <h2 className={style.gameTitle}>{formatedTitel(obj.typeOfGame, obj.sportType)}</h2>
                     </div>
