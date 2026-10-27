@@ -19,8 +19,7 @@ function App() {
   return (
     <Suspense fallback={<LoadingPage />}>
       <Routes>
-
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/loading" element={<LoadingPage/>}/>
 
         <Route element={<Layout />}>
 
@@ -43,6 +42,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="/register" element={<RegisterPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

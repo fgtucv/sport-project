@@ -2,7 +2,7 @@
   "name": "sport-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fgtucv.github.io/sport-project",
+  "homepage": "https://fgtucv.github.io/sport-project/",
   "dependencies": {
     "@internationalized/date": "^3.12.4",
     "@testing-library/dom": "^10.4.1",
