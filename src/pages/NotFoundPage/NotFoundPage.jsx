@@ -17,7 +17,7 @@ export default function NotFoundPage() {
                     Схоже, цей матч уже зіграно: сторінки, яку ви шукаєте, не існує або її було переміщено.
                 </p>
                 <div className={style.actions}>
-                    <Link to="/sport-project" className={style.primaryBtn}>
+                    <Link to="/" className={style.primaryBtn}>
                         На головну
                     </Link>
                     <button type="button" className={style.secondaryBtn} onClick={() => navigate(-1)}>

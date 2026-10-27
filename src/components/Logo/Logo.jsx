@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { LogoIcon } from "../Icons/Icons";
 import style from "./Logo.module.scss";
 
 export const Logo = () => {
   return (
-    <a className={style.logo}>
+    <Link to="/" className={style.logo}>
       <LogoIcon className={style.icon} />
       <div className={style.textWrapper}>
         <h2 className={style.title}>Padel UA España</h2>
@@ -12,6 +13,6 @@ export const Logo = () => {
           <span className={style.goldText}>COMMUNITY</span>
         </h4>
       </div>
-    </a>
+    </Link>
   );
 };

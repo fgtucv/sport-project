@@ -24,7 +24,7 @@ function App() {
 
         <Route element={<Layout />}>
 
-          <Route path="/sport-project" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
 
           <Route path="/create-event" element={<CreateEvent />} />
 
