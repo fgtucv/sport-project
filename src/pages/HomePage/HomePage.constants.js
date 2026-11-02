@@ -284,3 +284,35 @@ export const TEXT_DATA = {
     title: "Доступні ігри",
     subtitle: "Знайдіть гру для себе щоб пограти"
 }
+
+// ---------------------------------------------------------------
+// Додано: дні рахуються від сьогодні, щоб не залежати від застарілого DAYS_DATA.
+// Це ТІЛЬКИ для відображення. Логіка вибору дня: TODO (зробите самі).
+// ---------------------------------------------------------------
+const WEEKDAYS_UA = ["НД", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+
+export function getUpcomingDays(count = 14) {
+    const today = new Date();
+
+    return Array.from({ length: count }, (_, index) => {
+        const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + index);
+        const pad = (n) => String(n).padStart(2, "0");
+        const fullDate = `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+
+        return {
+            id: fullDate,
+            fullDate,
+            dayOfWeek: WEEKDAYS_UA[date.getDay()],
+            dayNumber: date.getDate(),
+            isSelected: index === 0, // поки що завжди вибраний сьогоднішній день
+        };
+    });
+}
+
+// Фільтр за видом спорту (значення збігаються з games.sport у базі)
+export const SPORT_FILTERS = [
+    { value: "all", label: "Всі" },
+    { value: "padel", label: "Падель" },
+    { value: "tennis", label: "Теніс" },
+    { value: "squash", label: "Сквош" },
+];

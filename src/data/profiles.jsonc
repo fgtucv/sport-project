@@ -1,0 +1,12 @@
+{
+  "id": "11111111-1111-1111-1111-111111111111",   // uuid, PRIMARY KEY, генерується автоматично
+  "created_at": "2026-11-02T13:00:00+00:00",      // timestamptz, дата створення, автоматично
+  "first_name": "Oles",                           // text, обов'язкове
+  "last_name": "Slava",                           // text, може бути null
+  "nickname": "@oles",                            // text, унікальне, може бути null
+  "email": "oles.slava23@gmail.com",              // text, обов'язкове, унікальне
+  "avatar_url": "https://example.com/a.jpg",      // text, може бути null
+  "level": 1.5,                                   // numeric(3,1), за замовчуванням 0
+  "pts": 0,                                       // integer, за замовчуванням 0
+  "elo": 0                                        // integer, за замовчуванням 0
+}

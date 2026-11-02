@@ -1,39 +1,72 @@
 // react
-import {  useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo } from "react";
 // library
-import axios from "axios";
+// import axios from "axios";                                // TODO: більше не потрібен, якщо працюєте через Supabase
 // custome hooks and conetexts
-import { useFetch } from "../../hooks/useFetch.jsx";
-import { useAuth } from "../../contexts/useAuth.jsx";
+// import { useFetch } from "../../hooks/useFetch.jsx";      // не використовувався
+// import { useAuth } from "../../contexts/useAuth.jsx";     // TODO: повернути, коли робитимете логіку рівня/приєднання
+// import { useNavigate } from "react-router-dom";           // TODO: потрібен для joinToGame
 // components
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
 import { DateItem } from "./components/DateItem/DateItem.jsx";
-import { Category } from "../../components/Category/Category.jsx";
-import { Sorted } from "../../components/Sorted/Sorted.jsx";
+// import { Category } from "../../components/Category/Category.jsx"; // замінено фільтром нижче (потрібен був інший вигляд)
+// import { Sorted } from "../../components/Sorted/Sorted.jsx";       // замінено текстом "Знайдено N ігор"
 import { GameItem } from "./components/GameItem/GameItem.jsx";
 // this page
 import style from "./HomePage.module.scss";
-import { TEXT_DATA, DAYS_DATA } from "./HomePage.constants.js";
-import { useNavigate } from "react-router-dom";
+import { TEXT_DATA, SPORT_FILTERS, getUpcomingDays } from "./HomePage.constants.js";
 
-// const userId = localStorage.getItem("userId").replace(/^"|"$/g, "");
+import { getGamesService } from "../../api/services/gamesServices.js";
 
-export default function HomePage (){
-    const navigate = useNavigate();
-    const { user, isAuth } = useAuth();
+// "1 гра", "2 гри", "5 ігор"
+const gamesWord = (n) => {
+    const last = n % 10;
+    const lastTwo = n % 100;
+    if (lastTwo >= 11 && lastTwo <= 14) return "ігор";
+    if (last === 1) return "гра";
+    if (last >= 2 && last <= 4) return "гри";
+    return "ігор";
+};
+
+export default function HomePage() {
+    // const navigate = useNavigate();
+    // const { user, isAuth } = useAuth();
     const [games, setGames] = useState([]);
-    const [renderedGames, setRenderedGames] = useState([]);
     const [category, setCategory] = useState("all");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     // const { isMobile } = useContext(IsMobileContext);
 
-    const { data, isLoading, error } = useFetch("https://6aa2acebccb3db9689a6e211.mockapi.io/game");
+    // TODO: рівень поточного користувача (було: user?.profile?.rating). Поки null = обмежень за рівнем немає.
+    const myLevel = null;
 
+    const days = useMemo(() => getUpcomingDays(14), []);
+
+    // Було [games] у залежностях: effect сам змінював games і запускався у нескінченному циклі.
     useEffect(() => {
-        if (data) {
-            setGames(data);
+        async function loadGames() {
+            try {
+                setLoading(true);
+                setError(null);
+
+                const data = await getGamesService();
+                setGames(Array.isArray(data) ? data : []);
+            } catch (err) {
+                console.error(err);
+                setError(err?.message ?? "Невідома помилка");
+                setGames([]);
+            } finally {
+                setLoading(false);
+            }
         }
-    }, [games, data]);
+
+        loadGames();
+    }, []);
+
+    /* ---------------------------------------------------------------
+       TODO: ваші функції, закоментовано, щоб ви переробили самі.
+       ---------------------------------------------------------------
 
     const addNewPlayer = async (id, game) => {
         const player = {
@@ -96,76 +129,73 @@ export default function HomePage (){
 
         addNewPlayer(id, foundGame);
     };
+    --------------------------------------------------------------- */
 
-    const sortedGamesCategory = useMemo(
-        () => {
-            if (category !== "all") {
-                const newGames = games.filter(game => game.sportType === category);
-                setRenderedGames(newGames);
-                return newGames;
-            } else {
-                setRenderedGames(games);
-                return games;
-            }
+    // Фільтр за видом спорту (раніше був setState усередині useMemo, що давало зайві рендери)
+    const filteredGames = useMemo(() => {
+        if (category === "all") return games;
 
-        },
-        [category, games]
-    );
-
-    // const sortedGames = useCallback(
-    //     (sortCategoryId) => {
-    //         console.log(sortCategoryId);
-    //         if (sortCategoryId === 1) {
-    //             setRenderedGames(renderedGames.sort((a, b) => a.price - b.price));
-    //             return renderedGames;
-    //         } else if (sortCategoryId === 2) {
-    //             setRenderedGames(renderedGames.sort((a, b) => b.price + a.price));
-    //             return renderedGames;
-    //         } else if (sortCategoryId === 3) {
-    //             setRenderedGames(renderedGames.sort((a, b) => a.rating - b.rating));
-    //             return renderedGames;
-    //         } else if (sortCategoryId === 4) {
-    //             setRenderedGames(renderedGames.sort((a, b) => b.rating + a.rating));
-    //             return renderedGames;
-    //         }
-    //     },
-    //     [games]
-    // );
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    } else if (error) {
-        return <div>Error: {error}</div>;
-    }
+        return games.filter(
+            (game) => String(game.sport ?? game.sportType ?? "").toLowerCase() === category
+        );
+    }, [category, games]);
 
     return (
         <section className={style.main}>
             <Container>
                 <MainTitle text={TEXT_DATA} />
+
+                <div className={style.filter}>
+                    <div className={style.filterButtons} role="group" aria-label="Вид спорту">
+                        {SPORT_FILTERS.map((item) => (
+                            <button
+                                key={item.value}
+                                type="button"
+                                className={`${style.filterBtn} ${category === item.value ? style.filterBtnActive : ""}`}
+                                aria-pressed={category === item.value}
+                                onClick={() => setCategory(item.value)}
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+
+                    {!loading && !error && (
+                        <span className={style.filterCount}>
+                            Знайдено {filteredGames.length} {gamesWord(filteredGames.length)}
+                        </span>
+                    )}
+                </div>
+
                 <ul className={style.mainDates}>
-                    {DAYS_DATA.map((day) => (
+                    {days.map((day) => (
                         <DateItem day={day} key={day.id} />
                     ))}
                 </ul>
-                <div className={style.mainFilter}>
-                    <Category setCategory={setCategory} />
-                    <Sorted
-                    //  sortedGames={sortedGames} 
-                    />
-                </div>
+                {/* TODO: вибір дня. Зараз це лише відображення, кліки нічого не роблять і ігри за днем не фільтруються. */}
+                <div className={style.placeholder}>Вибір дня поки недоступний: функцію треба додати.</div>
 
-                <ul className={style.games}>
-                    {sortedGamesCategory.map((game) => {
-                        // isMobile ? (
-                        // <GameMobileItem key={game.id} obj={game} />
-                        // ) : (
-                        // console.log(game.id === "_iHfqFZgtM01bZGYAidus")
-                        return <GameItem key={game.id} obj={game} rating={isAuth ? 10 : user?.profile?.rating} joinToGame={joinToGame}/>
-                    }
-                        // )
-                    )}
-                </ul>
+                {loading && <p className={style.status}>Завантаження ігор…</p>}
+                {!loading && error && (
+                    <p className={`${style.status} ${style.statusError}`}>Не вдалося завантажити ігри: {error}</p>
+                )}
+                {!loading && !error && filteredGames.length === 0 && (
+                    <p className={style.status}>Ігор за цим фільтром поки немає.</p>
+                )}
+
+                {!loading && !error && filteredGames.length > 0 && (
+                    <ul className={style.games}>
+                        {filteredGames.map((game) => (
+                            <GameItem
+                                key={game.id}
+                                obj={game}
+                                rating={myLevel}
+                                // joinToGame={joinToGame} // TODO: підключити, коли перероблена функція буде готова
+                            />
+                        ))}
+                    </ul>
+                )}
             </Container>
         </section>
     );
-};
+}

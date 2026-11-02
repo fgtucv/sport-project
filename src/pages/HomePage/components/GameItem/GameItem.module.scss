@@ -1,240 +1,159 @@
 .gameItem {
     --game-surface: #ffffff;
-    --game-muted-surface: #ECEEF0;
-    --game-border: #e2e8f0;
-    --game-divider: #ECEEF0;
-    --game-text: #0F172A;
+    --game-border: #e8eaed;
+    --game-chip: #eceef0;
+    --game-text: #0f172a;
     --game-strong: #000000;
-    --game-secondary-text: #76777D;
-    --game-tertiary-text: #45464D;
-    --game-inverse-text: #ffffff;
-    --game-danger: #BA1A1A;
+    --game-secondary-text: #76777d;
+    --game-tertiary-text: #45464d;
+    --game-danger: #ba1a1a;
 
-    width: 100%;
-    min-width: 0;
-    background: var(--game-surface);
-    border: 1px solid var(--game-border);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-}
-
-.gameBadgeSport,
-.gameBadgeLevel,
-.gameStrictLevel,
-.gameDuration,
-.gameCourtName,
-.gamePriceLabel {
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.36px;
-}
-
-.isFullgame {
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), #F2F4F6;
-    background-blend-mode: saturation, normal;
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
-    user-select: none;
-
-    & .gamePlayersCount {
-        color: var(--game-danger);
-    }
-
-    & .gameJoinBtn {
-        background: #C6C6CD;
-        color: var(--game-tertiary-text);
-        box-shadow: none;
-    }
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    padding: 16px;
+    background: var(--game-surface);
+    border: 1px solid var(--game-border);
+    border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .gameHeader {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-}
-
-.gameBadgesGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.gameTagsRow {
-    display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.gameBadgeSport {
-    background-color: #2170E4;
-    color: var(--game-inverse-text);
-    padding: 4px 10px;
+.gameBadges {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.gameBadge {
+    padding: 3px 8px;
     border-radius: 6px;
+    background: var(--game-chip);
+    color: var(--game-tertiary-text);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.gameBadgeSport {
+    color: var(--game-strong);
     text-transform: uppercase;
 }
 
-.gameBadgeLevel {
-    background-color: #D8E2FF;
-    color: #0058BE;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-
-.gameStrictLevel {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--game-secondary-text);
-    margin-top: 4px;
-}
-
-.stick {
-    color: var(--game-danger);
-}
-
-.gameStrictIcon {
-    width: 14px;
-    height: 14px;
-    display: inline-block;
-    fill: currentColor;
-}
-
-.gameTimeGroup {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.gamePrice {
+    color: var(--game-strong);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+    white-space: nowrap;
 }
 
 .gameTime {
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: -0.24px;
+    margin-top: 4px;
     color: var(--game-text);
-}
-
-.gameDuration {
-    color: var(--game-secondary-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
 }
 
 .gameLocation {
-    font-style: normal;
     display: flex;
     align-items: center;
-    gap: 12px;
-    border-bottom: var(--game-divider) solid 1px;
-    border-top: var(--game-divider) solid 1px;
-    padding: 4px 0;
+    gap: 6px;
+    color: var(--game-tertiary-text);
+    font-size: 13px;
+    font-style: normal;
+    line-height: 20px;
 }
 
 .gameLocationIcon {
-    width: 16px;
-    height: 20px;
     flex-shrink: 0;
+    width: 12px;
+    height: 15px;
     fill: var(--game-secondary-text);
-}
-
-.gameLocationInfo {
-    display: flex;
-    flex-direction: column;
-}
-
-.gameClubName {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: var(--game-text);
-}
-
-.gameCourtName {
-    color: var(--game-secondary-text);
 }
 
 .gamePlayers {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    padding: 4px 0;
+    gap: 8px;
+    min-height: 40px;
 }
 
-.gameAvatarsGroup {
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-.gameAvatarImg {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--game-inverse-text);
-    margin-right: -10px;
-}
-
-.gameAddPlayerBtn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--game-muted-surface);
-    border: 2px solid var(--game-inverse-text);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-}
-
-.gameAddPlayerIcon {
-    width: 20px;
-    height: 20px;
-    fill: var(--game-secondary-text);
+.gamePlayersPlaceholder {
+    padding: 4px 10px;
+    border: 1px dashed #c6c6cd;
+    border-radius: 999px;
+    color: var(--game-secondary-text);
+    font-size: 11px;
+    line-height: 16px;
 }
 
 .gamePlayersCount {
-    font-weight: 500;
-    font-size: 14px;
+    color: var(--game-secondary-text);
+    font-size: 13px;
     line-height: 20px;
-    letter-spacing: 0.14px;
-    color: var(--game-tertiary-text);
+    white-space: nowrap;
 }
 
+/* футер притиснутий донизу, щоб кнопки в різних картках були на одному рівні */
 .gameFooter {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 4px;
-}
-
-.gamePriceGroup {
-    display: flex;
     flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
 }
 
-.gamePriceLabel {
-    color: var(--game-secondary-text);
-}
-
-.gamePriceValue {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: -0.24px;
-    color: var(--game-strong);
+.gameStrictNote {
+    color: var(--game-danger);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
 }
 
 .gameJoinBtn {
-    background: linear-gradient(106.96deg, #06B6D4 0%, #10B981 100%);
-    color: var(--game-inverse-text);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    padding: 16px 40px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2dd4bf 0%, #22c55e 100%);
+    box-shadow: 0 6px 12px -4px rgba(34, 197, 94, 0.3);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+
+    &:hover:not(:disabled) {
+        filter: brightness(0.96);
+    }
+
+    &:focus-visible {
+        outline: 2px solid #0b0b0b;
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        background: #d8dadc;
+        box-shadow: none;
+        color: var(--game-tertiary-text);
+        cursor: not-allowed;
+    }
 }

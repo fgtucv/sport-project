@@ -1,0 +1,7 @@
+{
+  "game_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa", // uuid, посилається на games.id, частина складеного PRIMARY KEY
+  "user_id": "22222222-2222-2222-2222-222222222222", // uuid, посилається на profiles.id, частина складеного PRIMARY KEY
+  "team": "A",                                    // text, може бути null: 'A' | 'B'
+  "joined_at": "2026-11-02T13:05:00+00:00"        // timestamptz, автоматично
+}
+// Пара (game_id, user_id) унікальна: один гравець не може бути в одній грі двічі.

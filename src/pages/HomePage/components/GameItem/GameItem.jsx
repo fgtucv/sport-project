@@ -1,68 +1,86 @@
-import {
-    ComeToGameIcon,
-    InfoIcon,
-    LocationIcon,
-} from "../../../../components/Icons/Icons";
+import { LocationIcon } from "../../../../components/Icons/Icons";
+// import { ComeToGameIcon, InfoIcon } from "../../../../components/Icons/Icons"; // TODO: знадобляться для кнопки "додати гравця"
 import style from "./GameItem.module.scss";
 
+const SPORT_LABELS = {
+    padel: "Падель",
+    tennis: "Теніс",
+    squash: "Сквош",
+};
+
+const formatTime = (iso) => {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return "--:--";
+    return date.toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit", hour12: false });
+};
+
+// "1" -> "Корт 1", "Корт 3" лишається як є
+const formatCourt = (court) => {
+    if (!court) return "";
+    return /^\d+$/.test(String(court)) ? `Корт ${court}` : court;
+};
+
+// Поля відповідають таблиці games у Supabase (snake_case).
+// obj.game_players: масив учасників, якщо запит робить join; obj.players_count: якщо читаєте з view games_with_counts.
 export const GameItem = ({ obj, joinToGame, rating }) => {
-    const myLevel = rating;
-    const iSMyLevelUnavailable = myLevel <= obj.level && obj.isStrict ? true : false;
-    const isFull = obj.maxPlayers <= obj.players.length;
+    const sport = String(obj.sport ?? "").toLowerCase();
+    const maxPlayers = Number(obj.max_players ?? 4);
+    const playersCount = Array.isArray(obj.game_players)
+        ? obj.game_players.length
+        : Number(obj.players_count ?? 0);
+
+    const levelMin = obj.level_min != null ? Number(obj.level_min) : null;
+    const isStrict = Boolean(obj.strict_level);
+
+    const isFull = playersCount >= maxPlayers;
+    // rating = рівень користувача (поки null, тому обмеження за рівнем не спрацьовує)
+    const isLevelTooLow = isStrict && rating != null && levelMin != null && Number(rating) < levelMin;
+    const isUnavailable = isFull || isLevelTooLow;
+
+    const price = `${Number(obj.price ?? 0).toFixed(2)} ${obj.currency ?? "€"}`;
+    const location = [obj.location, formatCourt(obj.court)].filter(Boolean).join(", ");
 
     return (
-        <li className={`${style.gameItem} ${(isFull || iSMyLevelUnavailable) ? style.isFullgame : ''}`}>
+        <li className={style.gameItem}>
             <div className={style.gameHeader}>
-                <div className={style.gameBadgesGroup}>
-                    <div className={style.gameTagsRow}>
-                        <span className={style.gameBadgeSport}>{obj.sportType}</span>
-                        <mark className={style.gameBadgeLevel}>level: {obj.level}</mark>
-                    </div>
-                    <span className={`${style.gameStrictLevel} ${obj.isStrict ? style.stick : ''}`}>
-                        <InfoIcon className={style.gameStrictIcon} />
-                        {obj.isStrict ? "Строгий рівеннь" : "Будь-який рівень"}
+                <div className={style.gameBadges}>
+                    <span className={`${style.gameBadge} ${style.gameBadgeSport}`}>
+                        {SPORT_LABELS[sport] ?? obj.sport}
+                    </span>
+                    <span className={style.gameBadge}>
+                        {levelMin != null ? `Level: ${levelMin.toFixed(1)}+` : "Будь-який рівень"}
                     </span>
                 </div>
-                <div className={style.gameTimeGroup}>
-                    <time className={style.gameTime} dateTime={obj.time}>{obj.time}</time>
-                    <span className={style.gameDuration}>{obj.durationMinutes + " хв"}</span>
-                </div>
+                <span className={style.gamePrice}>{price}</span>
             </div>
+
+            <time className={style.gameTime} dateTime={obj.started_at}>
+                {formatTime(obj.started_at)} • {obj.duration_time} хв
+            </time>
 
             <address className={style.gameLocation}>
                 <LocationIcon className={style.gameLocationIcon} />
-                <div className={style.gameLocationInfo}>
-                    <strong className={style.gameClubName}>{obj.clubName}</strong>
-                    <span className={style.gameCourtName}>Корт №{obj.courtNumber}</span>
-                </div>
+                <span>{location}</span>
             </address>
 
             <div className={style.gamePlayers}>
-                <figure className={style.gameAvatarsGroup}>
-                    {obj.players.map((player, index) => {                        
-                        return (<img
-                            key={`${player.id}-${index}`}
-                            className={style.gameAvatarImg}
-                            src={player.avatarUrl}
-                            alt={`Гравець ${player.username}`}
-                            onError={(e) => {
-                                e.currentTarget.onerror = null;
-                                e.currentTarget.src = 'https://cdn-icons-png.flaticon.com/512/17561/17561717.png';
-                            }}
-                        />)
-                    })}
-                    {obj.maxPlayers > obj.players.length ? <button type="button" className={style.gameAddPlayerBtn} aria-label="Додати гравця"><ComeToGameIcon className={style.gameAddPlayerIcon} /></button> : ""}
-                </figure>
-                <span className={style.gamePlayersCount}>{isFull ? "Місьці немає" : iSMyLevelUnavailable ? "Зависокий рівнень" : `${obj.currentPlayers} / ${obj.maxPlayers} гравців`}</span>
+                {/* TODO: аватари гравців. Потрібен список учасників (game_players -> profiles). */}
+                <div className={style.gamePlayersPlaceholder}>Аватари поки недоступні</div>
+                <span className={style.gamePlayersCount}>{playersCount} / {maxPlayers} гравців</span>
             </div>
 
             <div className={style.gameFooter}>
-                <div className={style.gamePriceGroup}>
-                    <span className={style.gamePriceLabel}>Ціна з гравця</span>
-                    <span className={style.gamePriceValue}>{obj.price / 4} €</span>
-                </div>
-                <button type="button" onClick={() => joinToGame(obj.id)} className={style.gameJoinBtn}>{(isFull || iSMyLevelUnavailable) ? "Недоступно" : "Приєднатися"}</button>
+                {isLevelTooLow && <span className={style.gameStrictNote}>У цій грі строгий рівень</span>}
+                <button
+                    type="button"
+                    className={style.gameJoinBtn}
+                    disabled={isUnavailable}
+                    // TODO: логіка приєднання. Поки joinToGame не передається, клік нічого не робить.
+                    onClick={() => joinToGame?.(obj.id)}
+                >
+                    {isFull ? "Місць немає" : isLevelTooLow ? "Рівень занизький" : "Приєднатися"}
+                </button>
             </div>
         </li>
-    )
+    );
 };

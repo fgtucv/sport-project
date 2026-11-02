@@ -3,8 +3,11 @@ import { lazy, Suspense } from 'react';
 
 // import { IsMobileProvider } from './contexts/useIsMobile.jsx';
 
+
+
 import { Layout } from "./components/Layout/Layout.jsx";
 import { LoadingPage } from './pages/LoadingPage/LoadingPage.jsx';
+
 const CreateEvent = lazy(() => import("./pages/CreateEventPage/CreateEvent"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const MyEventPage = lazy(() => import("./pages/MyEventPage/MyEventPage.jsx"));
