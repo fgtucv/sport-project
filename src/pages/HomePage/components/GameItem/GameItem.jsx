@@ -1,5 +1,6 @@
 import { LocationIcon } from "../../../../components/Icons/Icons";
 // import { ComeToGameIcon, InfoIcon } from "../../../../components/Icons/Icons"; // TODO: знадобляться для кнопки "додати гравця"
+import { GamePlayers } from "./components/GamePlayers/GamePlayers.jsx";
 import style from "./GameItem.module.scss";
 
 const SPORT_LABELS = {
@@ -40,6 +41,18 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
     const price = `${Number(obj.price ?? 0).toFixed(2)} ${obj.currency ?? "€"}`;
     const location = [obj.location, formatCourt(obj.court)].filter(Boolean).join(", ");
 
+    // useEffect(() => {
+    //     async function loadPlayers() {
+    //         try {
+    //             const data = await getGamePlayers();
+
+
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     }
+    // }, []);
+
     return (
         <li className={style.gameItem}>
             <div className={style.gameHeader}>
@@ -63,11 +76,7 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
                 <span>{location}</span>
             </address>
 
-            <div className={style.gamePlayers}>
-                {/* TODO: аватари гравців. Потрібен список учасників (game_players -> profiles). */}
-                <div className={style.gamePlayersPlaceholder}>Аватари поки недоступні</div>
-                <span className={style.gamePlayersCount}>{playersCount} / {maxPlayers} гравців</span>
-            </div>
+            <GamePlayers gameId={obj.id} maxPlayers={maxPlayers}/>
 
             <div className={style.gameFooter}>
                 {isLevelTooLow && <span className={style.gameStrictNote}>У цій грі строгий рівень</span>}

@@ -86,30 +86,6 @@
     fill: var(--game-secondary-text);
 }
 
-.gamePlayers {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    min-height: 40px;
-}
-
-.gamePlayersPlaceholder {
-    padding: 4px 10px;
-    border: 1px dashed #c6c6cd;
-    border-radius: 999px;
-    color: var(--game-secondary-text);
-    font-size: 11px;
-    line-height: 16px;
-}
-
-.gamePlayersCount {
-    color: var(--game-secondary-text);
-    font-size: 13px;
-    line-height: 20px;
-    white-space: nowrap;
-}
-
 /* футер притиснутий донизу, щоб кнопки в різних картках були на одному рівні */
 .gameFooter {
     display: flex;

@@ -54,7 +54,7 @@ export default function HomePage() {
                 setGames(Array.isArray(data) ? data : []);
             } catch (err) {
                 console.error(err);
-                setError(err?.message ?? "Невідома помилка");
+                setError(err || "Невідома помилка");
                 setGames([]);
             } finally {
                 setLoading(false);
