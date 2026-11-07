@@ -3,7 +3,7 @@ import userNotFound from "../../../../../../assets/userNotFound.svg";
 import { getGamePlayers } from "../../../../../../api/services/playersServices.js";
 import style from "./GamePlayers.module.scss";
 
-export const GamePlayers = ({ gameId, maxPlayers }) => {
+export const GamePlayers = ({ gameId, maxPlayers, getPlayersCount }) => {
     const [players, setPlayers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -41,18 +41,21 @@ export const GamePlayers = ({ gameId, maxPlayers }) => {
     }
 
     const playersCount = players.length;
+    
+    getPlayersCount(playersCount)
 
     return (
         <div className={style.gamePlayers}>
             <ul className={style.gamePlayersList}>
                 {
                     players.map((player) => {
+                        // console.log(player)
                         return (
                             <li className={style.gamePlayer} key={`${gameId}-${player.user_id}`}>
                                 <img
                                     className={style.gamePlayerImg}
-                                    src={player.profiles.avatar_url || userNotFound}
-                                    alt={`Гравець: ${player.profiles.nickname}`}
+                                    src={player.profiles?.avatar_url || userNotFound}
+                                    alt={`Гравець: ${player.profiles?.nickname}`}
                                     onError={(event) => {
                                         event.target.onerror = null
                                         event.target.src = userNotFound

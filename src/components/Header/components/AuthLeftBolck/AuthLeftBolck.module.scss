@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.item {
+    &>a {
+        display: flex;
+        align-items: center;
+    }
+}

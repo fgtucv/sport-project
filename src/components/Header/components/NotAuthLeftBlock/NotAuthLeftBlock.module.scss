@@ -1,0 +1,21 @@
+.authNav {
+    display: flex;
+    gap: 16px;
+}
+
+.authButton {
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.loginButton {
+    border: 1px solid #D1D5DB;
+    color: #111827;
+}
+
+.registerButton {
+    background-color: #22C55E;
+    color: #FFF;
+}

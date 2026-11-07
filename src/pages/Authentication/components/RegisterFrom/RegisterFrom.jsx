@@ -1,9 +1,8 @@
 import { useState } from 'react';
 
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
 import { useAuth } from '../../../../contexts/useAuth.jsx';
+
+import { signUpService } from '../../../../api/services/authService.js';
 
 import { FormField } from '../FormField/FormField';
 import { PasswordField } from '../PasswordField/PasswordField';
@@ -16,12 +15,12 @@ import style from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
     const context = useAuth();
-    const navigation = useNavigate();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        nickname: ""
     });
 
     const changeHandler = (event) => {
@@ -31,70 +30,73 @@ export const RegisterForm = () => {
 
     const createData = (data) => {
         return ({
+            email: data.email,
+            password: data.password,
             profile: {
-                firstName: data.firstName,
-                lastName: data.lastName,
-                email: data.email,
-                password: data.password,
-                avatarUrl: '',
-            },
-            rating: { level: 0, pts: 0, elo: 0 },
-            statistics: {
-                overall: {
-                    winRatePercentage: null,
-                    totalMatches: 0,
-                    wins: 0,
-                    draws: 0,
-                    losses: 0,
-                    tournamentsPlayed: 0,
-                    gamesWon: 0,
-                    winStreak: 0,
-                    achievementsUnlocked: 0,
-                },
-                byTournamentType: [],
-                timeOnCourt: null,
-                topOpponents: [],
-                topPartners: [],
-                activityByMonth: [],
-            },
-            games: [],
-            notifications: [],
+                first_name: data.firstName,
+                last_name: data.lastName,
+                nickname: data.nickname.includes('@') ? data.nickname : '@' + data.nickname,
+                avatar_url: null,
+                level: 0,
+                elo: 0,
+                pts: 0
+            }
         })
     };
 
-    const submitHandler = async (event) => {
-        event.preventDefault()
+    // const submitHandler = async (event) => {
+    //     event.preventDefault()
+
+    //     try {
+    //         const url = 'https://6aa2acebccb3db9689a6e211.mockapi.io/user';
+    //         const user = createData(formData);
+
+    //         let existing = [];
+
+    //         try {
+    //             const res = await axios.get(url);
+    //             existing = res.data;
+    //         } catch (err) {
+    //             if (err.response?.status !== 404) throw err;
+    //         }
+
+    //         const isEmailTaken = existing.some(
+    //             (u) => u.profile.email === user.profile.email
+    //         );
+
+    //         if (isEmailTaken) {
+    //             console.log('Вже є користувач з цією поштою');
+    //              navigation("/login")
+    //             return;
+    //         }
+
+    //         const { data: createdUser } = await axios.post(url, user);
+    //         context.authorization(createdUser);
+    //     } catch (error) {
+    //         console.error(`Помилка при запиті на сервер: ${error.message}`);
+    //     }
+
+
+    // };
+
+    const singUp = async (event) => {
+        event.preventDefault();
 
         try {
-            const url = 'https://6aa2acebccb3db9689a6e211.mockapi.io/user';
-            const user = createData(formData);
+            const newUser = await signUpService(createData(formData));
 
-            let existing = [];
-
-            try {
-                const res = await axios.get(url);
-                existing = res.data;
-            } catch (err) {
-                if (err.response?.status !== 404) throw err;
-            }
-
-            const isEmailTaken = existing.some(
-                (u) => u.profile.email === user.profile.email
-            );
-
-            if (isEmailTaken) {
-                console.log('Вже є користувач з цією поштою');
-                 navigation("/login")
-                return;
-            }
-
-            const { data: createdUser } = await axios.post(url, user);
-            context.authorization(createdUser);
+            context.authorization(newUser.user.user_metadata);
+            console.log(context.user)
         } catch (error) {
-            console.error(`Помилка при запиті на сервер: ${error.message}`);
+            const errorObject = {
+                name: error.name,
+                message: error.message,
+                status: error.status,
+                code: error.code
+            };
+
+            console.log(errorObject);
         }
-
-
     };
 
     return (
@@ -104,7 +106,16 @@ export const RegisterForm = () => {
                 Приєднуйтесь до гравців у падел та теніс
             </h3>
 
-            <form className={style.form} onSubmit={submitHandler}>
+            <form className={style.form} onSubmit={singUp}>
+                <FormField
+                    label="Нікнейм"
+                    id="nickname"
+                    name="nickname"
+                    placeholder="daragon45"
+                    onChange={changeHandler}
+                    value={formData.nickname}
+                    required
+                />
                 <div className={style.row}>
                     <FormField
                         label="Ім’я"

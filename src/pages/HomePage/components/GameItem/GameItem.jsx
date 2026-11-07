@@ -25,10 +25,13 @@ const formatCourt = (court) => {
 // obj.game_players: масив учасників, якщо запит робить join; obj.players_count: якщо читаєте з view games_with_counts.
 export const GameItem = ({ obj, joinToGame, rating }) => {
     const sport = String(obj.sport ?? "").toLowerCase();
-    const maxPlayers = Number(obj.max_players ?? 4);
-    const playersCount = Array.isArray(obj.game_players)
-        ? obj.game_players.length
-        : Number(obj.players_count ?? 0);
+    const maxPlayers = obj.max_players ?? 4;
+    let playersCount;
+
+    const getPlayersCount = (count) => {
+        playersCount = count ?? 0;
+        return count;
+    };
 
     const levelMin = obj.level_min != null ? Number(obj.level_min) : null;
     const isStrict = Boolean(obj.strict_level);
@@ -40,18 +43,6 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
 
     const price = `${Number(obj.price ?? 0).toFixed(2)} ${obj.currency ?? "€"}`;
     const location = [obj.location, formatCourt(obj.court)].filter(Boolean).join(", ");
-
-    // useEffect(() => {
-    //     async function loadPlayers() {
-    //         try {
-    //             const data = await getGamePlayers();
-
-
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     }
-    // }, []);
 
     return (
         <li className={style.gameItem}>
@@ -76,7 +67,7 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
                 <span>{location}</span>
             </address>
 
-            <GamePlayers gameId={obj.id} maxPlayers={maxPlayers}/>
+            <GamePlayers gameId={obj.id} maxPlayers={maxPlayers} getPlayersCount={getPlayersCount} />
 
             <div className={style.gameFooter}>
                 {isLevelTooLow && <span className={style.gameStrictNote}>У цій грі строгий рівень</span>}

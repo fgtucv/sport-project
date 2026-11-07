@@ -66,20 +66,3 @@
     height: 20px;
     fill: var(--header-text);
 }
-
-.headerList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-.headerItem {
-    display: flex;
-}
-
-.headerIcon {
-    height: 24px;
-    width: 24px;
-    fill: #45464D;
-}

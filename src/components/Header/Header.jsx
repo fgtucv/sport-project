@@ -1,11 +1,19 @@
-import { NavLink, Link } from 'react-router-dom';
-import { BiTennisBall, BiCalendar, BiPlusCircle, BiStats, BiUserCircle, BiMessage } from "react-icons/bi";
-import { MdOutlineSettings } from "react-icons/md";
+import { NavLink} from 'react-router-dom';
+import { BiTennisBall, BiCalendar, BiPlusCircle, BiStats } from "react-icons/bi";
+
+import { useAuth } from '../../contexts/useAuth.jsx';
+
 import { Container } from "../Container/Container.jsx";
 import { Logo } from "../Logo/Logo.jsx";
+
+import { AuthLeftBolck } from './components/AuthLeftBolck/AuthLeftBolck.jsx';
+import { NotAuthLeftBlock } from './components/NotAuthLeftBlock/NotAuthLeftBlock.jsx';
+
 import style from "./Header.module.scss";
 
 export const Header = () => {
+    const { isAuth } = useAuth();
+
     return (
         <header className={style.header}>
             <Container>
@@ -70,19 +78,7 @@ export const Header = () => {
                     </li>
                 </ul>
 
-                <ul className={style.headerList}>
-                    <li className={style.headerItem}>
-                        <BiMessage className={style.headerIcon} />
-                    </li>
-                    <li className={style.headerItem}>
-                        <MdOutlineSettings className={style.headerIcon} />
-                    </li>
-                    <li className={style.headerItem}>
-                        <Link to="/register">
-                            <BiUserCircle className={style.headerIcon} />
-                        </Link>
-                    </li>
-                </ul>
+                { isAuth ? <AuthLeftBolck/> : <NotAuthLeftBlock/> }
             </Container>
         </header>
     );
