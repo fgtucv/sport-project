@@ -24,7 +24,7 @@ export const AuthLeftBolck = () => {
                 </Link>
             </li>
             <li>
-                <Link to="/register">
+                <Link to="*">
                     <CircleUserRound
                         size={24}
                         color="#111827"

@@ -6,17 +6,25 @@ export async function signUpService({ email, password, profile }) {
         password,
         options: { data: profile }
     });
-    console.log(error)
+
     if (error) throw error;
 
     return data;
 };
 
+export async function SignInService({ email, password }) {
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+    });
+
+    if (error) throw error;
+
+    return data;
+}
+
 export async function getAutharization() {
     const { data: session, error } = await supabase.auth.getSession();
-
-    console.log(session);
-    console.log(error);
 
     if (error) throw new Error(error.message);
 

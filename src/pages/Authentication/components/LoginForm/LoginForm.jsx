@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { useAuth } from '../../../../contexts/useAuth.jsx';
 
+import { SignInService } from '../../../../api/services/authService.js';
+
 import { FormField } from '../FormField/FormField.jsx';
 import { PasswordField } from '../PasswordField/PasswordField.jsx';
 import { Checkbox } from '../Checkbox/Checkbox.jsx';
@@ -10,7 +12,6 @@ import { Divider } from '../Divider/Divider.jsx';
 import { GoogleButton } from '../GoogleButton/GoogleButton.jsx';
 
 import style from './LoginForm.module.scss';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
@@ -26,34 +27,23 @@ export const LoginForm = () => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const submitHandler = async (event) => {
-        event.preventDefault()
+    const signIn = async (event) => {
+        event.preventDefault();
 
         try {
-            const { data } = await axios.get(`https://6aa2acebccb3db9689a6e211.mockapi.io/user`);
+            const user = await SignInService(formData);
 
-            const user = data.find((u) => u.profile.email === formData.email);
-
-            console.log(user)
-
-            if (!user) {
-                navigation("/register")
-                return;
-            }
-
-            if (user.profile.password !== formData.password) {
-                setConfirm(false)
-                return;
-            }
-
-            context.authorization(user);
-            setConfirm(true);
+            context.authorization(user.user.user_metadata);
+            navigation("/");
         } catch (error) {
-            if (error.response?.status === 404) {
-                navigation("/register");
-                return;
-            }
-            console.error(`Помилка при запиті на сервер: ${error.message}`);
+            const errorObject = {
+                name: error.name,
+                message: error.message,
+                status: error.status,
+                code: error.code
+            };
+
+            console.log(errorObject);
         }
     };
 
@@ -64,7 +54,7 @@ export const LoginForm = () => {
                 Увійдіть, щоб переглянути свої ігри та статистику
             </h3>
 
-            <form className={style.form} onSubmit={submitHandler}>
+            <form className={style.form} onSubmit={signIn}>
                 <FormField
                     label="Електронна пошта"
                     id="email"

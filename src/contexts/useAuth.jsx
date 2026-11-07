@@ -15,7 +15,12 @@ export const AuthProvider = ({ children }) => {
             try {
                 const { session } = await getAutharization();
 
-                setUser(session.user.user_metadata);
+                if (session) {
+                    setUser(session.user.user_metadata);
+                    return;
+                }
+
+                setUser(null);
             } catch (error) {
                 console.log(error)
             }
