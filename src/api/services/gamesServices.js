@@ -5,7 +5,7 @@ export async function getGamesService() {
         .from("games")
         .select("*");
 
-    if (error) throw new Error(error.message);
+    if (error) return error;
 
-    return data; // games
+    return data;
 };

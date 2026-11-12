@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../../../contexts/useAuth.jsx';
 
@@ -12,7 +13,6 @@ import { Divider } from '../Divider/Divider.jsx';
 import { GoogleButton } from '../GoogleButton/GoogleButton.jsx';
 
 import style from './LoginForm.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
     const navigation = useNavigate();
@@ -33,7 +33,7 @@ export const LoginForm = () => {
         try {
             const user = await SignInService(formData);
 
-            context.authorization(user.user.user_metadata);
+            context.authorization();
             navigation("/");
         } catch (error) {
             const errorObject = {

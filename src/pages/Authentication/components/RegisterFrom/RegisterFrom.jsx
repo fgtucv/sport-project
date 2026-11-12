@@ -85,7 +85,7 @@ export const RegisterForm = () => {
         try {
             const newUser = await signUpService(createData(formData));
 
-            context.authorization(newUser.user.user_metadata);
+            context.authorization();
             console.log(context.user)
         } catch (error) {
             const errorObject = {

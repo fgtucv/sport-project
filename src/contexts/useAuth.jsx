@@ -1,49 +1,23 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { getAutharization } from "../api/services/authService.js";
+import { getSessionService, getProfileService } from "../api/services/authService.js";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
+    
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        async function loadingUser() {
-            try {
-                const { session } = await getAutharization();
-
-                if (session) {
-                    setUser(session.user.user_metadata);
-                    return;
-                }
-
-                setUser(null);
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        loadingUser()
-    }, []);
-
-    const authorization = (userData) => {
-        console.log(userData)
-        navigate("/");
-        setUser(userData);
-    };
-
-    const logout = () => {
-        navigate("/", { replace: true });
-        setUser(null);
-    };
 
     const isAuth = !!user;
 
+// authorization, logout
+
     return (
-        <AuthContext.Provider value={{ user, isAuth, authorization, logout }}>
+        <AuthContext.Provider value={{ user, isAuth,  }}>
             {children}
         </AuthContext.Provider>
     );

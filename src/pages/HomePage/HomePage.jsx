@@ -1,9 +1,6 @@
 // react
 import { useEffect, useState, useMemo } from "react";
-// library
-// import axios from "axios";                                // TODO: більше не потрібен, якщо працюєте через Supabase
 // custome hooks and conetexts
-// import { useFetch } from "../../hooks/useFetch.jsx";      // не використовувався
 // import { useAuth } from "../../contexts/useAuth.jsx";     // TODO: повернути, коли робитимете логіку рівня/приєднання
 // import { useNavigate } from "react-router-dom";           // TODO: потрібен для joinToGame
 // components
@@ -18,6 +15,9 @@ import style from "./HomePage.module.scss";
 import { TEXT_DATA, SPORT_FILTERS, getUpcomingDays } from "./HomePage.constants.js";
 
 import { getGamesService } from "../../api/services/gamesServices.js";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getGamesThunk } from "../../redux/slices/gamesSlice/gamesThunks.js";
 
 // "1 гра", "2 гри", "5 ігор"
 const gamesWord = (n) => {
@@ -29,39 +29,25 @@ const gamesWord = (n) => {
     return "ігор";
 };
 
-export default function HomePage() {
-    // const navigate = useNavigate();
-    // const { user, isAuth } = useAuth();
-    const [games, setGames] = useState([]);
-    const [category, setCategory] = useState("all");
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    // const { isMobile } = useContext(IsMobileContext);
+// const navigate = useNavigate();
+// const { user, isAuth } = useAuth();
 
-    // TODO: рівень поточного користувача (було: user?.profile?.rating). Поки null = обмежень за рівнем немає.
+export default function HomePage() {
+    const dispatch = useDispatch();
+    const { games, error, loading } = useSelector((state) => state.games);
+
+    // const [games, setGames] = useState([]);
+    const [category, setCategory] = useState("all");
+    // const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+
+
     const myLevel = null;
 
     const days = useMemo(() => getUpcomingDays(14), []);
 
-    // Було [games] у залежностях: effect сам змінював games і запускався у нескінченному циклі.
     useEffect(() => {
-        async function loadGames() {
-            try {
-                setLoading(true);
-                setError(null);
-
-                const data = await getGamesService();
-                setGames(Array.isArray(data) ? data : []);
-            } catch (err) {
-                console.error(err);
-                setError(err || "Невідома помилка");
-                setGames([]);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        loadGames();
+        dispatch(getGamesThunk())
     }, []);
 
     /* ---------------------------------------------------------------
@@ -190,7 +176,7 @@ export default function HomePage() {
                                 key={game.id}
                                 obj={game}
                                 rating={myLevel}
-                                // joinToGame={joinToGame} // TODO: підключити, коли перероблена функція буде готова
+                            // joinToGame={joinToGame} // TODO: підключити, коли перероблена функція буде готова
                             />
                         ))}
                     </ul>
