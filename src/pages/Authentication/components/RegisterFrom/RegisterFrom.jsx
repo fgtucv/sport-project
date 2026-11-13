@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { useAuth } from '../../../../contexts/useAuth.jsx';
-
 import { signUpService } from '../../../../api/services/authService.js';
 
 import { FormField } from '../FormField/FormField';
@@ -14,7 +12,6 @@ import { GoogleButton } from '../GoogleButton/GoogleButton';
 import style from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
-    const context = useAuth();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -83,19 +80,10 @@ export const RegisterForm = () => {
         event.preventDefault();
 
         try {
-            const newUser = await signUpService(createData(formData));
+            await signUpService(createData(formData));
 
-            context.authorization();
-            console.log(context.user)
         } catch (error) {
-            const errorObject = {
-                name: error.name,
-                message: error.message,
-                status: error.status,
-                code: error.code
-            };
-
-            console.log(errorObject);
+            console.log(error);
         }
     };
 

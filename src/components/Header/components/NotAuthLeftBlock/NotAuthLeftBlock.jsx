@@ -5,10 +5,10 @@ import style from "./NotAuthLeftBlock.module.scss";
 export const NotAuthLeftBlock = () => {
     return (
         <div className={style.authNav}>
-            <Link to="/register" className={`${style.authButton} ${style.loginButton}`} type="button">
+            <Link to="/login" className={`${style.authButton} ${style.loginButton}`} type="button">
                 Увійти
             </Link>
-            <Link to="/login" className={`${style.authButton} ${style.registerButton}`} type="button">
+            <Link to="/register" className={`${style.authButton} ${style.registerButton}`} type="button">
                 Зареєструватись
             </Link>
         </div>

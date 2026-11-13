@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../../../contexts/useAuth.jsx';
@@ -16,7 +17,6 @@ import style from './LoginForm.module.scss';
 
 export const LoginForm = () => {
     const navigation = useNavigate();
-    const context = useAuth();
 
     const [confirm, setConfirm] = useState(null);
     const [formData, setFormData] = useState({ email: "", password: "" });
@@ -31,19 +31,11 @@ export const LoginForm = () => {
         event.preventDefault();
 
         try {
-            const user = await SignInService(formData);
+            await SignInService(formData);
 
-            context.authorization();
             navigation("/");
         } catch (error) {
-            const errorObject = {
-                name: error.name,
-                message: error.message,
-                status: error.status,
-                code: error.code
-            };
-
-            console.log(errorObject);
+            console.log(error);
         }
     };
 

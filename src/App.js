@@ -1,12 +1,16 @@
-import { Routes, Route, useLocation, } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 
-// import { IsMobileProvider } from './contexts/useIsMobile.jsx';
+import { Routes, Route, } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { setSession } from './redux/slices/authSlice/authSlice.js';
+import { getProfileThunk } from './redux/slices/authSlice/authThunks.js';
 
+import { subscribeToAuthService, SignInService } from './api/services/authService.js';
 
 import { Layout } from "./components/Layout/Layout.jsx";
 import { LoadingPage } from './pages/LoadingPage/LoadingPage.jsx';
+
 
 const CreateEvent = lazy(() => import("./pages/CreateEventPage/CreateEvent"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
@@ -18,7 +22,24 @@ const RegisterPage = lazy(() => import("./pages/Authentication/pages/RegisterPag
 const Statistic = lazy(() => import("./pages/StatisticPage/Statistic.jsx"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
 
+// function test() {
+//   SignInService({ email: "fgtucv947@gamil.com", password: "SuperSigma977"})
+// }
+
+// test()
+
 function App() {
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.auth.session?.user?.id);
+
+  useEffect(() => {
+    return subscribeToAuthService(dispatch, setSession)
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (userId) dispatch(getProfileThunk(userId));
+  }, [userId, dispatch])
+
   return (
     <Suspense fallback={<LoadingPage />}>
       <Routes>
@@ -42,7 +63,7 @@ function App() {
 
         </Route>
 
-        {/* <Route path="/login" element={<LoginPage />} /> */}
+        <Route path="/login" element={<LoginPage />} />
 
         {/* <Route path="/register" element={<RegisterPage />} /> */}
 

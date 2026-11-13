@@ -1,7 +1,6 @@
 import { NavLink} from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { BiTennisBall, BiCalendar, BiPlusCircle, BiStats } from "react-icons/bi";
-
-import { useAuth } from '../../contexts/useAuth.jsx';
 
 import { Container } from "../Container/Container.jsx";
 import { Logo } from "../Logo/Logo.jsx";
@@ -12,7 +11,7 @@ import { NotAuthLeftBlock } from './components/NotAuthLeftBlock/NotAuthLeftBlock
 import style from "./Header.module.scss";
 
 export const Header = () => {
-    const { isAuth } = useAuth();
+    const isAuth = useSelector((state) => !!state.auth.session)
 
     return (
         <header className={style.header}>

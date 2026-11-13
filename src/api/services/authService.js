@@ -46,10 +46,12 @@ export async function getProfileService(userId) {
     return data;
 };
 
-export async function subscribeToAuthService(callback) {
-    const { data: { subscribe } } = supabase.auth.onAuthStateChange(
-        (event, session) => callback(event, session)
+export function subscribeToAuthService(dispatch, setSession) {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+        (event, session) => {
+            dispatch(setSession(session));
+        }
     );
 
-    return () => subscribe.unsubscribe();
+    return () => subscription.unsubscribe();
 };
