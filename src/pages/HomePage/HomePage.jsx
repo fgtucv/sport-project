@@ -41,9 +41,6 @@ export default function HomePage() {
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
 
-
-    const myLevel = null;
-
     const days = useMemo(() => getUpcomingDays(14), []);
 
     useEffect(() => {
@@ -175,7 +172,6 @@ export default function HomePage() {
                             <GameItem
                                 key={game.id}
                                 obj={game}
-                                rating={myLevel}
                             // joinToGame={joinToGame} // TODO: підключити, коли перероблена функція буде готова
                             />
                         ))}

@@ -41,7 +41,7 @@ export async function getProfileService(userId) {
     const { data, error } = await supabase
         .from("profiles").select("*").eq("id", userId).single();
 
-    if (error) throw new Error(error.message);
+    if (error) return error;
 
     return data;
 };

@@ -18,7 +18,6 @@ import style from './LoginForm.module.scss';
 export const LoginForm = () => {
     const navigation = useNavigate();
 
-    const [confirm, setConfirm] = useState(null);
     const [formData, setFormData] = useState({ email: "", password: "" });
 
 

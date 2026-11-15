@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { LocationIcon } from "../../../../components/Icons/Icons";
 // import { ComeToGameIcon, InfoIcon } from "../../../../components/Icons/Icons"; // TODO: знадобляться для кнопки "додати гравця"
 import { GamePlayers } from "./components/GamePlayers/GamePlayers.jsx";
@@ -15,34 +16,26 @@ const formatTime = (iso) => {
     return date.toLocaleTimeString("uk-UA", { hour: "2-digit", minute: "2-digit", hour12: false });
 };
 
-// "1" -> "Корт 1", "Корт 3" лишається як є
 const formatCourt = (court) => {
     if (!court) return "";
     return /^\d+$/.test(String(court)) ? `Корт ${court}` : court;
 };
 
-// Поля відповідають таблиці games у Supabase (snake_case).
-// obj.game_players: масив учасників, якщо запит робить join; obj.players_count: якщо читаєте з view games_with_counts.
-export const GameItem = ({ obj, joinToGame, rating }) => {
-    const sport = String(obj.sport ?? "").toLowerCase();
+export const GameItem = ({ obj, joinToGame }) => {
+    const playersCount = useSelector((s) => s.players.playersPerGames[obj.id]?.players?.length);
+    const myLevel = useSelector((s) => s.auth.profile.level);
+    const sport = obj.sport.toLowerCase();
     const maxPlayers = obj.max_players ?? 4;
-    let playersCount;
 
-    const getPlayersCount = (count) => {
-        playersCount = count ?? 0;
-        return count;
-    };
+    const levelMin = obj.level_min != null ? obj.level_min : null;
+    const isStrict = obj.strict_level;
 
-    const levelMin = obj.level_min != null ? Number(obj.level_min) : null;
-    const isStrict = Boolean(obj.strict_level);
-
-    const isFull = playersCount >= maxPlayers;
-    // rating = рівень користувача (поки null, тому обмеження за рівнем не спрацьовує)
-    const isLevelTooLow = isStrict && rating != null && levelMin != null && Number(rating) < levelMin;
+    const isFull = (playersCount || 4) >= maxPlayers;
+    const isLevelTooLow = isStrict && myLevel != null && levelMin != null && myLevel < levelMin;
     const isUnavailable = isFull || isLevelTooLow;
 
-    const price = `${Number(obj.price ?? 0).toFixed(2)} ${obj.currency ?? "€"}`;
-    const location = [obj.location, formatCourt(obj.court)].filter(Boolean).join(", ");
+    const price = `${obj.price.toFixed(2)} ${obj.currency ?? "€"}`;
+    const location = [obj.location, formatCourt(obj.court)].join(", ");
 
     return (
         <li className={style.gameItem}>
@@ -67,7 +60,7 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
                 <span>{location}</span>
             </address>
 
-            <GamePlayers gameId={obj.id} maxPlayers={maxPlayers} getPlayersCount={getPlayersCount} />
+            <GamePlayers gameId={obj.id} maxPlayers={maxPlayers} />
 
             <div className={style.gameFooter}>
                 {isLevelTooLow && <span className={style.gameStrictNote}>У цій грі строгий рівень</span>}
@@ -75,7 +68,6 @@ export const GameItem = ({ obj, joinToGame, rating }) => {
                     type="button"
                     className={style.gameJoinBtn}
                     disabled={isUnavailable}
-                    // TODO: логіка приєднання. Поки joinToGame не передається, клік нічого не робить.
                     onClick={() => joinToGame?.(obj.id)}
                 >
                     {isFull ? "Місць немає" : isLevelTooLow ? "Рівень занизький" : "Приєднатися"}

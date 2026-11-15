@@ -1,48 +1,38 @@
 import { useEffect, useState } from "react";
-import userNotFound from "../../../../../../assets/userNotFound.svg";
+
+import { useDispatch, useSelector } from "react-redux";
+
 import { getGamePlayers } from "../../../../../../api/services/playersServices.js";
+
+import { getGamePlayersThunk } from "../../../../../../redux/slices/playersSlice/playersThunks.js";
+
+import userNotFound from "../../../../../../assets/userNotFound.svg";
+
 import style from "./GamePlayers.module.scss";
 
 export const GamePlayers = ({ gameId, maxPlayers, getPlayersCount }) => {
-    const [players, setPlayers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        async function loadingPlayers() {
-            try {
-                const data = await getGamePlayers(gameId);
+    const players = useSelector((s) => s.players.playersPerGames[gameId]?.players);
+    const status = useSelector((s) => s.players.playersPerGames[gameId]?.status);
 
-                setPlayers(data);
-                setError(null);
-            } catch (err) {
-                console.log(err);
-                setError(err);
-            } finally {
-                setLoading(false);
-            }
-        }
+    useEffect(() => { dispatch(getGamePlayersThunk(gameId)) }, []);
 
-        loadingPlayers();
-    }, []);
-
-    if (loading) {
+    if ((status || "loading") === "loading") {
         return (
             <div className={style.gamePlayersPlaceholder}>Завантаження...</div>
         )
-    } else if (error) {
+    } else if ((status || "loading") === "rejected") {
         return (
             <div className={style.gamePlayersPlaceholder}>Невдолось завантажити гравців</div>
         )
-    } else if (players.length === 0) {
+    } else if ((players || []).length === 0) {
         return (
             <div className={style.gamePlayersPlaceholder}>Немає граців</div>
         )
     }
 
-    const playersCount = players.length;
-    
-    getPlayersCount(playersCount)
+    const playersCount = (players || []).length;   
 
     return (
         <div className={style.gamePlayers}>
