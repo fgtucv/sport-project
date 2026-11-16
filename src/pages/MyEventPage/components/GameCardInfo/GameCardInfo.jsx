@@ -1,4 +1,4 @@
-import { PinIcon } from "../CardIcons/CardIcons.jsx";
+import { MapPin } from "lucide-react";
 
 import style from "./GameCardInfo.module.scss";
 
@@ -12,7 +12,7 @@ export const GameCardInfo = ({ dateTime, dateTimeISO, duration, price, location 
                 <span className={style.price}>{price}</span>
             </div>
             <p className={style.location}>
-                <PinIcon className={style.pin} />
+                <MapPin size={14} />
                 <span>{location}</span>
             </p>
         </div>
