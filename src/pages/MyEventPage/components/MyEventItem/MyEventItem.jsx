@@ -1,120 +1,96 @@
-import { DraftIcon, PadelIcon } from "../../../../components/Icons/Icons.jsx";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { getGamePlayersThunk } from "../../../../redux/slices/playersSlice/playersThunks.js";
+
+import { DraftCard } from "../DraftCard/DraftCard.jsx";
+import { GameCardHeader } from "../GameCardHeader/GameCardHeader.jsx";
+import { GameCardInfo } from "../GameCardInfo/GameCardInfo.jsx";
+import { MatchPanel } from "../MatchPanel/MatchPanel.jsx";
+import { GameCardActions } from "../GameCardActions/GameCardActions.jsx";
 
 import style from "./MyEventItem.module.scss";
+import {
+    SPORT_LABELS,
+    formatDateTime,
+    formatDuration,
+    formatPrice,
+    formatLevel,
+} from "./MyEventItem.utils.js";
 
 export const MyEventItem = ({ obj, deleteCard }) => {
-
     const location = useLocation();
+    const dispatch = useDispatch();
 
-    const formatedTitel = (type, sport) => {
-        const firstPart = type === "tournamentEventsCard" ? "Турнір" : type === "gameEventsCard" ? "Гра" : "Кваліфікація";
-        const secondPart = sport === "PADEL" ? "з паделу" : "з тенісу";
+    const players = useSelector((s) => s.players.playersPerGames[obj.id]?.players);
+    const status = useSelector((s) => s.players.playersPerGames[obj.id]?.status);
+    const myId = useSelector((s) => s.auth.profile.id);
 
-        return `${firstPart} ${secondPart}`;
-    }
+    useEffect(() => { dispatch(getGamePlayersThunk(obj.id)) }, []);
 
+    if (!players || status === "loading") return <li>Завантаження</li>;
 
     if (obj.status === "Draft") {
-        return (
-            <li>
-                <Link to={`/my-events/${obj.id}`} state={{from: location}} className={`${style.game} ${style.gameDraft}`} id={obj.id}>
-                    <div className={style.gameCardHeader}>
-                        <h2 className={style.gameTitle}>{formatedTitel(obj.typeOfGame, obj.sportType)}</h2>
-                    </div>
-                    <div className={`${style.gameBody} ${style.gameDraftBody}`}>
-                        <DraftIcon className={style.gameDraftIcon} />
-                        <a className={style.gameDraftText} href="">Редагувати чернетку</a>
-                    </div>
-                    <button onClick={deleteCard} type="button" className={style.gameDeleteButton}>
-                        Видалити чернетку
-                    </button>
-                </Link>
-            </li>
-        )
+        return <DraftCard obj={obj} deleteCard={deleteCard} />;
     }
 
+    const myTeam = players.find((p) => p.user_id === myId)?.team;
+    const winingTeam = obj.winning_team;
+
+    const result = !winingTeam
+        ? "draw"
+        : myTeam === winingTeam
+            ? "win"
+            : "loss"; // "win" | "loss" | "draw"
+
+    const teamA = {
+        name: "Team A",
+        players: players?.filter((p) => p.team === "A") || [],
+        isWinner: obj.winning_team === "A",
+        caption: myTeam === "A" ? "Ви" : "",
+    };
+
+    const teamB = {
+        name: "Team B",
+        players: players?.filter((p) => p.team === "B") || [],
+        isWinner: obj.winning_team === "B",
+        caption: myTeam === "B" ? "Ви" : "",
+    };
+    const participants = { name: "Учасники матчу", players: [] };
+    const scoreCaption = result === "draw" ? "Нічия (Draw)" : "Фінальний рахунок";
 
     return (
-        <li className={`${style.game} ${style[`is${obj.status}`]}`}>
-            <Link state={{from: location}} to={`/my-events/${obj.id}`} id={obj.id}>
+        <li className={style.game}>
+            <GameCardHeader
+                sportLabel={SPORT_LABELS[obj.sport]}
+                levelLabel={formatLevel(obj.level_min, obj.level_max)}
+                result={result}
+            />
 
+            <GameCardInfo
+                dateTime={formatDateTime(obj.started_at)}
+                dateTimeISO={obj.started_at}
+                duration={formatDuration(obj.duration_time)}
+                price={formatPrice(obj.price, obj.currency)}
+                location={`${obj.location}${obj.court ? ` • Корт ${obj.court}` : ""}`}
+            />
 
-                <div className={style.gameCardHeader}>
-                    <div className={style.gameIconBackgraund}>
-                        <PadelIcon className={style.gameTypeIcon} />
-                    </div>
-                    <h2 className={style.gameTitle}>{formatedTitel(obj.typeOfGame, obj.sportType)}</h2>
-                    <span className={style.gameResultbadge}>{obj.status}</span>
-                </div>
+            <MatchPanel
+                result={result}
+                teamA={teamA}
+                teamB={teamB}
+                participants={participants}
+                score={obj.score}
+                scoreCaption={scoreCaption}
+            />
 
-                <div className={style.gameMeta}>
-                    <p className={style.gameLocation}>{obj.clubName}</p>
-                    <time dateTime="2026-10-20T10:00" className={style.gameDateTime}>
-                        {obj.date}, {obj.time}
-                    </time>
-                </div>
-
-                {/* {(obj.status === "Loss" || obj.status === "Win") && (
-                <div className={style.gameBody}>
-                    <div className={style.gamePlayersList}>
-                        <div className={style.gameTeamPlayers}>
-                            {obj.players
-                                .filter((player) => player.team === "A")
-                                .map((player) => (
-                                    <img
-                                        key={`${player.team}-${player.username}`}
-                                        src={player.avatarUrl}
-                                        alt={player.name}
-                                        className={style.gamePlayerAvatar}
-                                    />
-                                ))}
-                        </div>
-
-                        <span className={style.gameScore}>
-                            {`${obj.score[0].teamA}:${obj.score[0].teamB}, ${obj.score[1].teamA}:${obj.score[0].teamB}`}
-                        </span>
-
-                        <div className={style.gameTeamPlayers}>
-                            {obj.players
-                                .filter((player) => player.team === "B")
-                                .map((player) => (
-                                    <img
-                                        key={`${player.team}-${player.username}`}
-                                        src={player.avatarUrl}
-                                        alt={player.name}
-                                        className={style.gamePlayerAvatar}
-                                    />
-                                ))}
-                        </div>
-                    </div>
-                </div>
-            )} */}
-
-                {/* {(obj.status === "Soon" || obj.status === "Draw") && ( */}
-                <div className={style.gameBody}>
-                    <div className={style.gamePlayersList}>
-                        {obj.players.map((player) => {
-                            return <img
-                                key={`${obj.id}-${player.nickname}`}
-                                src={player.avatarUrl}
-                                alt={player.nickname}
-                                className={style.gamePlayerAvatar}
-                            />
-                        })}
-                    </div>
-                </div>
-                {/* )} */}
-
-                <div className={style.gameDebtStatus + ' ' + (obj.isPaid ? ' ' : style.debtNotPaid)}>
-                    <span className={style.gameDebtLabel}>{obj.isPaid ? `Борг перед ${obj.hostNickname} сплачено:` : `Борг перед ${obj.hostNickname} несплачено:`}</span>
-                    <span className={style.gameDebtAmount}> {obj.price / 4} €</span>
-                </div>
-
-                <button onClick={deleteCard} type="button" className={style.gameDeleteButton}>
-                    {obj.status === "Soon" ? "Покинути гру" : "Видалити гру"}
-                </button>
-            </Link>
+            <GameCardActions
+                to={`/my-events/${obj.id}`}
+                linkState={{ from: location }}
+                onDelete={deleteCard}
+            />
         </li>
-    )
+    );
 };

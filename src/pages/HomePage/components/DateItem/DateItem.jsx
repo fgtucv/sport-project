@@ -1,6 +1,5 @@
 import style from "./DateItem.module.scss";
 
-// Поки що лише відображення. TODO: onClick / вибір дня додасте самі.
 export const DateItem = ({ day }) => {
     return (
         <li

@@ -1,0 +1,30 @@
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.type {
+    padding: 8px 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--event-secondary-text);
+    background-color: var(--event-card-surface);
+    border: var(--event-border) solid 1px;
+    border-radius: 9999px;
+}
+
+.activeType {
+    background-color: var(--event-strong);
+    border: none;
+    color: var(--event-card-surface);
+}

@@ -7,7 +7,7 @@
     background: #FFF;
     box-shadow: 0 -8px 24px 0 rgba(15, 23, 42, 0.04);
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1200px) {
         position: static;
         border-radius: 0;
         background-color: var(--footer-surface);
@@ -18,7 +18,7 @@
 .footer>div {
     padding: 16px 24px;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1200px) {
         padding: 64px 16px 40px 16px;
     }
 }
@@ -26,7 +26,7 @@
 .footerTopDiv {
     display: none;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1200px) {
         display: flex;
         flex-wrap: wrap;
     }
@@ -86,7 +86,7 @@
 .footerBottomDiv {
     display: none;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1200px) {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -126,7 +126,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1200px) {
         display: none;
     }
 }

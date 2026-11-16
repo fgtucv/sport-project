@@ -1,0 +1,26 @@
+.stack {
+    display: flex;
+    align-items: center;
+    // компенсуємо від'ємний margin останнього аватара
+    padding-right: 10px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    margin-right: -10px;
+    border: 2px solid var(--event-card-surface);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatarFallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 11px;
+    color: #ffffff;
+    background-color: var(--event-strong);
+}

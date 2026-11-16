@@ -1,0 +1,41 @@
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.details {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--event-strong);
+    background-color: var(--event-surface);
+    border-radius: 8px;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: var(--event-neutral-surface);
+    }
+}
+
+.delete {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--event-danger);
+    background-color: var(--event-danger-surface);
+    border: 1px solid var(--event-danger);
+    border-radius: 8px;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

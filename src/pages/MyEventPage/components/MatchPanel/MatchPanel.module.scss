@@ -1,0 +1,71 @@
+.panel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 16px 12px;
+    background-color: var(--event-surface);
+    border: 1px solid var(--event-border);
+    border-radius: 12px;
+}
+
+.panelDraw {
+    padding-inline: 16px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.teamName {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--event-strong);
+    text-align: center;
+}
+
+.teamWinner {
+    color: var(--event-success);
+}
+
+.scoreColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding-top: 2px;
+}
+
+.scoreList {
+    display: flex;
+    gap: 6px;
+}
+
+.scoreBox {
+    min-width: 38px;
+    padding: 6px 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--event-strong);
+    background-color: var(--event-card-surface);
+    border: 1px solid var(--event-border);
+    border-radius: 8px;
+}
+
+.caption {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 14px;
+    color: var(--event-secondary-text);
+    text-align: center;
+}

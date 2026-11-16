@@ -1,0 +1,44 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.dateTime {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--event-strong);
+}
+
+.price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--event-strong);
+    white-space: nowrap;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    color: var(--event-secondary-text);
+}
+
+.pin {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    color: var(--event-secondary-text);
+}

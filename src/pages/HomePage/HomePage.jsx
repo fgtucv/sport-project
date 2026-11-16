@@ -34,12 +34,12 @@ const gamesWord = (n) => {
 
 export default function HomePage() {
     const dispatch = useDispatch();
-    const { games, error, loading } = useSelector((state) => state.games);
 
-    // const [games, setGames] = useState([]);
+    const games = useSelector((state) => state.games.games);
+    const loading = useSelector((state) => state.games.loading);
+    const error = useSelector((state) => state.games.error);
+
     const [category, setCategory] = useState("all");
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
 
     const days = useMemo(() => getUpcomingDays(14), []);
 
@@ -47,74 +47,6 @@ export default function HomePage() {
         dispatch(getGamesThunk())
     }, []);
 
-    /* ---------------------------------------------------------------
-       TODO: ваші функції, закоментовано, щоб ви переробили самі.
-       ---------------------------------------------------------------
-
-    const addNewPlayer = async (id, game) => {
-        const player = {
-            "id": user.id,
-            "nickname": user.profile.username,
-            "avatarUrl": user.profile.avatarUrl
-        }
-
-        const newPlayersList = [
-            ...game.players,
-            player
-        ]
-
-        try {
-            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/game/${id}`,
-                {
-                    ...game,
-                    players: newPlayersList
-                }
-            );
-
-        } catch (error) {
-            console.error(error);
-        }
-
-    };
-
-    const joinToGame = async (id) => {
-        if (!user) {
-            navigate("/login");
-            return
-        }
-
-        const foundGame = games.find(game => game.id === id);
-
-        if (foundGame.players.find((palyer) => palyer.id === user.id)) {
-            console.log("ви вже доєдналися");
-            return;
-        }
-
-        const additionalObjectPart = {
-            isPaid: false,
-            status: "soon",
-        }
-
-        const newGame = { ...foundGame, ...additionalObjectPart, };
-
-        const newGames = [...user?.games || [], newGame];
-
-        try {
-            const respons = await axios.put(`https://6aa2acebccb3db9689a6e211.mockapi.io/user/${user.id}`,
-                {
-                    ...user,
-                    games: newGames
-                }
-            );
-        } catch (error) {
-            console.error(error)
-        }
-
-        addNewPlayer(id, foundGame);
-    };
-    --------------------------------------------------------------- */
-
-    // Фільтр за видом спорту (раніше був setState усередині useMemo, що давало зайві рендери)
     const filteredGames = useMemo(() => {
         if (category === "all") return games;
 
@@ -155,7 +87,7 @@ export default function HomePage() {
                         <DateItem day={day} key={day.id} />
                     ))}
                 </ul>
-                {/* TODO: вибір дня. Зараз це лише відображення, кліки нічого не роблять і ігри за днем не фільтруються. */}
+
                 <div className={style.placeholder}>Вибір дня поки недоступний: функцію треба додати.</div>
 
                 {loading && <p className={style.status}>Завантаження ігор…</p>}

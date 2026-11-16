@@ -1,0 +1,55 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.tag {
+    padding: 2px 8px;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: var(--event-strong);
+    background-color: var(--event-neutral-surface);
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.tagLevel {
+    font-weight: 500;
+    text-transform: none;
+    color: var(--event-secondary-text);
+}
+
+.badge {
+    padding: 2px 12px;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.3px;
+    border-radius: 9999px;
+}
+
+.win {
+    color: var(--event-success);
+    background-color: var(--event-success-surface);
+}
+
+.loss {
+    color: var(--event-danger);
+    background-color: var(--event-danger-surface);
+}
+
+.draw {
+    color: #b7791f;
+    background-color: #fef3c7;
+}
