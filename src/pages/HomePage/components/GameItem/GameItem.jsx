@@ -23,7 +23,7 @@ const formatCourt = (court) => {
 
 export const GameItem = ({ obj, joinToGame }) => {
     const playersCount = useSelector((s) => s.players.playersPerGames[obj.id]?.players?.length);
-    const myLevel = useSelector((s) => s.auth.profile.level);
+    const myLevel = useSelector((s) => s.auth.profile?.level);
     const sport = obj.sport.toLowerCase();
     const maxPlayers = obj.max_players ?? 4;
 
