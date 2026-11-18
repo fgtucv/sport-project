@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { CircleUserRound, Settings, MessageSquare } from "lucide-react";
 
 import notFoundAvatar from "../../../../assets/userNotFound.svg";
 
