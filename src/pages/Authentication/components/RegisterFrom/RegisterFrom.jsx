@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { toast } from 'sonner';
+
 import { signUpService } from '../../../../api/services/authService.js';
 
 import { FormField } from '../FormField/FormField';
@@ -82,8 +84,12 @@ export const RegisterForm = () => {
         try {
             await signUpService(createData(formData));
 
-        } catch (error) {
-            console.log(error);
+        } catch (e) {
+            if (e.message === "User already registered") {
+                toast.error("Вже є користувач з такою поштою або логіном")
+                return
+            }
+            console.log(e.message);
         }
     };
 

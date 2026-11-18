@@ -14,6 +14,7 @@ import { Divider } from '../Divider/Divider.jsx';
 import { GoogleButton } from '../GoogleButton/GoogleButton.jsx';
 
 import style from './LoginForm.module.scss';
+import { toast } from 'sonner';
 
 export const LoginForm = () => {
     const navigation = useNavigate();
@@ -33,8 +34,12 @@ export const LoginForm = () => {
             await SignInService(formData);
 
             navigation("/");
-        } catch (error) {
-            console.log(error);
+        } catch (e) {
+            if (e.message === "Invalid login credentials") {
+                toast.error("Неправельний логін або пароль");
+                return
+            }
+            console.log(e.message);
         }
     };
 
