@@ -104,7 +104,6 @@ export default function HomePage() {
                             <GameItem
                                 key={game.id}
                                 obj={game}
-                            // joinToGame={joinToGame} // TODO: підключити, коли перероблена функція буде готова
                             />
                         ))}
                     </ul>

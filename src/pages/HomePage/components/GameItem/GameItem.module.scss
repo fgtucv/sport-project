@@ -79,13 +79,6 @@
     line-height: 20px;
 }
 
-.gameLocationIcon {
-    flex-shrink: 0;
-    width: 12px;
-    height: 15px;
-    fill: var(--game-secondary-text);
-}
-
 /* футер притиснутий донизу, щоб кнопки в різних картках були на одному рівні */
 .gameFooter {
     display: flex;

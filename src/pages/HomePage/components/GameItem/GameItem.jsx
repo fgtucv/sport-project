@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { LocationIcon } from "../../../../components/Icons/Icons";
-// import { ComeToGameIcon, InfoIcon } from "../../../../components/Icons/Icons"; // TODO: знадобляться для кнопки "додати гравця"
+
+import { MapPin } from "lucide-react";
+
+import { joinToGameService } from "../../../../api/services/gamesServices.js";
+
 import { GamePlayers } from "./components/GamePlayers/GamePlayers.jsx";
+
 import style from "./GameItem.module.scss";
 
 const SPORT_LABELS = {
@@ -21,9 +26,15 @@ const formatCourt = (court) => {
     return /^\d+$/.test(String(court)) ? `Корт ${court}` : court;
 };
 
-export const GameItem = ({ obj, joinToGame }) => {
+export const GameItem = ({ obj }) => {
+    const navigate = useNavigate();
+
     const playersCount = useSelector((s) => s.players.playersPerGames[obj.id]?.players?.length);
     const myLevel = useSelector((s) => s.auth.profile?.level);
+    const session = useSelector((s) => s.auth.session);
+
+    const isAuth = !!session;
+
     const sport = obj.sport.toLowerCase();
     const maxPlayers = obj.max_players ?? 4;
 
@@ -36,6 +47,29 @@ export const GameItem = ({ obj, joinToGame }) => {
 
     const price = `${obj.price.toFixed(2)} ${obj.currency ?? "€"}`;
     const location = [obj.location, formatCourt(obj.court)].join(", ");
+
+    const loadingJoin = async (playerId, gameId) => {
+        try {
+            const result = await joinToGameService(playerId, gameId)
+
+            if (result && result.success) {
+                console.log(result);
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const joinHandlate = (gameId) => {
+        if (!isAuth) {
+            console.log("not auth")
+            navigate("/login")
+            return
+        }
+
+        loadingJoin(session.user.id, gameId)
+    };
 
     return (
         <li className={style.gameItem}>
@@ -56,7 +90,7 @@ export const GameItem = ({ obj, joinToGame }) => {
             </time>
 
             <address className={style.gameLocation}>
-                <LocationIcon className={style.gameLocationIcon} />
+                <MapPin size={16} color="currentColor" />
                 <span>{location}</span>
             </address>
 
@@ -68,7 +102,7 @@ export const GameItem = ({ obj, joinToGame }) => {
                     type="button"
                     className={style.gameJoinBtn}
                     disabled={isUnavailable}
-                    onClick={() => joinToGame?.(obj.id)}
+                    onClick={!isUnavailable ? () => { joinHandlate(obj.id) } : undefined}
                 >
                     {isFull ? "Місць немає" : isLevelTooLow ? "Рівень занизький" : "Приєднатися"}
                 </button>

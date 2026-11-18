@@ -22,4 +22,17 @@ export async function getMyPassedGamesService(playerId) {
     if (error) throw new Error(error.message);
 
     return data;
-}
+};
+
+export async function joinToGameService(playerId, gameId) {
+    const { error } = await supabase
+        .from('game_players')
+        .insert({ game_id: gameId, user_id: playerId });
+
+    if (error) {
+        throw error;
+        return { success: false }
+    };
+
+    return { success: true };
+};

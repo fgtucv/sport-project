@@ -9,4 +9,4 @@ export async function getGamePlayers(gameId) {
     if (error) return error;
     
     return { gameId, players };
-}
+};
