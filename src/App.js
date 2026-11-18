@@ -3,6 +3,8 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Toaster } from 'sonner';
+
 import { setSession } from './redux/slices/authSlice/authSlice.js';
 import { getProfileThunk } from './redux/slices/authSlice/authThunks.js';
 
@@ -42,6 +44,7 @@ function App() {
 
   return (
     <Suspense fallback={<LoadingPage />}>
+      <Toaster position='top-right' richColors closeButton/>
       <Routes>
         <Route path="/loading" element={<LoadingPage/>}/>
 

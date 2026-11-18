@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+import { toast } from "sonner";
 import { MapPin } from "lucide-react";
 
 import { joinToGameService } from "../../../../api/services/gamesServices.js";
@@ -53,17 +54,22 @@ export const GameItem = ({ obj }) => {
             const result = await joinToGameService(playerId, gameId)
 
             if (result && result.success) {
-                console.log(result);
+                toast.success("Ви успішно доєдналися")
             }
 
         } catch (error) {
-            console.log(error)
+            if (error.code === '23505') {
+                toast.error("Помилка", { description: "Ви вже доєднані до гри" })
+                return
+            }
+
+            toast.error("Помилка не вдалось приєднатись")
         }
     };
 
     const joinHandlate = (gameId) => {
         if (!isAuth) {
-            console.log("not auth")
+            toast.warning("Ви не авторизовані")
             navigate("/login")
             return
         }

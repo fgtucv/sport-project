@@ -1,7 +1,7 @@
 // react
 import { useState } from "react";
 // library
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 // component
 import { Container } from "../../components/Container/Container";
 import { MainTitle } from "../../components/MainTitle/MainTitle";
@@ -45,7 +45,7 @@ export default function CreateEvent () {
     const userInfo = await getSomeUserInfo("usr-bosla-097");
 
     const newGame = {
-      "id": nanoid(),
+      "id": "nanoid()",
       "hostId": JSON.parse(localStorage.getItem("userId")),
       "hostNickname": userInfo.nickname,
       "typeOfGame": type,
