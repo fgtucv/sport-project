@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 import { getGamesThunk } from "./gamesThunks.js";
 
@@ -23,6 +24,7 @@ const gamesSlice = createSlice({
                 state.loading = false
             })
             .addCase(getGamesThunk.rejected, (state, { payload }) => {
+                toast.error("Помилка", { description: "Не вдалось завантажити ігри" })
                 state.error = payload
                 state.loading = false
             })

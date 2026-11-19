@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 import { getProfileThunk } from "./authThunks.js";
 
@@ -45,10 +46,10 @@ const authSlice = createSlice({
                 state.profileError = null
             })
             .addCase(getProfileThunk.rejected, (state, { payload }) => {
+                toast.error("Помилка", { description: "Не вдалось завантажити ваш профіль" })
                 state.profileError = payload
                 state.profileLoading = false
                 state.profile = null
-                console.log("тупий ідіот ніхуя не працює")
             })
     }
 });

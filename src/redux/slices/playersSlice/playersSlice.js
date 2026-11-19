@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 import { getGamePlayersThunk } from "./playersThunks.js";
 
@@ -27,6 +28,7 @@ const playersSlice = createSlice({
                 }
             })
             .addCase(getGamePlayersThunk.rejected, (state, { payload }) => {
+                toast.error("Помилка", { description: "Не вдалось завантажити гравців для гри" })
                 state.playersPerGames[payload.gameId] = { players: [], status: "rejected" }
             })
     },

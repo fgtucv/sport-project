@@ -1,23 +1,17 @@
-// react
 import { useEffect, useState, useMemo } from "react";
-// custome hooks and conetexts
-// import { useAuth } from "../../contexts/useAuth.jsx";     // TODO: повернути, коли робитимете логіку рівня/приєднання
-// import { useNavigate } from "react-router-dom";           // TODO: потрібен для joinToGame
-// components
-import { Container } from "../../components/Container/Container.jsx";
-import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
-import { DateItem } from "./components/DateItem/DateItem.jsx";
-// import { Category } from "../../components/Category/Category.jsx"; // замінено фільтром нижче (потрібен був інший вигляд)
-// import { Sorted } from "../../components/Sorted/Sorted.jsx";       // замінено текстом "Знайдено N ігор"
-import { GameItem } from "./components/GameItem/GameItem.jsx";
-// this page
-import style from "./HomePage.module.scss";
-import { TEXT_DATA, SPORT_FILTERS, getUpcomingDays } from "./HomePage.constants.js";
 
-import { getGamesService } from "../../api/services/gamesServices.js";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getGamesThunk } from "../../redux/slices/gamesSlice/gamesThunks.js";
+
+import { Container } from "../../components/Container/Container.jsx";
+import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
+import { DateItem } from "./components/DateItem/DateItem.jsx";
+import { GameItem } from "./components/GameItem/GameItem.jsx";
+
+import { TEXT_DATA, SPORT_FILTERS, getUpcomingDays } from "./HomePage.constants.js";
+
+import style from "./HomePage.module.scss";
 
 // "1 гра", "2 гри", "5 ігор"
 const gamesWord = (n) => {
@@ -29,17 +23,15 @@ const gamesWord = (n) => {
     return "ігор";
 };
 
-// const navigate = useNavigate();
-// const { user, isAuth } = useAuth();
 
 export default function HomePage() {
     const dispatch = useDispatch();
 
+    const [category, setCategory] = useState("all");
+
     const games = useSelector((state) => state.games.games);
     const loading = useSelector((state) => state.games.loading);
     const error = useSelector((state) => state.games.error);
-
-    const [category, setCategory] = useState("all");
 
     const days = useMemo(() => getUpcomingDays(14), []);
 

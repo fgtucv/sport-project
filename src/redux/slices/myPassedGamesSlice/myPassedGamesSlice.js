@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "sonner";
 
 import { getMyPassedGamesThunk } from "./myPassedGamesThunks.js";
 
@@ -16,11 +17,11 @@ const myPassedGamseSlice = createSlice({
                 state.status = "loading"
             })
             .addCase(getMyPassedGamesThunk.fulfilled, (state, { payload }) => {
-                // console.log(payload)
                 state.games = payload
                 state.status = "succeeced"
             })
             .addCase(getMyPassedGamesThunk.rejected, (state,) => {
+                toast.error("Помилка", { description: "Не вдалось завантажити ігри" })
                 state.games = []
                 state.status = "rejected"
             })
