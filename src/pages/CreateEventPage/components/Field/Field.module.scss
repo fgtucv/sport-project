@@ -1,0 +1,15 @@
+@use "../../../../style/general/variables" as *;
+
+.field {
+  display: block;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $create-text-muted;
+}

@@ -1,0 +1,35 @@
+@use "../../../../style/general/variables" as *;
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $create-text-soft;
+  background: $create-muted-bg;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $create-muted-bg-hover;
+  }
+}
+
+.active {
+  color: #fff;
+  background: $create-dark;
+
+  &:hover {
+    background: $create-dark;
+  }
+}

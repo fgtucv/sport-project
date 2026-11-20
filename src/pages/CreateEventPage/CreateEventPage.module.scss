@@ -1,0 +1,41 @@
+@use "../../style/general/variables" as *;
+
+.page {
+  min-height: 100vh;
+  padding-bottom: 64px;
+  background: $create-bg;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 32px 16px 0;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: 30px;
+  font-weight: 700;
+  color: $create-text;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.submit {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(to right, $create-teal, $create-green);
+  border: none;
+  border-radius: $create-radius-md;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.95;
+  }
+}

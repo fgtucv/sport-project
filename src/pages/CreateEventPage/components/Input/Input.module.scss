@@ -1,0 +1,18 @@
+@use "../../../../style/general/variables" as *;
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: $create-text;
+  background: $create-surface;
+  border: 1px solid $create-border;
+  border-radius: $create-radius-md;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    border-color: $create-blue;
+    box-shadow: 0 0 0 3px $create-blue-ring;
+  }
+}

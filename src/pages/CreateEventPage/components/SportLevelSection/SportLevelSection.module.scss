@@ -1,0 +1,21 @@
+@use "../../../../style/general/variables" as *;
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+
+  @include create-from-sm {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.toggleWrap {
+  display: flex;
+  align-items: flex-end;
+}

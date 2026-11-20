@@ -1,0 +1,24 @@
+@use "../../../../style/general/variables" as *;
+
+.group {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: $create-text-muted;
+  background: $create-surface;
+  border: none;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px $create-border;
+  cursor: pointer;
+}
+
+.active {
+  color: #fff;
+  background: $create-dark;
+  box-shadow: none;
+}

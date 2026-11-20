@@ -11,3 +11,30 @@ $label: #334155;
 $placeholder: #94A3B8;
 $border: #CBD5E1;
 $line: #E2E8F0;
+
+$create-bg: #f9fafb;
+$create-surface: #ffffff;
+$create-border: #e5e7eb;
+$create-border-soft: #f3f4f6;
+$create-text: #111827;
+$create-text-soft: #374151;
+$create-text-muted: #6b7280;
+$create-muted-bg: #f3f4f6;
+$create-muted-bg-hover: #e5e7eb;
+$create-dark: #111827;
+$create-dark-hover: #1f2937;
+$create-blue: #2563eb;
+$create-blue-ring: #dbeafe;
+$create-green: #10b981;
+$create-teal: #2dd4bf;
+$create-danger: #ef4444;
+$create-danger-bg: #fef2f2;
+
+$create-radius-md: 12px;
+$create-radius-lg: 16px;
+
+@mixin create-from-sm {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
