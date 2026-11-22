@@ -10,3 +10,15 @@ export async function getGamePlayers(gameId) {
     
     return { gameId, players };
 };
+
+export async function cheackPlayerService(nickname) {
+    const { data, error } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('nickname', nickname);
+
+    if (error) throw error;
+    if (!data || data.length === 0) throw new Error("Player is not found");
+
+    return { success: true, player: { id: data[0].id, nickname} };
+};

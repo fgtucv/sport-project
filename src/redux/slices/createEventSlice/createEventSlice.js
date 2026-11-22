@@ -38,7 +38,9 @@ const createEventSlice = createSlice({
         setMinLevel: (state, { payload }) => { state.form.level_min = payload },
         setStrict: (state, { payload }) => { state.form.strict_level = payload },
 
-        addPlayerAction: (state, { payload }) => { state.players = [...state.players, payload] },
+        addPlayerAction: (state, { payload }) => {
+            state.players = [...state.players, { id: payload.id, nickname: payload.nickname, team: null}]
+        },
         deletePlayerAction: (state, { payload }) => {
             state.players = state.players.filter((p) => p.nickname !== payload)
         },

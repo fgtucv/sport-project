@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
+
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import EventTypeSection from "./components/EventTypeSection/EventTypeSection";
 import SportLevelSection from "./components/SportLevelSection/SportLevelSection";
 import DetailsSection from "./components/DetailsSection/DetailsSection";
@@ -8,7 +12,17 @@ import ParticipantsSection from "./components/ParticipantsSection/ParticipantsSe
 import styles from "./CreateEventPage.module.scss";
 
 export default function CreateEventPage() {
-  const [maxPlayers, setMaxPlayers] = useState(4);
+  const navigate = useNavigate();
+
+  const session = useSelector((s) => s.auth.session);
+
+  useEffect(() => { if(!session) navigate("/login") }, [session]);
+
+  const formatedData = (obj) => {
+    const newGame = {
+      
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +38,7 @@ export default function CreateEventPage() {
           <SportLevelSection />
           <DetailsSection />
           <PlayersCountSection/>
-          <ParticipantsSection maxPlayers={maxPlayers} />
+          <ParticipantsSection/>
 
           <button type="submit" className={styles.submit}>
             Створити

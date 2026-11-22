@@ -36,3 +36,13 @@ export async function joinToGameService(playerId, gameId) {
 
     return { success: true };
 };
+
+export async function createGameService(newGame) {
+    const { error } = await supabase
+        .from("games")
+        .insert(newGame);
+
+    if (error) throw error;
+
+    return { success: true };
+}
