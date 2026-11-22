@@ -1,43 +1,61 @@
 import { useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { toast } from "sonner";
+
+import { addPlayerAction, deletePlayerAction, changePlayerAction } from "../../../../redux/slices/createEventSlice/createEventSlice.js"
+
 import { Plus, X, UserCheck } from "lucide-react";
+
 import Section from "../Section/Section";
 import Input from "../Input/Input";
 import Toggle from "../Toggle/Toggle";
 import TeamSwitch from "../TeamSwitch/TeamSwitch";
+
 import styles from "./ParticipantsSection.module.scss";
 
-export default function ParticipantsSection({ maxPlayers }) {
-  const [creatorJoins, setCreatorJoins] = useState(true);
-  const [creatorTeam, setCreatorTeam] = useState("A");
-  const [players, setPlayers] = useState([]); // [{ id, name, team }]
+export default function ParticipantsSection() {
+  const dispatch = useDispatch();
+
+  const creatorNickname = useSelector((s) => s.auth?.profile?.nickname);
+  const maxPlayers = useSelector((s) => s.create.form?.max_players);
+  const players = useSelector((s) => s.create.players);
+
+  const [creatorJoins, setCreatorJoins] = useState(false);
   const [newPlayerName, setNewPlayerName] = useState("");
 
-  const creatorSlots = creatorJoins ? 1 : 0;
-  const freeSlots = maxPlayers - creatorSlots - players.length;
-  const teamSize = maxPlayers / 2;
-
-  // Якщо місць стало менше (змінили кількість гравців або приєднання) — обрізаємо список
   useEffect(() => {
-    setPlayers((prev) => prev.slice(0, Math.max(maxPlayers - creatorSlots, 0)));
-  }, [maxPlayers, creatorSlots]);
+    if (creatorJoins) {
+      dispatch(addPlayerAction({ nickname: creatorNickname, team: null}))
+    } else {
+      dispatch(deletePlayerAction(creatorNickname))
+    }
+  }, [creatorJoins])
+
+  const creatorTeam = players.find((p) => p.nickname === creatorNickname)?.team || null;
+  const freeSlots = maxPlayers - players.length;
 
   const teamCount = (team) =>
     players.filter((p) => p.team === team).length +
     (creatorJoins && creatorTeam === team ? 1 : 0);
 
   const addPlayer = () => {
-    const name = newPlayerName.trim();
-    if (!name || freeSlots <= 0) return;
-    const team = teamCount("A") < teamSize ? "A" : "B";
-    setPlayers((prev) => [...prev, { id: Date.now(), name, team }]);
+    if (newPlayerName.length === 0) return;
+    if (players.find((p) => p.nickname === newPlayerName)) {
+      toast.warning("Ви вже додали цього гравця")
+      return;
+    };
+    if(players.length >= maxPlayers) {
+      toast.warning("Немає вільних місць");
+      return;
+    }
+
+
+    dispatch(addPlayerAction({ nickname: newPlayerName, team: null }));
     setNewPlayerName("");
   };
-
-  const removePlayer = (id) =>
-    setPlayers((prev) => prev.filter((p) => p.id !== id));
-
-  const setPlayerTeam = (id, team) =>
-    setPlayers((prev) => prev.map((p) => (p.id === id ? { ...p, team } : p)));
+  const changePlayer = (playerData) => { dispatch(changePlayerAction(playerData)) };
+  const removePlayer = (nickname) => dispatch(deletePlayerAction(nickname));
 
   return (
     <Section title="Учасники">
@@ -56,22 +74,22 @@ export default function ParticipantsSection({ maxPlayers }) {
               <UserCheck size={16} />
               Ви
             </span>
-            <TeamSwitch value={creatorTeam} onChange={setCreatorTeam} />
+            <TeamSwitch value={creatorTeam} onChange={(team) => changePlayer({ nickname: creatorNickname, team })} />
           </div>
         )}
 
         {/* Додані гравці */}
-        {players.map((player) => (
-          <div key={player.id} className={styles.row}>
-            <span className={styles.name}>{player.name}</span>
+        {players.filter((p) => p.nickname !== creatorNickname).map((player) => (
+          <div key={player.nickname} className={styles.row}>
+            <span className={styles.name}>{player.nickname}</span>
             <div className={styles.actions}>
               <TeamSwitch
                 value={player.team}
-                onChange={(team) => setPlayerTeam(player.id, team)}
+                onChange={(team) => changePlayer({ nickname: player.nickname, team })}
               />
               <button
                 type="button"
-                onClick={() => removePlayer(player.id)}
+                onClick={() => removePlayer(player.nickname)}
                 aria-label={`Видалити ${player.name}`}
                 className={styles.remove}
               >
@@ -86,7 +104,7 @@ export default function ParticipantsSection({ maxPlayers }) {
           <div className={styles.addRow}>
             <Input
               type="text"
-              placeholder="Ім'я гравця"
+              placeholder="Ім'я гравця: fgtucv"
               value={newPlayerName}
               onChange={(e) => setNewPlayerName(e.target.value)}
               onKeyDown={(e) => {

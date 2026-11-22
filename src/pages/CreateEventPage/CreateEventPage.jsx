@@ -4,10 +4,10 @@ import SportLevelSection from "./components/SportLevelSection/SportLevelSection"
 import DetailsSection from "./components/DetailsSection/DetailsSection";
 import PlayersCountSection from "./components/PlayersCountSection/PlayersCountSection";
 import ParticipantsSection from "./components/ParticipantsSection/ParticipantsSection";
+
 import styles from "./CreateEventPage.module.scss";
 
 export default function CreateEventPage() {
-  // Єдиний стан на сторінці — кількість гравців, бо його потребують дві секції
   const [maxPlayers, setMaxPlayers] = useState(4);
 
   const handleSubmit = (e) => {
@@ -23,7 +23,7 @@ export default function CreateEventPage() {
           <EventTypeSection />
           <SportLevelSection />
           <DetailsSection />
-          <PlayersCountSection maxPlayers={maxPlayers} onChange={setMaxPlayers} />
+          <PlayersCountSection/>
           <ParticipantsSection maxPlayers={maxPlayers} />
 
           <button type="submit" className={styles.submit}>

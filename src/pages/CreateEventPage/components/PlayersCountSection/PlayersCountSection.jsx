@@ -1,9 +1,22 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import { Users } from "lucide-react";
+
+import { setMaxPlayers } from "../../../../redux/slices/createEventSlice/createEventSlice.js";
+
 import Section from "../Section/Section";
+
 import { PLAYER_COUNTS } from "../../CreateEventPage.constants";
+
 import styles from "./PlayersCountSection.module.scss";
 
-export default function PlayersCountSection({ maxPlayers, onChange }) {
+export default function PlayersCountSection() {
+  const dispatch = useDispatch();
+
+  const maxPlayers = useSelector((s) => s.create.form.max_players);
+
+  const onChange = (count) => { dispatch(setMaxPlayers(count)) };
+
   return (
     <Section title="Кількість гравців">
       <div className={styles.group}>
