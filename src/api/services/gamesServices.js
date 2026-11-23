@@ -31,18 +31,19 @@ export async function joinToGameService(playerId, gameId) {
 
     if (error) {
         throw error;
-        return { success: false }
     };
 
     return { success: true };
 };
 
 export async function createGameService(newGame) {
-    const { error } = await supabase
+    const { data, error } = await supabase
         .from("games")
-        .insert(newGame);
+        .insert(newGame)
+        .select('id')
+        .single();
 
     if (error) throw error;
 
-    return { success: true };
+    return { gameId: data, success: true };
 }
