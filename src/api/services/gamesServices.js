@@ -2,7 +2,7 @@ import { supabase } from "../supabase.js";
 
 export async function getUpcomingGamesService() {
     const { data, error } = await supabase
-        .from("games")
+        .from("games_with_counts")
         .select("*")
         .gt("started_at", new Date().toISOString());
 

@@ -30,19 +30,19 @@ const formatCourt = (court) => {
 export const GameItem = ({ obj }) => {
     const navigate = useNavigate();
 
-    const playersCount = useSelector((s) => s.players.playersPerGames[obj.id]?.players?.length);
     const myLevel = useSelector((s) => s.auth.profile?.level);
     const session = useSelector((s) => s.auth.session);
 
     const isAuth = !!session;
 
+    const playersCount = obj.players_count;
     const sport = obj.sport.toLowerCase();
     const maxPlayers = obj.max_players ?? 4;
 
     const levelMin = obj.level_min != null ? obj.level_min : null;
     const isStrict = obj.strict_level;
 
-    const isFull = (playersCount || 4) >= maxPlayers;
+    const isFull = playersCount >= maxPlayers;
     const isLevelTooLow = isStrict && myLevel != null && levelMin != null && myLevel < levelMin;
     const isUnavailable = isFull || isLevelTooLow;
 

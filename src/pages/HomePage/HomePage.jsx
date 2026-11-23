@@ -13,7 +13,6 @@ import { TEXT_DATA, SPORT_FILTERS, getUpcomingDays } from "./HomePage.constants.
 
 import style from "./HomePage.module.scss";
 
-// "1 гра", "2 гри", "5 ігор"
 const gamesWord = (n) => {
     const last = n % 10;
     const lastTwo = n % 100;

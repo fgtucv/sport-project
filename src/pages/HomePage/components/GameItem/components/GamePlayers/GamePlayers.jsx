@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { getGamePlayers } from "../../../../../../api/services/playersServices.js";
-
 import { getGamePlayersThunk } from "../../../../../../redux/slices/playersSlice/playersThunks.js";
 
 import userNotFound from "../../../../../../assets/userNotFound.svg";
