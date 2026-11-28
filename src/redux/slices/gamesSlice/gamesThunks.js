@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { getUpcomingGamesService } from "../../../api/services/gamesServices.js";
+import { getUpcomingGamesService, getMyPastGamesService } from "../../../api/services/gamesServices.js";
 
-export const getGamesThunk = createAsyncThunk("games/getGamesThunk", () => {
+export const getUpcomingGamesThunk = createAsyncThunk("games/getGamesThunk", () => {
     return getUpcomingGamesService();
+});
+
+export const getPastGamesThunk = createAsyncThunk("games/getPastGamesThunk", () => {
+    return getMyPastGamesService();
 });

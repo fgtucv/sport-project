@@ -2,7 +2,12 @@ import { useEffect, useState, useMemo } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { getGamesThunk } from "../../redux/slices/gamesSlice/gamesThunks.js";
+import { getUpcomingGamesThunk } from "../../redux/slices/gamesSlice/gamesThunks.js";
+import {
+    selectUpcomingGames,
+    selectUpcomingStatus,
+    selectUpcomingError
+} from "../../redux/slices/gamesSlice/selectors.js";
 
 import { Container } from "../../components/Container/Container.jsx";
 import { MainTitle } from "../../components/MainTitle/MainTitle.jsx";
@@ -22,21 +27,18 @@ const gamesWord = (n) => {
     return "ігор";
 };
 
-
 export default function HomePage() {
     const dispatch = useDispatch();
 
     const [category, setCategory] = useState("all");
 
-    const games = useSelector((state) => state.games.games);
-    const loading = useSelector((state) => state.games.loading);
-    const error = useSelector((state) => state.games.error);
+    const games = useSelector(selectUpcomingGames);
+    const status = useSelector(selectUpcomingStatus);
+    const error = useSelector(selectUpcomingError);
 
     const days = useMemo(() => getUpcomingDays(14), []);
 
-    useEffect(() => {
-        dispatch(getGamesThunk())
-    }, []);
+    useEffect(() => { dispatch(getUpcomingGamesThunk()) }, []);
 
     const filteredGames = useMemo(() => {
         if (category === "all") return games;
@@ -66,7 +68,7 @@ export default function HomePage() {
                         ))}
                     </div>
 
-                    {!loading && !error && (
+                    {!(status === 'loading') && !error && (
                         <span className={style.filterCount}>
                             Знайдено {filteredGames.length} {gamesWord(filteredGames.length)}
                         </span>
@@ -81,15 +83,15 @@ export default function HomePage() {
 
                 <div className={style.placeholder}>Вибір дня поки недоступний: функцію треба додати.</div>
 
-                {loading && <p className={style.status}>Завантаження ігор…</p>}
-                {!loading && error && (
+                {(status === 'loading') && <p className={style.status}>Завантаження ігор…</p>}
+                {!(status === 'loading') && error && (
                     <p className={`${style.status} ${style.statusError}`}>Не вдалося завантажити ігри: {error}</p>
                 )}
-                {!loading && !error && filteredGames.length === 0 && (
+                {!(status === 'loading') && !error && filteredGames.length === 0 && (
                     <p className={style.status}>Ігор за цим фільтром поки немає.</p>
                 )}
 
-                {!loading && !error && filteredGames.length > 0 && (
+                {!(status === 'loading') && !error && filteredGames.length > 0 && (
                     <ul className={style.games}>
                         {filteredGames.map((game) => (
                             <GameItem

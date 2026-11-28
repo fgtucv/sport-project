@@ -11,9 +11,9 @@ export async function getUpcomingGamesService() {
     return data;
 };
 
-export async function getMyPassedGamesService(playerId) {
+export async function getMyPastGamesService(playerId) {
     const { data, error } = await supabase
-        .from("games")
+        .from("games_with_counts")
         .select("*")
         // .select(`*, game_players!inner (user_id)`)
         // .eq("game_players.user_id", playerId)
